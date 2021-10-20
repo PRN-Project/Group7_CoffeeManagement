@@ -30,6 +30,7 @@ namespace Group7_CoffeeManagement
         private void InitializeComponent()
         {
             this.panel2 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.button5 = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
@@ -52,7 +53,6 @@ namespace Group7_CoffeeManagement
             this.labelTotalPrice = new System.Windows.Forms.Label();
             this.panelTables = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudDrinkQuantity)).BeginInit();
@@ -75,6 +75,14 @@ namespace Group7_CoffeeManagement
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(652, 429);
             this.panel2.TabIndex = 2;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.panel4.Location = new System.Drawing.Point(455, 0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(181, 52);
+            this.panel4.TabIndex = 23;
             // 
             // button5
             // 
@@ -285,15 +293,7 @@ namespace Group7_CoffeeManagement
             this.panel1.Size = new System.Drawing.Size(345, 52);
             this.panel1.TabIndex = 9;
             // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.panel4.Location = new System.Drawing.Point(455, 0);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(181, 52);
-            this.panel4.TabIndex = 23;
-            // 
-            // Form1
+            // frmCoffeeManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -301,7 +301,7 @@ namespace Group7_CoffeeManagement
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelTables);
             this.Controls.Add(this.panel2);
-            this.Name = "Form1";
+            this.Name = "frmCoffeeManagement";
             this.Text = "Form1";
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
