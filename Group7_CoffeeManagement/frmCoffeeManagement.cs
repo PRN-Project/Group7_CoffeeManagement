@@ -42,6 +42,9 @@ namespace Group7_CoffeeManagement
             
         }
 
+        private void panelTables_Paint(object sender, PaintEventArgs e)
+        {
 
+        }
     }
 }
