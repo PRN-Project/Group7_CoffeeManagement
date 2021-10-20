@@ -12,6 +12,11 @@ namespace Group7_CoffeeManagement.Repository
     {
         public CoffeeStoreManagementContext db = new CoffeeStoreManagementContext();
         public TblStaff checkLogin(string username, string password)
-            => this.db.TblStaffs.FirstOrDefault(item => username == item.UserName && password == item.Password);
+            => this.db.TblStaffs.FirstOrDefault(item => item.UserName.Equals(username) && item.Password.Equals(password));
+        // var test = (from staff in this.db.TblStaffs
+        //       where username == staff.UserName && password == staff.Password
+        //       select staff);
+        //if (test != null) return true;
+        //else return false;
     }
 }
