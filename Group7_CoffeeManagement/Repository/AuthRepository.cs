@@ -8,7 +8,7 @@ using Group7_CoffeeManagement.Interface;
 
 namespace Group7_CoffeeManagement.Repository
 {
-    public class LoginRepository : ILoginRepository
+    public class AuthRepository : IAuthRepository
     {
         public CoffeeStoreManagementContext db = new CoffeeStoreManagementContext();
         public TblStaff checkLogin(string username, string password)
