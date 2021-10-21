@@ -19,9 +19,10 @@ namespace Group7_CoffeeManagement
             InitializeComponent();
         }
 
-        public frmCoffeeManagement frmManagement = new frmCoffeeManagement();
-        public CoffeeStoreManagementContext db = new CoffeeStoreManagementContext();
-        public LoginRepository repo = new LoginRepository();
+        public static frmCoffeeManagement frmManagement = new frmCoffeeManagement();
+        public static CoffeeStoreManagementContext db = new CoffeeStoreManagementContext();
+        public static AuthRepository repo = new AuthRepository();
+        public static BindingSource roleSource = new BindingSource();
 
         private void btnExit_Click(object sender, EventArgs e) => this.Close();
 
@@ -30,6 +31,8 @@ namespace Group7_CoffeeManagement
             TblStaff loginUser = repo.checkLogin(txtUsername.Text, txtPassword.Text);
             if (loginUser != null)
             {
+                if (loginUser.Role == 0) roleSource.DataSource = "US";
+                else roleSource.DataSource = "AD";
                 frmManagement.ShowDialog();
             }
         }

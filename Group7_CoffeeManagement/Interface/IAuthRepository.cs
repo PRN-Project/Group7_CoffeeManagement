@@ -7,7 +7,7 @@ using Group7_CoffeeManagement.Models;
 
 namespace Group7_CoffeeManagement.Interface
 {
-    public interface ILoginRepository
+    public interface IAuthRepository
     {
         public TblStaff checkLogin(string username, string password);
     }
