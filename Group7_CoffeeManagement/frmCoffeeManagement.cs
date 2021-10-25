@@ -16,6 +16,7 @@ namespace Group7_CoffeeManagement
     {
 
         private ITableRepository tableRepository;
+        public static BindingSource roleSource = frmLogin.roleSource;
 
         public frmCoffeeManagement()
         {
@@ -47,7 +48,14 @@ namespace Group7_CoffeeManagement
 
         }
 
+
         private void panelTables_Paint_1(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnCheckOut_Click(object sender, EventArgs e)
+
         {
 
         }
