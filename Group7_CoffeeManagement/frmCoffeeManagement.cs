@@ -48,12 +48,6 @@ namespace Group7_CoffeeManagement
 
         }
 
-
-        private void panelTables_Paint_1(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void btnCheckOut_Click(object sender, EventArgs e)
 
         {
