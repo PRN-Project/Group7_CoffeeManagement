@@ -71,24 +71,27 @@ namespace Group7_CoffeeManagement
             this.panel2.Controls.Add(this.btnAddDrink);
             this.panel2.Controls.Add(this.cbbDrinkName);
             this.panel2.Controls.Add(this.cbbDrinkType);
-            this.panel2.Location = new System.Drawing.Point(369, 13);
+            this.panel2.Location = new System.Drawing.Point(422, 17);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(652, 429);
+            this.panel2.Size = new System.Drawing.Size(745, 572);
             this.panel2.TabIndex = 2;
             // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.panel4.Location = new System.Drawing.Point(455, 0);
+            this.panel4.Location = new System.Drawing.Point(520, 0);
+            this.panel4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(181, 52);
+            this.panel4.Size = new System.Drawing.Size(207, 69);
             this.panel4.TabIndex = 23;
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(452, 377);
+            this.button5.Location = new System.Drawing.Point(517, 503);
+            this.button5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(184, 52);
+            this.button5.Size = new System.Drawing.Size(210, 69);
             this.button5.TabIndex = 22;
             this.button5.Text = "Chuyển bàn";
             this.button5.UseVisualStyleBackColor = true;
@@ -105,25 +108,27 @@ namespace Group7_CoffeeManagement
             this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.label1);
             this.panel3.Controls.Add(this.edtDrinkName);
-            this.panel3.Location = new System.Drawing.Point(452, 58);
+            this.panel3.Location = new System.Drawing.Point(517, 77);
+            this.panel3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(200, 310);
+            this.panel3.Size = new System.Drawing.Size(229, 413);
             this.panel3.TabIndex = 9;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(0, 111);
+            this.label4.Location = new System.Drawing.Point(0, 148);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(24, 15);
+            this.label4.Size = new System.Drawing.Size(31, 20);
             this.label4.TabIndex = 24;
             this.label4.Text = "Giá";
             // 
             // edtDrinkPrice
             // 
-            this.edtDrinkPrice.Location = new System.Drawing.Point(3, 130);
+            this.edtDrinkPrice.Location = new System.Drawing.Point(3, 173);
+            this.edtDrinkPrice.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.edtDrinkPrice.Name = "edtDrinkPrice";
-            this.edtDrinkPrice.Size = new System.Drawing.Size(181, 23);
+            this.edtDrinkPrice.Size = new System.Drawing.Size(206, 27);
             this.edtDrinkPrice.TabIndex = 25;
             // 
             // label2
@@ -131,79 +136,86 @@ namespace Group7_CoffeeManagement
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(1, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(18, 15);
+            this.label2.Size = new System.Drawing.Size(24, 20);
             this.label2.TabIndex = 22;
             this.label2.Text = "ID";
             // 
             // edtDrinkID
             // 
-            this.edtDrinkID.Location = new System.Drawing.Point(3, 18);
+            this.edtDrinkID.Location = new System.Drawing.Point(3, 24);
+            this.edtDrinkID.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.edtDrinkID.Name = "edtDrinkID";
-            this.edtDrinkID.Size = new System.Drawing.Size(181, 23);
+            this.edtDrinkID.Size = new System.Drawing.Size(206, 27);
             this.edtDrinkID.TabIndex = 23;
             // 
             // btnDeleteDrink
             // 
-            this.btnDeleteDrink.Location = new System.Drawing.Point(3, 240);
+            this.btnDeleteDrink.Location = new System.Drawing.Point(3, 320);
+            this.btnDeleteDrink.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnDeleteDrink.Name = "btnDeleteDrink";
-            this.btnDeleteDrink.Size = new System.Drawing.Size(54, 42);
+            this.btnDeleteDrink.Size = new System.Drawing.Size(62, 56);
             this.btnDeleteDrink.TabIndex = 21;
             this.btnDeleteDrink.Text = "Xóa";
             this.btnDeleteDrink.UseVisualStyleBackColor = true;
             // 
             // btnUpdateOrder
             // 
-            this.btnUpdateOrder.Location = new System.Drawing.Point(64, 240);
+            this.btnUpdateOrder.Location = new System.Drawing.Point(73, 320);
+            this.btnUpdateOrder.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnUpdateOrder.Name = "btnUpdateOrder";
-            this.btnUpdateOrder.Size = new System.Drawing.Size(120, 43);
+            this.btnUpdateOrder.Size = new System.Drawing.Size(137, 57);
             this.btnUpdateOrder.TabIndex = 20;
             this.btnUpdateOrder.Text = "Cập nhật";
             this.btnUpdateOrder.UseVisualStyleBackColor = true;
             // 
             // nudDrinkQuantity
             // 
-            this.nudDrinkQuantity.Location = new System.Drawing.Point(4, 187);
+            this.nudDrinkQuantity.Location = new System.Drawing.Point(5, 249);
+            this.nudDrinkQuantity.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.nudDrinkQuantity.Name = "nudDrinkQuantity";
-            this.nudDrinkQuantity.Size = new System.Drawing.Size(180, 23);
+            this.nudDrinkQuantity.Size = new System.Drawing.Size(206, 27);
             this.nudDrinkQuantity.TabIndex = 19;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(-1, 169);
+            this.label3.Location = new System.Drawing.Point(-1, 225);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(54, 15);
+            this.label3.Size = new System.Drawing.Size(69, 20);
             this.label3.TabIndex = 18;
             this.label3.Text = "Số lượng";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(0, 56);
+            this.label1.Location = new System.Drawing.Point(0, 75);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(28, 15);
+            this.label1.Size = new System.Drawing.Size(36, 20);
             this.label1.TabIndex = 16;
             this.label1.Text = "Tên ";
             // 
             // edtDrinkName
             // 
-            this.edtDrinkName.Location = new System.Drawing.Point(3, 75);
+            this.edtDrinkName.Location = new System.Drawing.Point(3, 100);
+            this.edtDrinkName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.edtDrinkName.Name = "edtDrinkName";
-            this.edtDrinkName.Size = new System.Drawing.Size(181, 23);
+            this.edtDrinkName.Size = new System.Drawing.Size(206, 27);
             this.edtDrinkName.TabIndex = 17;
             // 
             // btnCheckOut
             // 
-            this.btnCheckOut.Location = new System.Drawing.Point(351, 377);
+            this.btnCheckOut.Location = new System.Drawing.Point(401, 503);
+            this.btnCheckOut.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnCheckOut.Name = "btnCheckOut";
-            this.btnCheckOut.Size = new System.Drawing.Size(92, 52);
+            this.btnCheckOut.Size = new System.Drawing.Size(105, 69);
             this.btnCheckOut.TabIndex = 8;
             this.btnCheckOut.Text = "Thanh toán";
             this.btnCheckOut.UseVisualStyleBackColor = true;
             // 
             // nudAddQuantity
             // 
-            this.nudAddQuantity.Location = new System.Drawing.Point(267, 28);
+            this.nudAddQuantity.Location = new System.Drawing.Point(305, 37);
+            this.nudAddQuantity.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.nudAddQuantity.Maximum = new decimal(new int[] {
             50,
             0,
@@ -215,7 +227,7 @@ namespace Group7_CoffeeManagement
             0,
             0});
             this.nudAddQuantity.Name = "nudAddQuantity";
-            this.nudAddQuantity.Size = new System.Drawing.Size(95, 23);
+            this.nudAddQuantity.Size = new System.Drawing.Size(109, 27);
             this.nudAddQuantity.TabIndex = 7;
             this.nudAddQuantity.Value = new decimal(new int[] {
             1,
@@ -226,17 +238,19 @@ namespace Group7_CoffeeManagement
             // lvOrder
             // 
             this.lvOrder.HideSelection = false;
-            this.lvOrder.Location = new System.Drawing.Point(0, 58);
+            this.lvOrder.Location = new System.Drawing.Point(0, 77);
+            this.lvOrder.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.lvOrder.Name = "lvOrder";
-            this.lvOrder.Size = new System.Drawing.Size(443, 310);
+            this.lvOrder.Size = new System.Drawing.Size(506, 412);
             this.lvOrder.TabIndex = 4;
             this.lvOrder.UseCompatibleStateImageBehavior = false;
             // 
             // btnAddDrink
             // 
-            this.btnAddDrink.Location = new System.Drawing.Point(368, -1);
+            this.btnAddDrink.Location = new System.Drawing.Point(421, -1);
+            this.btnAddDrink.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnAddDrink.Name = "btnAddDrink";
-            this.btnAddDrink.Size = new System.Drawing.Size(75, 52);
+            this.btnAddDrink.Size = new System.Drawing.Size(86, 69);
             this.btnAddDrink.TabIndex = 3;
             this.btnAddDrink.Text = "Thêm";
             this.btnAddDrink.UseVisualStyleBackColor = true;
@@ -244,26 +258,28 @@ namespace Group7_CoffeeManagement
             // cbbDrinkName
             // 
             this.cbbDrinkName.FormattingEnabled = true;
-            this.cbbDrinkName.Location = new System.Drawing.Point(0, 29);
+            this.cbbDrinkName.Location = new System.Drawing.Point(0, 39);
+            this.cbbDrinkName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbbDrinkName.Name = "cbbDrinkName";
-            this.cbbDrinkName.Size = new System.Drawing.Size(260, 23);
+            this.cbbDrinkName.Size = new System.Drawing.Size(297, 28);
             this.cbbDrinkName.TabIndex = 2;
             // 
             // cbbDrinkType
             // 
             this.cbbDrinkType.FormattingEnabled = true;
             this.cbbDrinkType.Location = new System.Drawing.Point(0, 0);
+            this.cbbDrinkType.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbbDrinkType.Name = "cbbDrinkType";
-            this.cbbDrinkType.Size = new System.Drawing.Size(362, 23);
+            this.cbbDrinkType.Size = new System.Drawing.Size(413, 28);
             this.cbbDrinkType.TabIndex = 1;
             // 
             // txtTotalPrice
             // 
             this.txtTotalPrice.AutoSize = true;
             this.txtTotalPrice.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtTotalPrice.Location = new System.Drawing.Point(84, 10);
+            this.txtTotalPrice.Location = new System.Drawing.Point(96, 13);
             this.txtTotalPrice.Name = "txtTotalPrice";
-            this.txtTotalPrice.Size = new System.Drawing.Size(88, 21);
+            this.txtTotalPrice.Size = new System.Drawing.Size(109, 28);
             this.txtTotalPrice.TabIndex = 6;
             this.txtTotalPrice.Text = "50.000 vnd";
             // 
@@ -271,36 +287,40 @@ namespace Group7_CoffeeManagement
             // 
             this.labelTotalPrice.AutoSize = true;
             this.labelTotalPrice.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelTotalPrice.Location = new System.Drawing.Point(3, 10);
+            this.labelTotalPrice.Location = new System.Drawing.Point(3, 13);
             this.labelTotalPrice.Name = "labelTotalPrice";
-            this.labelTotalPrice.Size = new System.Drawing.Size(75, 21);
+            this.labelTotalPrice.Size = new System.Drawing.Size(95, 28);
             this.labelTotalPrice.TabIndex = 5;
             this.labelTotalPrice.Text = "Tổng tiền";
             // 
             // panelTables
             // 
-            this.panelTables.Location = new System.Drawing.Point(12, 11);
+            this.panelTables.Location = new System.Drawing.Point(14, 15);
+            this.panelTables.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panelTables.Name = "panelTables";
-            this.panelTables.Size = new System.Drawing.Size(351, 431);
+            this.panelTables.Size = new System.Drawing.Size(401, 575);
             this.panelTables.TabIndex = 3;
+            this.panelTables.Paint += new System.Windows.Forms.PaintEventHandler(this.panelTables_Paint_1);
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.labelTotalPrice);
             this.panel1.Controls.Add(this.txtTotalPrice);
-            this.panel1.Location = new System.Drawing.Point(369, 389);
+            this.panel1.Location = new System.Drawing.Point(422, 519);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(345, 52);
+            this.panel1.Size = new System.Drawing.Size(394, 69);
             this.panel1.TabIndex = 9;
             // 
             // frmCoffeeManagement
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1014, 449);
+            this.ClientSize = new System.Drawing.Size(1159, 599);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelTables);
             this.Controls.Add(this.panel2);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "frmCoffeeManagement";
             this.Text = "Form1";
             this.panel2.ResumeLayout(false);

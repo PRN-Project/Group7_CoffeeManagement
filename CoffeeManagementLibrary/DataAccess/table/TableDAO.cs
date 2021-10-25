@@ -8,5 +8,6 @@ namespace DataAccess.table
 {
     public class TableDAO
     {
+
     }
 }
