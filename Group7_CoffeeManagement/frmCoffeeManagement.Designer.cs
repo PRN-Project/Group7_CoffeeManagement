@@ -301,7 +301,7 @@ namespace Group7_CoffeeManagement
             this.panelTables.Name = "panelTables";
             this.panelTables.Size = new System.Drawing.Size(401, 575);
             this.panelTables.TabIndex = 3;
-            //this.panelTables.Paint += new System.Windows.Forms.PaintEventHandler(this.panelTables_Paint_1);
+            this.panelTables.Paint += new System.Windows.Forms.PaintEventHandler(this.panelTables_Paint_1);
             // 
             // panel1
             // 
