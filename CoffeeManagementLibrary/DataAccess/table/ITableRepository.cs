@@ -8,15 +8,15 @@ using System.Threading.Tasks;
 
 namespace DataAccess.table
 {
-    public interface ITableRepository
-    {
-        IEnumerable<TableObject> GetTableList();
+   // public interface ITableRepository
+    //{
+    //    IEnumerable<TableObject> GetTableList();
 
-        void AddTable(TableObject table);
+    //    void AddTable(TableObject table);
 
-        void DeleteTableById(int tableId);
+     //   void DeleteTableById(int tableId);
 
-        void UpdateTable(TableObject table);
+      //  void UpdateTable(TableObject table);
 
-    }
+    //}
 }
