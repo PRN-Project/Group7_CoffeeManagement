@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.table
 {
-    public class TableRepository : ITableRepository
+    public class TableRepository 
     {
         public void AddTable(TableObject table)
         {

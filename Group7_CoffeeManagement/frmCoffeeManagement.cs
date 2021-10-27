@@ -1,5 +1,8 @@
 ﻿using BusinessModel;
-using DataAccess.table;
+
+using Group7_CoffeeManagement.Interface;
+using Group7_CoffeeManagement.Models;
+using Group7_CoffeeManagement.Repository;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,25 +20,39 @@ namespace Group7_CoffeeManagement
 
         private ITableRepository tableRepository;
         public static BindingSource roleSource = frmLogin.roleSource;
-
+        public static CoffeeStoreManagementContext db = new CoffeeStoreManagementContext();
         public frmCoffeeManagement()
         {
             InitializeComponent();
-            tableRepository = new MockTableRepository();
+            tableRepository = new TableRepository();
             loadTableList();
         }
 
-        private void loadTableList ()
+         void loadTableList ()
         {
-            IEnumerable<TableObject> tableList = tableRepository.GetTableList();
-            foreach (TableObject table in tableList)
+            IEnumerable<TblTable> tableList = tableRepository.GetTableList();
+            foreach (TblTable table in tableList)
             {
-                Button button = new Button();
-                button.Width = 75;
-                button.Height = 75;
-                button.Text = table.Name;
+                Button button = new Button() { Width = 100, Height = 100 };
+                //button.Width = 75;
+                //button.Height = 75;
+                //button.Text = table.Name;
+                //panelTables.Controls.Add(button);
+                
+
+                if (table.Status==0)
+                {
+                    button.BackColor = Color.White;
+                    button.Text = table.Name +Environment.NewLine +"Empty";
+                }
+                else if (table.Status==1)
+                {
+                    button.BackColor = Color.LightPink;
+                    button.Text = table.Name+Environment.NewLine + "available";
+                }
                 panelTables.Controls.Add(button);
             }
+
         }
 
         private void loadMenu ()
