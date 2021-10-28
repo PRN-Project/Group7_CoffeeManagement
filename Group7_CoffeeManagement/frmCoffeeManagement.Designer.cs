@@ -29,6 +29,7 @@ namespace Group7_CoffeeManagement
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.button5 = new System.Windows.Forms.Button();
@@ -53,11 +54,18 @@ namespace Group7_CoffeeManagement
             this.labelTotalPrice = new System.Windows.Forms.Label();
             this.panelTables = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.addNewTableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.updateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudDrinkQuantity)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudAddQuantity)).BeginInit();
             this.panel1.SuspendLayout();
+            this.contextMenuStrip2.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
@@ -284,7 +292,6 @@ namespace Group7_CoffeeManagement
             this.panelTables.Name = "panelTables";
             this.panelTables.Size = new System.Drawing.Size(351, 431);
             this.panelTables.TabIndex = 3;
-            this.panelTables.Paint += new System.Windows.Forms.PaintEventHandler(this.panelTables_Paint_1);
             // 
             // panel1
             // 
@@ -294,6 +301,41 @@ namespace Group7_CoffeeManagement
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(345, 52);
             this.panel1.TabIndex = 9;
+            // 
+            // contextMenuStrip2
+            // 
+            this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addNewTableToolStripMenuItem});
+            this.contextMenuStrip2.Name = "contextMenuStrip2";
+            this.contextMenuStrip2.Size = new System.Drawing.Size(154, 26);
+            // 
+            // addNewTableToolStripMenuItem
+            // 
+            this.addNewTableToolStripMenuItem.Name = "addNewTableToolStripMenuItem";
+            this.addNewTableToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.addNewTableToolStripMenuItem.Text = "Add New Table";
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.deleteToolStripMenuItem,
+            this.updateToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 70);
+            // 
+            // deleteToolStripMenuItem
+            // 
+            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.deleteToolStripMenuItem.Text = "Delete";
+            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
+            // 
+            // updateToolStripMenuItem
+            // 
+            this.updateToolStripMenuItem.Name = "updateToolStripMenuItem";
+            this.updateToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.updateToolStripMenuItem.Text = "Update";
+            this.updateToolStripMenuItem.Click += new System.EventHandler(this.updateToolStripMenuItem_Click_1);
             // 
             // frmCoffeeManagement
             // 
@@ -305,6 +347,7 @@ namespace Group7_CoffeeManagement
             this.Controls.Add(this.panel2);
             this.Name = "frmCoffeeManagement";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.frmCoffeeManagement_Load);
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
@@ -312,6 +355,8 @@ namespace Group7_CoffeeManagement
             ((System.ComponentModel.ISupportInitialize)(this.nudAddQuantity)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.contextMenuStrip2.ResumeLayout(false);
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -325,7 +370,6 @@ namespace Group7_CoffeeManagement
         private System.Windows.Forms.Button btnAddDrink;
         private System.Windows.Forms.ComboBox cbbDrinkName;
         private System.Windows.Forms.ComboBox cbbDrinkType;
-        private System.Windows.Forms.FlowLayoutPanel tablePanel;
         private System.Windows.Forms.FlowLayoutPanel panelTables;
         private System.Windows.Forms.Button btnCheckOut;
         private System.Windows.Forms.Button button5;
@@ -342,5 +386,10 @@ namespace Group7_CoffeeManagement
         private System.Windows.Forms.TextBox edtDrinkName;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
+        private System.Windows.Forms.ToolStripMenuItem addNewTableToolStripMenuItem;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem updateToolStripMenuItem;
     }
 }

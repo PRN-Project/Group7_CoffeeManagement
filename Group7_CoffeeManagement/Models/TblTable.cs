@@ -23,6 +23,7 @@ namespace Group7_CoffeeManagement.Models
             Status = status;
         }
 
+
         public virtual ICollection<TblOrder> TblOrders { get; set; }
     }
 }
