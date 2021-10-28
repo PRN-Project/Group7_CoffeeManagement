@@ -15,17 +15,19 @@ namespace Group7_CoffeeManagement.Repository
 
     {
         public static CoffeeStoreManagementContext db = new CoffeeStoreManagementContext();
-        private List<TblTable> mock_database;
+        public List<TblTable> mock_database;
 
         public TableRepository()
         {
             mock_database = new List<TblTable>();
-            for (int i = 1; i <= 12; i++)
+            for (int i = 1; i <= db.TblTables.Count(); i++)
             {
                 mock_database.Add(new TblTable(i-1,"Ban " + i,0));
             }
         }
 
+        public TblTable GetTableByID(int tableId) => db.TblTables.FirstOrDefault(item => item.TableId == tableId);
+        public TblTable GetTableByName(string name) => db.TblTables.FirstOrDefault(item => item.Name == name);
         public void AddTable(TblTable table)
         {
             db.TblTables.Add(table);
@@ -39,9 +41,16 @@ namespace Group7_CoffeeManagement.Repository
             db.SaveChanges();
         }
 
-        public IEnumerable<TblTable> GetTableList()
+        public void DeleteTableByName(string name)
         {
-            IEnumerable<TblTable> tableslist;
+            db.TblTables.Remove(db.TblTables.FirstOrDefault(item => item.Name == name));
+            db.SaveChanges();
+            
+        }
+
+        public List<TblTable> GetTableList()
+        {
+            List<TblTable> tableslist;
             try
             {
                 tableslist = db.TblTables.ToList();
@@ -58,11 +67,6 @@ namespace Group7_CoffeeManagement.Repository
         {
             db.TblTables.Update(table);
             db.SaveChanges();
-        }
-
-        public void UpdateTable(TableObject table)
-        {
-            throw new NotImplementedException();
         }
     }
 }

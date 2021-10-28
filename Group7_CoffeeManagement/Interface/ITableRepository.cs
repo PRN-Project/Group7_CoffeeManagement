@@ -11,10 +11,11 @@ namespace Group7_CoffeeManagement.Interface
     public interface ITableRepository
     {
 
-        public IEnumerable<TblTable> GetTableList();
+        public List<TblTable> GetTableList();
         public void AddTable(TblTable table);
-
-        
+        public TblTable GetTableByName(string name);
+        public void DeleteTableByName(string name);
+        public TblTable GetTableByID(int tableId);
         public void DeleteTableById(int tableId);
 
         public void UpdateTable(TblTable table);
