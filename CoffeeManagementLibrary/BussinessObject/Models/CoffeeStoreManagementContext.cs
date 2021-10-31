@@ -12,8 +12,7 @@ namespace Group7_CoffeeManagement.Models
         {
         }
 
-        public CoffeeStoreManagementContext(DbContextOptions<CoffeeStoreManagementContext> options)
-            : base(options)
+        public CoffeeStoreManagementContext(DbContextOptions<CoffeeStoreManagementContext> options) : base(options)
         {
         }
 
@@ -29,8 +28,7 @@ namespace Group7_CoffeeManagement.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Server=MSI\\MONKINAM;Database=CoffeeStoreManagement;Trusted_Connection=True;");
+                optionsBuilder.UseSqlServer("Server=DESKTOP-7R8KMCS\\TANGTANSQL;Database=CoffeeManagement;Trusted_Connection=True;MultipleActiveResultSets=true;User ID=sa;Password=TangTai123");
             }
         }
 

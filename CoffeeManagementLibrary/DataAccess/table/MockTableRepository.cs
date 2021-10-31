@@ -15,7 +15,7 @@ namespace DataAccess.table
         public MockTableRepository ()
         {
             mock_database = new List<TableObject>();
-            for (int i = 1; i <= 12; i++)
+            for (int i = 1; i <= 32; i++)
             {
                 mock_database.Add(new TableObject(i - 1, "Bàn " + i, 0));
             }
