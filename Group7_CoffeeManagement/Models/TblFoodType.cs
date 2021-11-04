@@ -16,5 +16,10 @@ namespace Group7_CoffeeManagement.Models
         public string Description { get; set; }
 
         public virtual ICollection<TblFood> TblFoods { get; set; }
+
+        public override string ToString()
+        {
+            return Description;
+        }
     }
 }
