@@ -8,7 +8,7 @@ using Group7_CoffeeManagement.Models;
 
 namespace Group7_CoffeeManagement.Repository
 {
-    public class AdminRepository : IAdminRepository
+    public class StaffRepository : IStaffRepository
     {
         public static CoffeeStoreManagementContext db = new CoffeeStoreManagementContext();
         public TblStaff GetStaffByID(int staffID) => db.TblStaffs.FirstOrDefault(item => item.UserId == staffID);
