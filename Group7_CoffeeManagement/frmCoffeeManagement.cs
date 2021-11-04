@@ -1,8 +1,9 @@
-﻿using BusinessModel;
-
-using Group7_CoffeeManagement.Interface;
+﻿using Group7_CoffeeManagement.CustomView;
+using Group7_CoffeeManagement.CustomView.FoodListView;
+using Group7_CoffeeManagement.CustomView.OrderListView;
 using Group7_CoffeeManagement.Models;
 using Group7_CoffeeManagement.Repository;
+using Group7_CoffeeManagement.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,121 +18,201 @@ namespace Group7_CoffeeManagement
 {
     public partial class frmCoffeeManagement : Form
     {
-        ITableRepository TableRepository = new TableRepository();
-        private ITableRepository tableRepository;
-        public static BindingSource roleSource = frmLogin.roleSource;
-        public static CoffeeStoreManagementContext db = new CoffeeStoreManagementContext();
-        string tagtext = null;
+
+        private TableRepository tableRepository = new TableRepository();
+
+        private FoodRepository foodRepository = new FoodRepository();
+
+        private FoodTypeRepository foodTypeRepository = new FoodTypeRepository();
+
+        private OrderListViewManager orderListViewManager;
+
+        private FoodListViewManager drinkListViewManager;
+
+        private TableListViewManager tableListViewManager;
+
+        private List<TblFood> menu;
+
+        private Dictionary<Button, CoffeeTable> tableDictionary = new Dictionary<Button, CoffeeTable>();
+
+        private Button currentChosenTable = null;
+
 
         public frmCoffeeManagement()
         {
             InitializeComponent();
-            
+            initTablePanel();
+            initOrderListView();
+            loadMenu();
+            initFoodTypeCombobox();
         }
 
-         void loadTableList ()
-        {
-           
-            List<TblTable> tableList = tableRepository.GetTableList();
-            if (true)
-            {
+        #region Table Process
 
-            }
+        private void initTablePanel ()
+        {
+            IEnumerable<TblTable> tableList = tableRepository.GetTableList();
+            tableListViewManager = new TableListViewManager();
+
+            var i = 1;
+            FlowLayoutPanel row = new FlowLayoutPanel(); 
             foreach (TblTable table in tableList)
             {
-                Button button = new Button() { Width = 100, Height = 100 };
-               
-                if (table.Status==0)
+                if (i > 4)
                 {
-                    button.BackColor = Color.White;
-                    button.Text = table.Name +Environment.NewLine + "available"; 
-                   // button.Text= "Empty";
+                    i = 1;
                 }
-                else if (table.Status==1)
+
+                if (i == 1)
                 {
-                    button.BackColor = Color.LightPink;
-                    button.Text = table.Name +Environment.NewLine + "unavailable"; 
+                    row = new FlowLayoutPanel();
+                    row.Width = 340;
+                    row.Height = 70;
+                    panelTables.Controls.Add(row);
+
                 }
-                button.MouseDown += new MouseEventHandler(bt_MouseDown);
-                
-                panelTables.Controls.Add(button);
+
+                var tableItemView = createTableItemView(table);
+                row.Controls.Add(tableItemView);
+                tableDictionary[tableItemView] = new CoffeeTable(table);
+                tableListViewManager.AddItem(tableItemView);
+                i++;
             }
+
+            tableListViewManager.setTableDictionary(tableDictionary);
         }
 
-        private void bt_MouseDown(object sender, MouseEventArgs e)
+        private Button createTableItemView (TblTable tableInfor)
         {
-            Button btn = (Button)sender;// Lay button dang dc click
-            tagtext = ((Button)sender).Text;
-           
+            Button button = new Button();
+            button.Width = 78;
+            button.Height = 65;
+            button.Text = tableInfor.Name;
+            button.Name = tableInfor.TableId + "";
 
-           // if (e.Button==MouseButtons.Left)
-           // {
-          //      MessageBox.Show(btn.Tag.ToString());
-           // }
-             if (e.Button == MouseButtons.Right)
+            button.Click += OnTableButton_Clicked;
+            return button;
+        }
+
+        private void OnTableButton_Clicked(object sender, EventArgs e)
+        {
+            currentChosenTable = sender as Button;
+            var coffeeTableInformation = tableDictionary[sender as Button];
+            txtTableName.Text = coffeeTableInformation.Table.Name;
+            orderListViewManager.setData(coffeeTableInformation.OrderDetailList);
+            currentChosenTable.BackColor = Color.Bisque;
+        }
+
+        #endregion
+
+        #region Order Process
+
+        private void initOrderListView()
+        {
+            orderListViewManager = new OrderListViewManager(panelOrder);
+            panelOrder.FlowDirection = FlowDirection.TopDown;
+            orderListViewManager.onTotalPriceChange += onTotalPriceChange;
+            orderListViewManager.onItemRemoved += onDrinkRemoved;
+        }
+
+        private void onDrinkRemoved(OrderListItem item)
+        {
+            onTotalPriceChange(item);
+            panelOrder.Controls.Remove(item);
+        }
+
+        private void onTotalPriceChange(OrderListItem item)
+        {
+            txtTotalPrice.Text = orderListViewManager.getTotalPrice() + "";
+        }
+
+        #endregion
+
+        #region Drink Process
+
+        private void initFoodTypeCombobox ()
+        {
+            var typeList = foodTypeRepository.getCustomType();
+            cbbDrinkType.DataSource = typeList;
+        }
+
+        private void loadMenu()
+        {
+            menu = foodRepository.GetFoodList();
+            panelMenu.FlowDirection = FlowDirection.TopDown;
+            panelMenu.AutoScroll = true;
+            panelMenu.WrapContents = false;
+
+            drinkListViewManager = new FoodListViewManager(panelMenu);
+            drinkListViewManager.setData(menu);
+            drinkListViewManager.onFoodButtonAddClickListener += onFoodButtonAddClick;
+
+            foreach (FoodListItem item in drinkListViewManager.ItemList)
             {
-                contextMenuStrip1.Show(btn, e.Location);
+                panelMenu.Controls.Add(item);
             }
         }
 
-        private void loadMenu ()
+        private void onFoodButtonAddClick(FoodListItem item)
         {
-            
+            var food = item.data;
+            orderListViewManager.addItem(new TblOrderDetail()
+            {
+                Food = food,
+                FoodId = food.FoodId,
+                Quantity = 1
+            });
         }
 
-        private void panelTables_Paint(object sender, PaintEventArgs e)
+        #endregion
+
+        private void btnRemoveDrinkOut_Click(object sender, EventArgs e)
         {
-       
+            orderListViewManager.removeCurrent();
         }
 
         private void btnCheckOut_Click(object sender, EventArgs e)
-
         {
 
         }
 
-        
-
-        private void frmCoffeeManagement_Load(object sender, EventArgs e)
+        private void btnUpdateOrder_Click(object sender, EventArgs e)
         {
-            tableRepository = new TableRepository();
-            loadTableList();
+            var currentChosenCoffeeTableInfor = tableDictionary[currentChosenTable];
+            var orderListData = orderListViewManager.getItemDataList();
+            currentChosenCoffeeTableInfor.OrderDetailList = orderListData;
+            currentChosenTable.BackColor = TableListViewManager.NON_EMPTY_COLOR;
+        } 
+
+        private void cbbDrinkType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var chosenType = cbbDrinkType.SelectedItem as TblFoodType;
+            filterMenuByType(chosenType);
         }
 
-        private void changeStatusToolStripMenuItem_Click(object sender, EventArgs e)
+        private void filterMenuByType(TblFoodType chosenType)
         {
-            MessageBox.Show("Ban muon doi trang thai " + tagtext);
-          
-
+            var filtedList = menu.Where(food => food.TypeId == chosenType.TypeId).ToList() ;
+            drinkListViewManager.setData(filtedList);
         }
 
-        private void addToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            panelTables.AutoScroll = true;
-            MessageBox.Show("Ban muon xoa " + tagtext.Remove(5));
-            tableRepository.DeleteTableByName(tagtext.Remove(5));
-            deleteLoadedButton();
-            frmCoffeeManagement_Load(sender, e);
-        }
-        void deleteLoadedButton()
-        {
-            foreach (Control item in panelTables.Controls.OfType<Button>().ToList())
+        private void EdtFoodName_TextChanged(object sender, EventArgs e) {
+            var keyword = edtFoodName.Text;
+            var chosenType = cbbDrinkType.SelectedItem as TblFoodType;
+            var sameTypeList = menu.Where(food => food.TypeId == chosenType.TypeId).ToList();
+            if (keyword.Length == 0)
             {
-                panelTables.Controls.Remove(item);
-                item.Dispose();
-               
+                this.drinkListViewManager.setData(sameTypeList);
+            } 
+            else 
+            {
+                var filtedList = sameTypeList
+                                        .Where(food => 
+                                                     food.FoodName.Contains(keyword))
+                                        .ToList();
+                if (filtedList.Count < sameTypeList.Count)
+                this.drinkListViewManager.setData(filtedList);
             }
-        }
-        private void updateToolStripMenuItem_Click_1(object sender, EventArgs e)
-        {
-            MessageBox.Show("Ban muon sua " + tagtext.Remove(5));
-            
-           // tableRepository.UpdateTable(update);
         }
     }
 }
