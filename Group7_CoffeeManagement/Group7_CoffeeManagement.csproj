@@ -26,9 +26,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Form\frmFoodManagement\" />
-    <Folder Include="Form\frmStaffManagement\" />
-    <Folder Include="Form\frmTableManagement\" />
+    <Folder Include="form\frmStaffManagement\" />
+    <Folder Include="form\frmTableManagement\" />
   </ItemGroup>
 
 </Project>
