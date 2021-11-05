@@ -11,40 +11,29 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Group7_CoffeeManagement.form.frmFoodManagement
+namespace Group7_CoffeeManagement.form.frmFoodTypeManagement
 {
-    public partial class formFoodManagement : Form
+    public partial class formFoodType : Form
     {
-        private IFoodRepository foodRepository = new FoodRepository();
         private IFoodTypeRepository foodTypeRepo = new FoodTypeRepository();
         private CoffeeStoreManagementContext db = new CoffeeStoreManagementContext();
         private BindingSource bindingSource;
-
-        public formFoodManagement()
+        public formFoodType()
         {
             InitializeComponent();
+            cmbName.DropDownStyle = ComboBoxStyle.DropDownList;
+            //dtgvData.Columns["TblFoods"].Visible = false;
             getComboboxValue();
-            cmbSearchType.DropDownStyle = ComboBoxStyle.DropDownList;
             txtId.Visible = false;
-            txtSearchId.Visible = false;
             btnSearchId.Visible = false;
-            //AddBiding();
         }
-
 
         #region methods
-
-        public void getComboboxValue()
-        {
-            cmbSearchType.DataSource = foodTypeRepo.GetAll();
-            cmbSearchType.DisplayMember = "Description";
-            cmbSearchType.ValueMember = "TypeId";
-        }
-        public void LoadFoodList()
+        public void LoadFoodTypeList()
         {
             try
             {
-                var foods = foodRepository.GetFoodList();
+                var foods = foodTypeRepo.GetFoodTypeList();
                 bindingSource = new BindingSource();
                 bindingSource.DataSource = foods;
                 dtgvData.DataSource = null;
@@ -53,57 +42,56 @@ namespace Group7_CoffeeManagement.form.frmFoodManagement
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error get food list");
+                MessageBox.Show(ex.Message, "Error get food type list");
             }
         }
 
-        
-
-        public void AddFood()
+        public void AddFoodType()
         {
-            formAddFood frm = new formAddFood();
+            formAddFoodType frm = new formAddFoodType();
             frm.Show();
         }
 
-        public void LoadFoodListById(int foodId)
+        public void LoadFoodTypeById(int id)
         {
-            var foods = foodRepository.GetFoodByID(foodId);
+            var foodType = foodTypeRepo.GetFoodTypeByID(id);
             try
             {
                 bindingSource = new BindingSource();
-                bindingSource.DataSource = foods;
+                bindingSource.DataSource = foodType;
                 dtgvData.DataSource = null;
                 dtgvData.DataSource = bindingSource;
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error Load Food By ID");
+                MessageBox.Show(ex.Message, "Error Load Food Type By ID");
             }
         }
 
-        public void LoadFoodListByName(string name)
+        public void LoadFoodTypeListByName(string name)
         {
-            var foodList = foodRepository.GetFoodListByName(name);
+            var foodType = foodTypeRepo.GetFoodTypeListByName(name);
             try
             {
                 bindingSource = new BindingSource();
-                bindingSource.DataSource = foodList;
+                bindingSource.DataSource = foodType;
                 dtgvData.DataSource = null;
                 dtgvData.DataSource = bindingSource;
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error Load Food By Name");
+                MessageBox.Show(ex.Message, "Error Load Food Type By Name");
             }
         }
 
-        public void LoadFoodListByType(int typeId)
-        {        
+        public void LoadFoodTypeListByType(int id)
+        {
             try
             {
-                var foodList = foodRepository.GetFoodListByType(typeId);
+                
+                var foodTypeList = foodTypeRepo.GetFoodTypeListByType(id);
                 bindingSource = new BindingSource();
-                bindingSource.DataSource = foodList;
+                bindingSource.DataSource = foodTypeList;
                 dtgvData.DataSource = null;
                 dtgvData.DataSource = bindingSource;
             }
@@ -113,39 +101,49 @@ namespace Group7_CoffeeManagement.form.frmFoodManagement
             }
         }
 
+        public void getComboboxValue()
+        {
+            cmbName.DataSource = foodTypeRepo.GetAll();
+            cmbName.DisplayMember = "Description";
+            cmbName.ValueMember = "TypeId";
+        }
+
 
         #endregion
 
         #region events
-        private void frmFoods_Load(object sender, EventArgs e)
+        private void formFoodTypeMangement_Load(object sender, EventArgs e)
         {
             try
             {
-                var foods = foodRepository.GetFoodList();
+                var foodTypes = foodTypeRepo.GetFoodTypeList();
                 bindingSource = new BindingSource();
-                bindingSource.DataSource = foods;
+                bindingSource.DataSource = foodTypes;
                 dtgvData.DataSource = null;
                 dtgvData.DataSource = bindingSource;
                 //AddBiding();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error: Load Food List");
+                MessageBox.Show(ex.Message, "Error: Load Food Type List");
             }
-
         }
+
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            AddFood();
-            LoadFoodList();
-           // AddBiding();
+            AddFoodType();
+            LoadFoodTypeList();
+        }
 
+        private void dtgvData_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtId.Text = dtgvData.Rows[e.RowIndex].Cells[0].Value.ToString();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
             DialogResult dlr = MessageBox.Show("Are you sure to delete this food?", "Notification",
-                                               MessageBoxButtons.YesNoCancel);
+                                               MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dlr == DialogResult.Yes)
             {
                 if (txtId.Text.Equals(""))
@@ -154,17 +152,16 @@ namespace Group7_CoffeeManagement.form.frmFoodManagement
                 }
                 else
                 {
-                    foodRepository.RemoveFood(Int32.Parse(txtId.Text));
-                   
+                    foodTypeRepo.RemoveFoodType(Int32.Parse(txtId.Text));
+
                 }
             }
         }
 
-        private void btnReload_Click(object sender, EventArgs e)
+        private void btnLoad_Click(object sender, EventArgs e)
         {
-            LoadFoodList();
+            LoadFoodTypeList();
         }
-
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
@@ -174,59 +171,38 @@ namespace Group7_CoffeeManagement.form.frmFoodManagement
             }
             else
             {
-                formUpdateFood frmUpdateFood = new formUpdateFood(Int32.Parse(txtId.Text));
-                frmUpdateFood.Show();
+                formUpdateFoodType frm = new formUpdateFoodType(Int32.Parse(txtId.Text));
+                frm.Show();
             }
-        }
-        private void dtgvData_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            txtId.Text = dtgvData.Rows[e.RowIndex].Cells[0].Value.ToString();
         }
 
         private void btnSearchId_Click(object sender, EventArgs e)
         {
             try
             {
-                int foodId = Int32.Parse(txtSearchId.Text);
-                LoadFoodListById(foodId);
+                int foodTypeId = Int32.Parse(txtId.Text);
+                LoadFoodTypeById(foodTypeId);
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error Search Food By ID:");
+                MessageBox.Show(ex.Message, "Error Search Food Type By ID:");
             }
-        }
-        private void btnSearchName_Click(object sender, EventArgs e)
-        {
-            string foodName = txtSearchName.Text;
-            if (foodName != "")
-            {
-                LoadFoodListByName(foodName);
-            }
-            else MessageBox.Show("Search Name Input can not be empty");
         }
 
-        private void btnSearchType_Click(object sender, EventArgs e)
+        private void btnSearchName_Click(object sender, EventArgs e)
         {
-            //string type = cmbSearchType.SelectedItem.ToString();
-            int typeId = int.Parse(cmbSearchType.SelectedValue.ToString());
-            if (cmbSearchType.SelectedItem.ToString() != null)
+            int typeId = int.Parse(cmbName.SelectedValue.ToString());
+            if (cmbName.SelectedItem.ToString() != null)
             {
-                LoadFoodListByType(typeId);
+                LoadFoodTypeListByType(typeId);
             }
             else MessageBox.Show("You must choose Type!");
         }
+
+
         #endregion
 
-        private void txtName_TextChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void txtPrice_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cmbSearchType_SelectedIndexChanged(object sender, EventArgs e)
+        private void cmbName_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

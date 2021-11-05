@@ -138,7 +138,7 @@ namespace Group7_CoffeeManagement
 
         private void loadMenu()
         {
-            menu = foodRepository.GetFoodList();
+            menu = (List<TblFood>)foodRepository.GetFoodList();
             panelMenu.FlowDirection = FlowDirection.TopDown;
             panelMenu.AutoScroll = true;
             panelMenu.WrapContents = false;

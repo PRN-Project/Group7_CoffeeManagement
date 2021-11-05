@@ -45,9 +45,6 @@ namespace Group7_CoffeeManagement.form.frmFoodManagement
             // cmbType
             // 
             this.cmbType.FormattingEnabled = true;
-            this.cmbType.Items.AddRange(new object[] {
-            "Drink",
-            "FastFood"});
             this.cmbType.Location = new System.Drawing.Point(168, 320);
             this.cmbType.Name = "cmbType";
             this.cmbType.Size = new System.Drawing.Size(214, 28);
@@ -60,9 +57,9 @@ namespace Group7_CoffeeManagement.form.frmFoodManagement
             this.label7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label7.Location = new System.Drawing.Point(63, 320);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(57, 28);
+            this.label7.Size = new System.Drawing.Size(51, 28);
             this.label7.TabIndex = 30;
-            this.label7.Text = "Type";
+            this.label7.Text = "Loại";
             // 
             // label6
             // 
@@ -70,9 +67,9 @@ namespace Group7_CoffeeManagement.form.frmFoodManagement
             this.label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label6.Location = new System.Drawing.Point(63, 258);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(59, 28);
+            this.label6.Size = new System.Drawing.Size(43, 28);
             this.label6.TabIndex = 29;
-            this.label6.Text = "Price";
+            this.label6.Text = "Giá";
             // 
             // label5
             // 
@@ -80,19 +77,19 @@ namespace Group7_CoffeeManagement.form.frmFoodManagement
             this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label5.Location = new System.Drawing.Point(63, 195);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(68, 28);
+            this.label5.Size = new System.Drawing.Size(45, 28);
             this.label5.TabIndex = 28;
-            this.label5.Text = "Name";
+            this.label5.Text = "Tên";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(76, 129);
+            this.label4.Location = new System.Drawing.Point(63, 126);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(33, 28);
+            this.label4.Size = new System.Drawing.Size(69, 28);
             this.label4.TabIndex = 27;
-            this.label4.Text = "ID";
+            this.label4.Text = "Mã số";
             // 
             // label3
             // 
@@ -100,9 +97,9 @@ namespace Group7_CoffeeManagement.form.frmFoodManagement
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label3.Location = new System.Drawing.Point(195, 50);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(168, 45);
+            this.label3.Size = new System.Drawing.Size(190, 45);
             this.label3.TabIndex = 26;
-            this.label3.Text = "Add Food";
+            this.label3.Text = "Thêm món ";
             // 
             // txtId
             // 
@@ -128,22 +125,26 @@ namespace Group7_CoffeeManagement.form.frmFoodManagement
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(168, 392);
+            this.btnAdd.BackColor = System.Drawing.Color.IndianRed;
+            this.btnAdd.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnAdd.Location = new System.Drawing.Point(168, 380);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(94, 29);
+            this.btnAdd.Size = new System.Drawing.Size(94, 41);
             this.btnAdd.TabIndex = 32;
-            this.btnAdd.Text = "Save";
-            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Text = "Thêm";
+            this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(288, 392);
+            this.btnExit.BackColor = System.Drawing.Color.IndianRed;
+            this.btnExit.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnExit.Location = new System.Drawing.Point(288, 380);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(94, 29);
+            this.btnExit.Size = new System.Drawing.Size(94, 41);
             this.btnExit.TabIndex = 33;
-            this.btnExit.Text = "Exit";
-            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Text = "Thoát";
+            this.btnExit.UseVisualStyleBackColor = false;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // formAddFood

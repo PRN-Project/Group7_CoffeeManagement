@@ -16,31 +16,30 @@ namespace Group7_CoffeeManagement.form.frmFoodManagement
     public partial class formAddFood : Form
     {
         IFoodRepository foodRepositoty = new FoodRepository();
+        private IFoodTypeRepository foodTypeRepo = new FoodTypeRepository();
         CoffeeStoreManagementContext db = new CoffeeStoreManagementContext();
         public formAddFood()
         {
             InitializeComponent();
+            getComboboxValue();
             int newId = foodRepositoty.GetLastId() + 1;
             txtId.Text = newId.ToString();
+            cmbType.DropDownStyle = ComboBoxStyle.DropDownList;
             txtId.ReadOnly = true;
+        }
+
+        public void getComboboxValue()
+        {
+            cmbType.DataSource = foodTypeRepo.GetAll();
+            cmbType.DisplayMember = "Description";
+            cmbType.ValueMember = "TypeId";
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
             try
             {
-                int foodTypeId = 0 ;
-                if (cmbType.SelectedItem.ToString().Equals("Drink"))
-                {
-                    foodTypeId = 1;
-                }
-                else if(cmbType.SelectedItem.ToString().Equals("FastFood"))
-                {
-                    foodTypeId = 2;
-                } else
-                {
-                    MessageBox.Show("You must choose type!!");
-                }
+                int foodTypeId =  int.Parse(cmbType.SelectedValue.ToString());              
                 TblFood food = new TblFood
                 {
                     //FoodId = int.Parse(txtId.Text),

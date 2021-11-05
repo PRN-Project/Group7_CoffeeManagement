@@ -10,15 +10,35 @@ namespace Group7_CoffeeManagement.form.frmFoodManagement
     public partial class formUpdateFood : Form
     {
         IFoodRepository foodRepository = new FoodRepository();
+        private IFoodTypeRepository foodTypeRepo = new FoodTypeRepository();
         int foodId = 0;
         public formUpdateFood(int id)
         {
             foodId = id;
             InitializeComponent();
+            cmbType.DropDownStyle = ComboBoxStyle.DropDownList;
+            getComboboxValue();
             txtId.ReadOnly = true;
         }
 
-        
+
+        public void getComboboxValue()
+        {
+            
+            TblFood food = foodRepository.GetFoodByID(foodId);
+            int id = food.TypeId;
+            TblFoodType foodType = foodTypeRepo.GetFoodTypeByID(id);
+            //int typeId = food.TypeId;
+            string value = foodType.Description.ToString();
+            //cmbType.Items(food.Description);
+            cmbType.DataSource = foodTypeRepo.GetAll();
+            cmbType.DisplayMember = "Description";
+            cmbType.ValueMember = "TypeId";
+            cmbType.SelectedIndex = cmbType.FindStringExact(value);
+            
+        }
+
+
         private void formUpdateFood_Load(object sender, EventArgs e)
         {
             TblFood food = foodRepository.GetFoodByID(foodId);
@@ -26,16 +46,7 @@ namespace Group7_CoffeeManagement.form.frmFoodManagement
             txtId.Text = food.FoodId.ToString();
             txtName.Text = food.FoodName;          
             txtPrice.Text = food.Price.ToString();
-            if (food.TypeId == 1)
-            {
-                //cmbType.SelectedText = "Drink";
-                cmbType.SelectedItem = "Drink";
-            }
-            else 
-            {
-                //cmbType.SelectedText = "FastFood";
-                cmbType.SelectedItem = "FastFood";
-            }
+            
         }
         
         private void btnExit_Click(object sender, EventArgs e)
@@ -44,22 +55,11 @@ namespace Group7_CoffeeManagement.form.frmFoodManagement
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
-        {
-          
-            
+        {                   
             try
             {
                 int id = foodId;
-                int typeId = 0;
-                if (cmbType.SelectedItem.ToString().Equals("Drink"))
-                {
-                    typeId = 1;
-                }
-                else if (cmbType.SelectedItem.ToString().Equals("FastFood"))
-                {
-                    typeId = 2;
-                }
-
+                int typeId = int.Parse(cmbType.SelectedValue.ToString());             
                 string foodName = txtName.Text;
                 decimal foodPrice = decimal.Parse(txtPrice.Text);
 
