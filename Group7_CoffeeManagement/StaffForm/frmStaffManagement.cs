@@ -23,6 +23,7 @@ namespace Group7_CoffeeManagement.StaffForm
         {
             InitializeComponent();
             LoadStaffList();
+            this.txtId.Visible = false;
         }
         public void LoadStaffList()
         {

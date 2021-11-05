@@ -44,7 +44,7 @@ namespace Group7_CoffeeManagement.StaffForm
             // 
             this.txtId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtId.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtId.Location = new System.Drawing.Point(623, 40);
+            this.txtId.Location = new System.Drawing.Point(535, 51);
             this.txtId.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(127, 29);
@@ -56,10 +56,10 @@ namespace Group7_CoffeeManagement.StaffForm
             this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnUpdate.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnUpdate.ForeColor = System.Drawing.Color.Purple;
-            this.btnUpdate.Location = new System.Drawing.Point(434, 31);
+            this.btnUpdate.Location = new System.Drawing.Point(560, 95);
             this.btnUpdate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(137, 42);
+            this.btnUpdate.Size = new System.Drawing.Size(102, 29);
             this.btnUpdate.TabIndex = 33;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = false;
@@ -71,10 +71,10 @@ namespace Group7_CoffeeManagement.StaffForm
             this.btnCreate.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCreate.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnCreate.ForeColor = System.Drawing.Color.Purple;
-            this.btnCreate.Location = new System.Drawing.Point(58, 31);
+            this.btnCreate.Location = new System.Drawing.Point(452, 95);
             this.btnCreate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCreate.Name = "btnCreate";
-            this.btnCreate.Size = new System.Drawing.Size(137, 42);
+            this.btnCreate.Size = new System.Drawing.Size(102, 29);
             this.btnCreate.TabIndex = 32;
             this.btnCreate.Text = "Create";
             this.btnCreate.UseVisualStyleBackColor = false;
@@ -100,10 +100,10 @@ namespace Group7_CoffeeManagement.StaffForm
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnDelete.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnDelete.ForeColor = System.Drawing.Color.Purple;
-            this.btnDelete.Location = new System.Drawing.Point(246, 31);
+            this.btnDelete.Location = new System.Drawing.Point(668, 95);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(137, 42);
+            this.btnDelete.Size = new System.Drawing.Size(102, 29);
             this.btnDelete.TabIndex = 30;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = false;
@@ -114,7 +114,7 @@ namespace Group7_CoffeeManagement.StaffForm
             this.dgvStaffList.BackgroundColor = System.Drawing.SystemColors.InactiveBorder;
             this.dgvStaffList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvStaffList.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.dgvStaffList.Location = new System.Drawing.Point(9, 142);
+            this.dgvStaffList.Location = new System.Drawing.Point(29, 142);
             this.dgvStaffList.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvStaffList.Name = "dgvStaffList";
             this.dgvStaffList.RowHeadersWidth = 51;
@@ -129,12 +129,12 @@ namespace Group7_CoffeeManagement.StaffForm
             this.SearchByName.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.SearchByName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.SearchByName.ForeColor = System.Drawing.Color.Purple;
-            this.SearchByName.Location = new System.Drawing.Point(176, 86);
+            this.SearchByName.Location = new System.Drawing.Point(277, 95);
             this.SearchByName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.SearchByName.Name = "SearchByName";
-            this.SearchByName.Size = new System.Drawing.Size(167, 42);
+            this.SearchByName.Size = new System.Drawing.Size(130, 29);
             this.SearchByName.TabIndex = 35;
-            this.SearchByName.Text = "Search By Name";
+            this.SearchByName.Text = "Search Name";
             this.SearchByName.UseVisualStyleBackColor = false;
             this.SearchByName.Click += new System.EventHandler(this.SearchByName_Click);
             // 
@@ -142,10 +142,10 @@ namespace Group7_CoffeeManagement.StaffForm
             // 
             this.txtName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtName.Location = new System.Drawing.Point(396, 95);
+            this.txtName.Location = new System.Drawing.Point(29, 95);
             this.txtName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(220, 29);
+            this.txtName.Size = new System.Drawing.Size(242, 29);
             this.txtName.TabIndex = 36;
             // 
             // frmStaffManagement
