@@ -66,6 +66,9 @@ namespace Group7_CoffeeManagement
 
         private void initTablePanel ()
         {
+            var a = tablePanel;
+            panelTables.Padding = new Padding(0);
+
             IEnumerable<TblTable> tableList = tableRepository.GetTableList();
             tableListViewManager = new TableListViewManager();
 
@@ -81,12 +84,15 @@ namespace Group7_CoffeeManagement
                 if (i == 1)
                 {
                     row = new FlowLayoutPanel();
-                    row.Width = 340;
+                    row.Width = 352;
                     row.Height = 90;
+                    row.Padding = new Padding(2);
+                    row.Margin = new Padding(0);
                     panelTables.Controls.Add(row);
                 }
 
                 var tableItemView = createTableItemView(table);
+                tableItemView.Margin = new Padding(2);
                 row.Controls.Add(tableItemView);
                 tableDictionary[tableItemView] = new CoffeeTable(table);
                 tableListViewManager.AddItem(tableItemView);
@@ -99,8 +105,9 @@ namespace Group7_CoffeeManagement
         private Button createTableItemView (TblTable tableInfor)
         {
             Button button = new Button();
-            button.Width = 103;
+            button.Width = 112;
             button.Height = 85;
+            button.Margin = new Padding(1);
             button.Text = tableInfor.Name;
             button.Name = tableInfor.TableId + "";
             button.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.GraphicsUnit.Point);
@@ -142,9 +149,16 @@ namespace Group7_CoffeeManagement
             if (coffeeTableInformation.Status  == TableStatus.Empty)
             {
                 txtTotalPrice.Text = "_______";
+                btnUpdateOrder.Text = "Tạo bàn";
+                btnCheckOut.Hide();
+                btnCheckOutDisabled.Show();
                 txtEmpty.Show();
-            } else
+            }
+            else
             {
+                btnUpdateOrder.Text = "Cập nhật";
+                btnCheckOut.Show();
+                btnCheckOutDisabled.Hide();
                 txtTotalPrice.Text = ((int) orderListViewManager.getTotalPrice()) + " vnđ";
                 txtEmpty.Hide();
             }
@@ -243,6 +257,8 @@ namespace Group7_CoffeeManagement
         {
             try
             {
+                MessageBox.Show("Bạn muốn thanh toán bàn này?", "Xác nhận thanh toán", MessageBoxButtons.OKCancel);
+
                 TblOrder order = new TblOrder();
                 order.DateTime = DateTime.Now;
                 CoffeeTable currentCoffeeTable = tableDictionary[currentChosenTable];
@@ -281,9 +297,20 @@ namespace Group7_CoffeeManagement
             {
                 var currentChosenCoffeeTableInfor = tableDictionary[currentChosenTable];
                 var orderListData = orderListViewManager.getItemDataList();
-                currentChosenCoffeeTableInfor.OrderDetailList = orderListData;
-                currentChosenTable.BackColor = TableListViewManager.NON_EMPTY_COLOR;
-                isModifyAnOrder = false;
+                if (orderListData.Count > 0)
+                {
+                    currentChosenCoffeeTableInfor.OrderDetailList = orderListData;
+                    currentChosenTable.BackColor = TableListViewManager.NON_EMPTY_COLOR;
+                    isModifyAnOrder = false;
+
+                } else
+                {
+                    ShowNotification("Vui lòng chọn ít nhất một món ăn hoặc thức uống");
+                }
+            }
+            else
+            {
+                ShowNotification("Vui lòng chọn bàn");
             }
         }
 
@@ -327,6 +354,9 @@ namespace Group7_CoffeeManagement
         private void frmCoffeeManagement_Load(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Maximized;
+            this.BackColor = Color.White;
+            this.btnCheckOutDisabled.Show();
+            this.btnCheckOut.Hide();
         }
     }
 }

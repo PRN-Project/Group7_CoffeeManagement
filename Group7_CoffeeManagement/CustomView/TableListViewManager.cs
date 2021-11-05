@@ -58,6 +58,7 @@ namespace Group7_CoffeeManagement.CustomView
         private void focus(Button button)
         {
             button.BackColor = FOCUSED_COLOR;
+            button.ForeColor = Color.White;
         }
 
         public void disableFocusOnce ()
@@ -75,10 +76,12 @@ namespace Group7_CoffeeManagement.CustomView
             if (getCoffeeTableByButton(Current).Status == TableStatus.Empty)
             {
                 Current.BackColor = EMPTY_COLOR;
+                Current.ForeColor = Color.Black;
             }
             else if (getCoffeeTableByButton(Current).Status == TableStatus.NonEmpty)
             {
                 Current.BackColor = NON_EMPTY_COLOR;
+                Current.ForeColor = Color.White;
             }
         }
 

@@ -54,6 +54,7 @@ namespace Group7_CoffeeManagement
             this.historyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.accountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnCheckOutDisabled = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.mnstrip.SuspendLayout();
@@ -61,6 +62,7 @@ namespace Group7_CoffeeManagement
             // 
             // panel2
             // 
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.txtEmpty);
             this.panel2.Controls.Add(this.panelOrder);
             this.panel2.Controls.Add(this.label5);
@@ -89,18 +91,18 @@ namespace Group7_CoffeeManagement
             // 
             this.panelOrder.AutoScroll = true;
             this.panelOrder.BackColor = System.Drawing.SystemColors.Window;
-            this.panelOrder.Location = new System.Drawing.Point(1, 79);
+            this.panelOrder.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelOrder.Location = new System.Drawing.Point(-1, 79);
             this.panelOrder.Margin = new System.Windows.Forms.Padding(1);
             this.panelOrder.Name = "panelOrder";
-            this.panelOrder.Size = new System.Drawing.Size(611, 511);
+            this.panelOrder.Size = new System.Drawing.Size(613, 511);
             this.panelOrder.TabIndex = 28;
             this.panelOrder.WrapContents = false;
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(464, 52);
+            this.label5.Location = new System.Drawing.Point(544, 50);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(52, 21);
             this.label5.TabIndex = 27;
@@ -108,9 +110,8 @@ namespace Group7_CoffeeManagement
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(375, 52);
+            this.label4.Location = new System.Drawing.Point(375, 50);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(76, 21);
             this.label4.TabIndex = 26;
@@ -118,9 +119,8 @@ namespace Group7_CoffeeManagement
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(226, 53);
+            this.label3.Location = new System.Drawing.Point(235, 50);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(65, 21);
             this.label3.TabIndex = 25;
@@ -128,9 +128,8 @@ namespace Group7_CoffeeManagement
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(-1, 53);
+            this.label2.Location = new System.Drawing.Point(10, 50);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(72, 21);
             this.label2.TabIndex = 24;
@@ -141,43 +140,52 @@ namespace Group7_CoffeeManagement
             this.txtTableName.AutoSize = true;
             this.txtTableName.Font = new System.Drawing.Font("Segoe UI Semibold", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtTableName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(16)))), ((int)(((byte)(16)))));
-            this.txtTableName.Location = new System.Drawing.Point(-5, 3);
+            this.txtTableName.Location = new System.Drawing.Point(2, 1);
             this.txtTableName.Name = "txtTableName";
-            this.txtTableName.Size = new System.Drawing.Size(94, 37);
+            this.txtTableName.Size = new System.Drawing.Size(135, 37);
             this.txtTableName.TabIndex = 7;
-            this.txtTableName.Text = "_______";
+            this.txtTableName.Text = "Chọn bàn";
             // 
             // btnRemoveDrinkOut
             // 
+            this.btnRemoveDrinkOut.BackColor = System.Drawing.Color.DarkGray;
+            this.btnRemoveDrinkOut.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btnRemoveDrinkOut.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnRemoveDrinkOut.Location = new System.Drawing.Point(1110, 634);
+            this.btnRemoveDrinkOut.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnRemoveDrinkOut.Location = new System.Drawing.Point(1110, 633);
             this.btnRemoveDrinkOut.Name = "btnRemoveDrinkOut";
-            this.btnRemoveDrinkOut.Size = new System.Drawing.Size(109, 51);
+            this.btnRemoveDrinkOut.Size = new System.Drawing.Size(109, 52);
             this.btnRemoveDrinkOut.TabIndex = 25;
             this.btnRemoveDrinkOut.Text = "Xóa món";
-            this.btnRemoveDrinkOut.UseVisualStyleBackColor = true;
+            this.btnRemoveDrinkOut.UseVisualStyleBackColor = false;
             this.btnRemoveDrinkOut.Click += new System.EventHandler(this.btnRemoveDrinkOut_Click);
             // 
             // btnUpdateOrder
             // 
+            this.btnUpdateOrder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(23)))), ((int)(((byte)(23)))));
+            this.btnUpdateOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdateOrder.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnUpdateOrder.Location = new System.Drawing.Point(988, 634);
+            this.btnUpdateOrder.ForeColor = System.Drawing.Color.White;
+            this.btnUpdateOrder.Location = new System.Drawing.Point(988, 633);
             this.btnUpdateOrder.Name = "btnUpdateOrder";
-            this.btnUpdateOrder.Size = new System.Drawing.Size(116, 51);
+            this.btnUpdateOrder.Size = new System.Drawing.Size(116, 52);
             this.btnUpdateOrder.TabIndex = 20;
-            this.btnUpdateOrder.Text = "Cập nhật";
-            this.btnUpdateOrder.UseVisualStyleBackColor = true;
+            this.btnUpdateOrder.Text = "Tạo bàn";
+            this.btnUpdateOrder.UseVisualStyleBackColor = false;
             this.btnUpdateOrder.Click += new System.EventHandler(this.btnUpdateOrder_Click);
             // 
             // button5
             // 
+            this.button5.BackColor = System.Drawing.Color.DarkGray;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.button5.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button5.Location = new System.Drawing.Point(1225, 634);
+            this.button5.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button5.Location = new System.Drawing.Point(1225, 633);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(116, 51);
+            this.button5.Size = new System.Drawing.Size(116, 52);
             this.button5.TabIndex = 22;
             this.button5.Text = "Chuyển bàn";
-            this.button5.UseVisualStyleBackColor = true;
+            this.button5.UseVisualStyleBackColor = false;
             // 
             // cbbDrinkType
             // 
@@ -193,7 +201,7 @@ namespace Group7_CoffeeManagement
             // 
             this.txtTotalPrice.AutoSize = true;
             this.txtTotalPrice.Font = new System.Drawing.Font("Segoe UI Semibold", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtTotalPrice.Location = new System.Drawing.Point(105, 14);
+            this.txtTotalPrice.Location = new System.Drawing.Point(116, 12);
             this.txtTotalPrice.Name = "txtTotalPrice";
             this.txtTotalPrice.Size = new System.Drawing.Size(68, 28);
             this.txtTotalPrice.TabIndex = 6;
@@ -203,7 +211,7 @@ namespace Group7_CoffeeManagement
             // 
             this.labelTotalPrice.AutoSize = true;
             this.labelTotalPrice.Font = new System.Drawing.Font("Segoe UI Semibold", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelTotalPrice.Location = new System.Drawing.Point(-1, 14);
+            this.labelTotalPrice.Location = new System.Drawing.Point(10, 12);
             this.labelTotalPrice.Name = "labelTotalPrice";
             this.labelTotalPrice.Size = new System.Drawing.Size(100, 28);
             this.labelTotalPrice.TabIndex = 5;
@@ -213,38 +221,45 @@ namespace Group7_CoffeeManagement
             // 
             this.panelTables.AutoScroll = true;
             this.panelTables.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.panelTables.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelTables.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.panelTables.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.panelTables.Location = new System.Drawing.Point(9, 39);
+            this.panelTables.Location = new System.Drawing.Point(9, 38);
+            this.panelTables.Margin = new System.Windows.Forms.Padding(0);
             this.panelTables.Name = "panelTables";
-            this.panelTables.Size = new System.Drawing.Size(351, 646);
+            this.panelTables.Padding = new System.Windows.Forms.Padding(2);
+            this.panelTables.Size = new System.Drawing.Size(355, 647);
             this.panelTables.TabIndex = 3;
             this.panelTables.WrapContents = false;
             // 
             // panel1
             // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.labelTotalPrice);
             this.panel1.Controls.Add(this.txtTotalPrice);
-            this.panel1.Location = new System.Drawing.Point(368, 632);
+            this.panel1.Location = new System.Drawing.Point(369, 627);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(458, 52);
+            this.panel1.Size = new System.Drawing.Size(458, 57);
             this.panel1.TabIndex = 9;
             // 
             // btnCheckOut
             // 
+            this.btnCheckOut.BackColor = System.Drawing.Color.DarkBlue;
+            this.btnCheckOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCheckOut.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnCheckOut.Location = new System.Drawing.Point(855, 634);
+            this.btnCheckOut.ForeColor = System.Drawing.Color.White;
+            this.btnCheckOut.Location = new System.Drawing.Point(833, 633);
             this.btnCheckOut.Name = "btnCheckOut";
-            this.btnCheckOut.Size = new System.Drawing.Size(126, 51);
+            this.btnCheckOut.Size = new System.Drawing.Size(150, 52);
             this.btnCheckOut.TabIndex = 24;
             this.btnCheckOut.Text = "Thanh toán";
-            this.btnCheckOut.UseVisualStyleBackColor = true;
+            this.btnCheckOut.UseVisualStyleBackColor = false;
             this.btnCheckOut.Click += new System.EventHandler(this.btnCheckOut_Click);
             // 
             // edtFoodName
             // 
             this.edtFoodName.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.edtFoodName.Location = new System.Drawing.Point(988, 75);
+            this.edtFoodName.Location = new System.Drawing.Point(988, 74);
             this.edtFoodName.Name = "edtFoodName";
             this.edtFoodName.Size = new System.Drawing.Size(353, 29);
             this.edtFoodName.TabIndex = 25;
@@ -253,19 +268,21 @@ namespace Group7_CoffeeManagement
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.Color.White;
+            this.panelMenu.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelMenu.Location = new System.Drawing.Point(988, 110);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(353, 518);
+            this.panelMenu.Size = new System.Drawing.Size(353, 517);
             this.panelMenu.TabIndex = 26;
             // 
             // mnstrip
             // 
-            this.mnstrip.BackColor = System.Drawing.Color.DarkGoldenrod;
+            this.mnstrip.AllowMerge = false;
+            this.mnstrip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(61)))), ((int)(((byte)(28)))));
             this.mnstrip.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.mnstrip.ForeColor = System.Drawing.Color.White;
             this.mnstrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.historyToolStripMenuItem,
             this.accountToolStripMenuItem});
-            this.mnstrip.ForeColor = Color.White;
             this.mnstrip.Location = new System.Drawing.Point(0, 0);
             this.mnstrip.Name = "mnstrip";
             this.mnstrip.Size = new System.Drawing.Size(1353, 27);
@@ -289,14 +306,29 @@ namespace Group7_CoffeeManagement
             // logOutToolStripMenuItem
             // 
             this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(126, 24);
             this.logOutToolStripMenuItem.Text = "Log out";
+            // 
+            // btnCheckOutDisabled
+            // 
+            this.btnCheckOutDisabled.BackColor = System.Drawing.Color.DarkGray;
+            this.btnCheckOutDisabled.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCheckOutDisabled.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnCheckOutDisabled.ForeColor = System.Drawing.Color.DimGray;
+            this.btnCheckOutDisabled.Location = new System.Drawing.Point(833, 632);
+            this.btnCheckOutDisabled.Name = "btnCheckOutDisabled";
+            this.btnCheckOutDisabled.Size = new System.Drawing.Size(150, 52);
+            this.btnCheckOutDisabled.TabIndex = 28;
+            this.btnCheckOutDisabled.Text = "Thanh toán";
+            this.btnCheckOutDisabled.UseVisualStyleBackColor = false;
             // 
             // frmCoffeeManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(1353, 697);
+            this.Controls.Add(this.btnCheckOutDisabled);
             this.Controls.Add(this.btnRemoveDrinkOut);
             this.Controls.Add(this.panelMenu);
             this.Controls.Add(this.edtFoodName);
@@ -349,5 +381,6 @@ namespace Group7_CoffeeManagement
         private System.Windows.Forms.ToolStripMenuItem historyToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem accountToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem logOutToolStripMenuItem;
+        private System.Windows.Forms.Button btnCheckOutDisabled;
     }
 }

@@ -22,7 +22,7 @@ namespace Group7_CoffeeManagement.CustomView.OrderListView
         protected override OrderListItem mapDataToItemView(TblOrderDetail data)
         {
             var itemView = new OrderListItem(data);
-
+            itemView.Width = panel.Width - 8;
             return itemView;
         }
 

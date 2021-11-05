@@ -125,8 +125,13 @@ namespace Group7_CoffeeManagement.CustomView.Abstraction
             }
         }
 
-        public void changeFocus(ItemView focusedItem)
+        public void changeFocus (ItemView focusedItem)
         {
+            if (focusedItem == CurrentItemView)
+            {
+                return;
+            }
+
             if (CurrentItemView != null)
             {
                 CurrentItemView.clearFocus();

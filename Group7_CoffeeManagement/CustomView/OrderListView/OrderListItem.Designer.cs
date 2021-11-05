@@ -39,7 +39,6 @@ namespace Group7_CoffeeManagement.CustomView.OrderListView
             // 
             // txtFoodName
             // 
-            this.txtFoodName.AutoSize = true;
             this.txtFoodName.Location = new System.Drawing.Point(7, 8);
             this.txtFoodName.Name = "txtFoodName";
             this.txtFoodName.Size = new System.Drawing.Size(0, 15);
@@ -47,31 +46,38 @@ namespace Group7_CoffeeManagement.CustomView.OrderListView
             // 
             // txtDrinkName
             // 
+            this.txtDrinkName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtDrinkName.BackColor = System.Drawing.Color.White;
             this.txtDrinkName.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtDrinkName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtDrinkName.Location = new System.Drawing.Point(3, 7);
+            this.txtDrinkName.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtDrinkName.Location = new System.Drawing.Point(8, 7);
+            this.txtDrinkName.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.txtDrinkName.Name = "txtDrinkName";
             this.txtDrinkName.ReadOnly = true;
-            this.txtDrinkName.Size = new System.Drawing.Size(260, 22);
+            this.txtDrinkName.Size = new System.Drawing.Size(205, 22);
             this.txtDrinkName.TabIndex = 1;
+            this.txtDrinkName.Text = "Food name";
             // 
             // txtDrinkPrice
             // 
+            this.txtDrinkPrice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.txtDrinkPrice.BackColor = System.Drawing.Color.White;
             this.txtDrinkPrice.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtDrinkPrice.Cursor = System.Windows.Forms.Cursors.No;
-            this.txtDrinkPrice.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtDrinkPrice.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtDrinkPrice.Location = new System.Drawing.Point(229, 7);
             this.txtDrinkPrice.Name = "txtDrinkPrice";
             this.txtDrinkPrice.ReadOnly = true;
-            this.txtDrinkPrice.Size = new System.Drawing.Size(128, 22);
+            this.txtDrinkPrice.Size = new System.Drawing.Size(133, 22);
             this.txtDrinkPrice.TabIndex = 2;
+            this.txtDrinkPrice.Text = "30,000";
             // 
             // nudCount
             // 
+            this.nudCount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.nudCount.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.nudCount.Location = new System.Drawing.Point(381, 4);
+            this.nudCount.Location = new System.Drawing.Point(380, 3);
             this.nudCount.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -94,15 +100,19 @@ namespace Group7_CoffeeManagement.CustomView.OrderListView
             // 
             // txtTotal
             // 
+            this.txtTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.txtTotal.BackColor = System.Drawing.Color.White;
             this.txtTotal.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtTotal.Cursor = System.Windows.Forms.Cursors.No;
-            this.txtTotal.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtTotal.Location = new System.Drawing.Point(467, 7);
+            this.txtTotal.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtTotal.Location = new System.Drawing.Point(442, 7);
+            this.txtTotal.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.ReadOnly = true;
-            this.txtTotal.Size = new System.Drawing.Size(118, 22);
+            this.txtTotal.Size = new System.Drawing.Size(145, 22);
             this.txtTotal.TabIndex = 4;
+            this.txtTotal.Text = "120,000";
+            this.txtTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // OrderListItem
             // 
@@ -116,7 +126,8 @@ namespace Group7_CoffeeManagement.CustomView.OrderListView
             this.Controls.Add(this.txtDrinkName);
             this.Controls.Add(this.txtFoodName);
             this.Name = "OrderListItem";
-            this.Size = new System.Drawing.Size(598, 35);
+            this.Padding = new System.Windows.Forms.Padding(0);
+            this.Size = new System.Drawing.Size(598, 36);
             ((System.ComponentModel.ISupportInitialize)(this.nudCount)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
