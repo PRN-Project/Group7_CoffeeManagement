@@ -9,10 +9,11 @@ namespace Group7_CoffeeManagement.Interface
 {
     public interface IStaffRepository
     {
-        public List<TblStaff> GetStaffs();
+        public IEnumerable<TblStaff> GetStaffs();
         public void AddStaff(TblStaff newStaff);
         public void RemoveStaff(int staffID);
         public void UpdateStaff(TblStaff updatedStaff);
         public TblStaff GetStaffByID(int staffID);
+        public IEnumerable<TblStaff> GetStaffByName(string name);
     }
 }

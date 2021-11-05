@@ -10,23 +10,24 @@ namespace Group7_CoffeeManagement.Repository
 {
     public class StaffRepository : IStaffRepository
     {
-        public static CoffeeStoreManagementContext db = new CoffeeStoreManagementContext();
-        public TblStaff GetStaffByID(int staffID) => db.TblStaffs.FirstOrDefault(item => item.UserId == staffID);
-        public List<TblStaff> GetStaffs() => db.TblStaffs.ToList();
+        public CoffeeStoreManagementContext db = new CoffeeStoreManagementContext();
+        public TblStaff GetStaffByID(int staffID) => this.db.TblStaffs.FirstOrDefault(item => item.UserId == staffID);
+        public IEnumerable<TblStaff> GetStaffs() => this.db.TblStaffs.ToList();
         public void AddStaff(TblStaff newStaff)
         {
-            db.TblStaffs.Add(newStaff);
-            db.SaveChanges();
+            this.db.TblStaffs.Add(newStaff);
+            this.db.SaveChanges();
         }
         public void RemoveStaff(int staffID)
         {
-            db.TblStaffs.Remove(db.TblStaffs.FirstOrDefault(item => item.UserId == staffID));
-            db.SaveChanges();
+            this.db.TblStaffs.Remove(this.db.TblStaffs.FirstOrDefault(item => item.UserId == staffID));
+            this.db.SaveChanges();
         }
         public void UpdateStaff(TblStaff updatedStaff)
         {
-            db.TblStaffs.Update(updatedStaff);
-            db.SaveChanges();
+            this.db.TblStaffs.Update(updatedStaff);
+            this.db.SaveChanges();
         }
+        public IEnumerable<TblStaff> GetStaffByName(string name) => this.db.TblStaffs.Where(staff => staff.Name.Contains(name)).ToList();
     }
 }
