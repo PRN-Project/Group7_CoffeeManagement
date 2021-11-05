@@ -14,5 +14,11 @@ namespace Group7_CoffeeManagement.Models
 
         public virtual TblFood Food { get; set; }
         public virtual TblOrder Order { get; set; }
+
+        public bool HasSameFood (TblOrderDetail other)
+        {
+            return other.FoodId == FoodId;
+        }
+
     }
 }

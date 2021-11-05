@@ -90,6 +90,7 @@ namespace Group7_CoffeeManagement.CustomView.Abstraction
             itemViewList.Add(itemView);
             itemView.setManager(this);
             panel.Controls.Add(itemView);
+            onItemAdded?.Invoke(itemView);
         }
 
         virtual public void removeItem(ItemType item)
@@ -112,15 +113,15 @@ namespace Group7_CoffeeManagement.CustomView.Abstraction
             }
 
             itemViewList.Remove(itemView);
+            panel.Controls.Remove(itemView);
+            onItemRemoved?.Invoke(itemView);
         }
 
         public virtual void removeCurrent()
         {
             if (CurrentItemView != null)
             {
-                ItemList.Remove(CurrentItemView);
-                onItemRemoved?.Invoke(CurrentItemView);
-                CurrentItemView = null;
+                removeItem(CurrentItemView);
             }
         }
 

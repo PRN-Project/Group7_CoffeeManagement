@@ -50,8 +50,9 @@ namespace Group7_CoffeeManagement.CustomView.FoodListView
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 31);
             this.btnAdd.TabIndex = 1;
-            this.btnAdd.Text = "Add";
+            this.btnAdd.Text = "Thêm";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Dock = System.Windows.Forms.DockStyle.Right;
             // 
             // FoodListItem
             // 
