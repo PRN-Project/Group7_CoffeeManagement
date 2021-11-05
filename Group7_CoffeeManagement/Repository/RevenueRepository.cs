@@ -13,25 +13,27 @@ namespace Group7_CoffeeManagement.Interface
         
         public TblRevenue GetRevenueOfDay(DateTime date)
         {
-            return this.db.TblRevenues.SingleOrDefault(revenue => revenue.Date.Millisecond == date.Millisecond);
+            return this.db.TblRevenues.SingleOrDefault(revenue => revenue.Date == date);
         }
 
-        public IEnumerable<TblOrder> GetListOrderOfDay (DateTime date) => this.db.TblOrders.Where(order => order.DateTime.Date.Millisecond == date.Date.Millisecond).ToList();
+        public IEnumerable<TblOrder> GetListOrderOfDay (DateTime date) => this.db.TblOrders.Where(order => order.DateTime.Date == date).ToList();
 
-        public void UpdateRevenue(DateTime day, int newAmount)
+        public void UpdateRevenue(TblOrder order)
         {
-            TblRevenue targetRevenue = this.db.TblRevenues.SingleOrDefault(revenue=> revenue.Date.Millisecond == day.Millisecond);
+            TblRevenue targetRevenue = GetRevenueOfDay(order.DateTime);
             if (targetRevenue == null)
             {
                 targetRevenue = new TblRevenue();
                 targetRevenue.Date = DateTime.Today;
-                targetRevenue.Revenue = newAmount;
+                targetRevenue.Revenue = order.TotalPrice;
+                this.db.TblRevenues.Add(targetRevenue);
+                this.db.SaveChanges();
             } else
             {
-                targetRevenue.Revenue += newAmount;
+                targetRevenue.Revenue += order.TotalPrice;
+                this.db.TblRevenues.Update(targetRevenue);
+                this.db.SaveChanges();
             }
-
-            this.db.TblRevenues.Update(targetRevenue);
         }
     }
 }

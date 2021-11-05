@@ -41,7 +41,7 @@ namespace Group7_CoffeeManagement.Revenue
 
         private void btnRevenue_Click(object sender, EventArgs e)
         {
-            decimal revenue = revenueRepository.GetRevenueOfDay(23);
+            TblRevenue revenue = revenueRepository.GetRevenueOfDay(DateTime.Today);
             MessageBox.Show(revenue.ToString());
         }
 

@@ -36,6 +36,8 @@ namespace Group7_CoffeeManagement
         private IOrderRepository orderRepository = new OrderRepository();
 
         private IOrderDetailRepository orderDetailRepository = new OrderDetailRepository();
+
+        private IRevenueRepository revenueRepository = new RevenueRepository();
         
         private OrderListViewManager orderListViewManager;
 
@@ -254,6 +256,7 @@ namespace Group7_CoffeeManagement
                 orderDetailRepository.CheckOut(order, currentCoffeeTable.OrderDetailList);
                 tableListViewManager.CheckOut(currentChosenTable);
                 orderListViewManager.CheckOut();
+                revenueRepository.UpdateRevenue(order);
 
                 frmCheckoutBill frmCheckoutBill = new frmCheckoutBill(order, orderDetailList, LogedInStaff);
                 frmCheckoutBill.ShowDialog();

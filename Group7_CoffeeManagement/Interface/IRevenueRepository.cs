@@ -13,6 +13,6 @@ namespace Group7_CoffeeManagement.Interface
 
         public IEnumerable<TblOrder> GetListOrderOfDay(DateTime date);
 
-        public void UpdateRevenue(DateTime date, int newAmount);
+        public void UpdateRevenue(TblOrder order);
     }
 }
