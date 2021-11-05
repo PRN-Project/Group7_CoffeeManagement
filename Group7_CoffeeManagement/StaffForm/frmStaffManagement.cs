@@ -81,5 +81,21 @@ namespace Group7_CoffeeManagement.StaffForm
         {
             this.Close();
         }
+
+        private void SearchByName_Click(object sender, EventArgs e)
+        {
+            var staffsByName = staffRepository.GetStaffByName(txtName.Text);
+            try
+            {
+                source = new BindingSource();
+                source.DataSource = staffsByName;
+                dgvStaffList.DataSource = null;
+                dgvStaffList.DataSource = source;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Load Staff List By Name");
+            }
+        }
     }
 }
