@@ -7,8 +7,10 @@ using System.Threading.Tasks;
 
 namespace Group7_CoffeeManagement.Interface
 {
-    public interface IFoodRepository
+    interface IOrderDetailRepository
     {
-        List<TblFood> GetFoodList();
+        void Add (TblOrderDetail orderDetail);
+
+        void CheckOut (TblOrder order, List<TblOrderDetail> orderDetailList);
     }
 }

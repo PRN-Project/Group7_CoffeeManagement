@@ -35,6 +35,7 @@ namespace Group7_CoffeeManagement.CustomView.OrderListView
             updateTotalPrice();
             onPriceChange?.Invoke(this);
             this.itemManger.sendTotalPriceChangeEvent(this);
+            this.data.Quantity = (int) nudCount.Value;
         }
 
         internal void plustOneFoodEntity()
@@ -44,8 +45,8 @@ namespace Group7_CoffeeManagement.CustomView.OrderListView
 
         private void updateTotalPrice ()
         {
-            double totalPrice = Double.Parse(txtDrinkPrice.Text);
-            txtTotal.Text = "" + totalPrice * ( (int) nudCount.Value);
+            int totalPrice = (int) Double.Parse(txtDrinkPrice.Text);
+            txtTotal.Text = "" + totalPrice * ((int) nudCount.Value);
         }
 
         public override void onFocus (object sender, EventArgs e)

@@ -1,4 +1,5 @@
 ﻿using Group7_CoffeeManagement.CustomView.Abstraction;
+using Group7_CoffeeManagement.CustomView.FoodListView;
 using Group7_CoffeeManagement.Models;
 using System;
 using System.Collections.Generic;
@@ -25,16 +26,16 @@ namespace Group7_CoffeeManagement.CustomView.FoodListView
             initEvents();
         }
 
-        private void initEvents()
+        private void initEvents ()
         {
-            Click += onFocus;
-            lbFood.Click += onFocus;
-            btnAdd.Click += onFocus;
+            this.Click += onFocus;
+            this.lbFood.Click += onFocus;
+            this.btnAdd.Click += onFocus;
         }
 
-        public void setOnBtnAddClick(EventHandler onBtnClick)
+        public void setOnBtnAddClick (EventHandler onBtnClick)
         {
-            btnAdd.Click += onBtnClick;
+            this.btnAdd.Click += onBtnClick;
         }
 
         public override void bindData(TblFood data)
@@ -55,7 +56,7 @@ namespace Group7_CoffeeManagement.CustomView.FoodListView
 
         public override void setManager(object manager)
         {
-            itemManager = manager as FoodListViewManager;
+            this.itemManager = manager as FoodListViewManager;
         }
 
     }

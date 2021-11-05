@@ -49,7 +49,6 @@ namespace Group7_CoffeeManagement.CustomView.OrderListView
             // 
             this.txtDrinkName.BackColor = System.Drawing.Color.White;
             this.txtDrinkName.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtDrinkName.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtDrinkName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtDrinkName.Location = new System.Drawing.Point(3, 7);
             this.txtDrinkName.Name = "txtDrinkName";

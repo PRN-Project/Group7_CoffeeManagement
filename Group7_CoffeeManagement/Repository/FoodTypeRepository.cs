@@ -12,7 +12,7 @@ namespace Group7_CoffeeManagement.Repository
         public List<TblFoodType> getCustomType()
         {
             List<TblFoodType> customType = new List<TblFoodType>();
-            for (int i = 0; i < 3; i++)
+            for (int i = 1; i < 3; i++)
             {
                 customType.Add(new TblFoodType()
                 {
