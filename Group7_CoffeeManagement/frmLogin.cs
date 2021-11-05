@@ -26,6 +26,7 @@ namespace Group7_CoffeeManagement
         public static frmCoffeeManagement frmManagement = new frmCoffeeManagement();
         public static CoffeeStoreManagementContext db = new CoffeeStoreManagementContext();
         public static AuthRepository repo = new AuthRepository();
+        public static BindingSource idSource = new BindingSource();
         public static BindingSource roleSource = new BindingSource();
 
         private void btnExit_Click(object sender, EventArgs e) => this.Close();
@@ -37,7 +38,10 @@ namespace Group7_CoffeeManagement
             {
                 if (loginUser.Role == 0) roleSource.DataSource = "US";
                 else roleSource.DataSource = "AD";
-                frmManagement.ShowDialog();
+                idSource.DataSource = loginUser.UserId;
+                var frmTest = new StaffForm.frmStaffManagement();
+                frmTest.ShowDialog();
+                //frmManagement.ShowDialog();
             }
         }
     }

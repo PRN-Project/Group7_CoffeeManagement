@@ -16,6 +16,7 @@ namespace Group7_CoffeeManagement.StaffForm
     public partial class frmStaffManagement : Form
     {
         public static BindingSource staffSource = new BindingSource();
+        BindingSource idSource = frmLogin.idSource;
         BindingSource source;
         IStaffRepository staffRepository = new StaffRepository();
         
@@ -59,7 +60,23 @@ namespace Group7_CoffeeManagement.StaffForm
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            staffRepository.RemoveStaff(Int32.Parse(txtId.Text));
+            if (Int32.Parse(idSource.DataSource.ToString()) != Int32.Parse(txtId.Text))
+            {
+                DialogResult dlt = MessageBox.Show("Are you sure delete ?", "Notification", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dlt == DialogResult.Yes)
+                {
+                    if (txtId.Text.Equals(""))
+                    {
+                        MessageBox.Show("Select staff you want to delete");
+                    }
+                    else
+                    {
+                        staffRepository.RemoveStaff(Int32.Parse(txtId.Text));
+                    }
+                }
+            }
+            else MessageBox.Show("You can not delete yourself");
+            
             LoadStaffList();
         }
 
@@ -70,7 +87,7 @@ namespace Group7_CoffeeManagement.StaffForm
                 staffSource.DataSource = staffRepository.GetStaffByID(Int32.Parse(txtId.Text));
                 frmUpdateStaff formUpdate = new frmUpdateStaff();
                 formUpdate.ShowDialog();
-                LoadStaffList();
+                this.Close();
             }
             catch (Exception ex)
             {

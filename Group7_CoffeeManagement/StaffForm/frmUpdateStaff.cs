@@ -43,7 +43,6 @@ namespace Group7_CoffeeManagement.StaffForm
                 MessageBox.Show("Fail");
             }
             else staffRepository.UpdateStaff(staff);
-            this.Close();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

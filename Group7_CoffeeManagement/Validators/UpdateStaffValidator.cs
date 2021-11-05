@@ -1,4 +1,5 @@
 ﻿using FluentValidation;
+using FluentValidation.Results;
 using Group7_CoffeeManagement.Models;
 using System;
 using System.Collections.Generic;
@@ -12,8 +13,44 @@ namespace Group7_CoffeeManagement.Validators
     {
         public UpdateStaffValidator()
         {
-            RuleFor(s => s.UserName).NotEmpty().NotNull().Length(2, 50);
-            RuleFor(s => s.Password).NotEmpty().NotNull().Length(2, 50);
+            RuleFor(s => s.UserName).NotEmpty().NotNull().Length(2, 50).Custom((value, context) =>
+            {
+                bool hasWhiteSpace = false;
+                if (value == null)
+                {
+                    return;
+                }
+                foreach (char c in value)
+                {
+                    if (char.IsWhiteSpace(c))
+                    {
+                        hasWhiteSpace = true;
+                    }
+                }
+                if (hasWhiteSpace)
+                {
+                    context.AddFailure(new ValidationFailure("username", "Can not have white space."));
+                }
+            }); ;
+            RuleFor(s => s.Password).NotEmpty().NotNull().Length(2, 50).Custom((value, context) =>
+            {
+                bool hasWhiteSpace = false;
+                if (value == null)
+                {
+                    return;
+                }
+                foreach (char c in value)
+                {
+                    if (char.IsWhiteSpace(c))
+                    {
+                        hasWhiteSpace = true;
+                    }
+                }
+                if (hasWhiteSpace)
+                {
+                    context.AddFailure(new ValidationFailure("password", "Can not have white space."));
+                }
+            }); ;
             RuleFor(s => s.Name).NotEmpty().NotNull().Length(2, 50);
         }
     }

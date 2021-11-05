@@ -34,12 +34,12 @@ namespace Group7_CoffeeManagement.StaffForm
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnCreate = new System.Windows.Forms.Button();
             this.txtUsername = new System.Windows.Forms.TextBox();
-            this.txtRole = new System.Windows.Forms.TextBox();
             this.txtName = new System.Windows.Forms.TextBox();
             this.lbRole = new System.Windows.Forms.Label();
             this.lbName = new System.Windows.Forms.Label();
             this.lbUsername = new System.Windows.Forms.Label();
             this.lbCreate = new System.Windows.Forms.Label();
+            this.txtRole = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // txtPassword
@@ -93,13 +93,6 @@ namespace Group7_CoffeeManagement.StaffForm
             this.txtUsername.Size = new System.Drawing.Size(275, 23);
             this.txtUsername.TabIndex = 57;
             // 
-            // txtRole
-            // 
-            this.txtRole.Location = new System.Drawing.Point(337, 326);
-            this.txtRole.Name = "txtRole";
-            this.txtRole.Size = new System.Drawing.Size(275, 23);
-            this.txtRole.TabIndex = 56;
-            // 
             // txtName
             // 
             this.txtName.Location = new System.Drawing.Point(337, 273);
@@ -151,17 +144,28 @@ namespace Group7_CoffeeManagement.StaffForm
             this.lbCreate.Text = "Create Staff";
             this.lbCreate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // txtRole
+            // 
+            this.txtRole.FormattingEnabled = true;
+            this.txtRole.Items.AddRange(new object[] {
+            "0",
+            "1"});
+            this.txtRole.Location = new System.Drawing.Point(337, 318);
+            this.txtRole.Name = "txtRole";
+            this.txtRole.Size = new System.Drawing.Size(275, 23);
+            this.txtRole.TabIndex = 65;
+            // 
             // frmCreateStaff
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.txtRole);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.lbPassword);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnCreate);
             this.Controls.Add(this.txtUsername);
-            this.Controls.Add(this.txtRole);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.lbRole);
             this.Controls.Add(this.lbName);
@@ -181,11 +185,11 @@ namespace Group7_CoffeeManagement.StaffForm
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnCreate;
         private System.Windows.Forms.TextBox txtUsername;
-        private System.Windows.Forms.TextBox txtRole;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label lbRole;
         private System.Windows.Forms.Label lbName;
         private System.Windows.Forms.Label lbUsername;
         private System.Windows.Forms.Label lbCreate;
+        private System.Windows.Forms.ComboBox txtRole;
     }
 }
