@@ -39,9 +39,7 @@ namespace Group7_CoffeeManagement
                 if (loginUser.Role == 0) roleSource.DataSource = "US";
                 else roleSource.DataSource = "AD";
                 idSource.DataSource = loginUser.UserId;
-                var frmTest = new StaffForm.frmStaffManagement();
-                frmTest.ShowDialog();
-                //frmManagement.ShowDialog();
+                frmManagement.ShowDialog();
             }
         }
     }
