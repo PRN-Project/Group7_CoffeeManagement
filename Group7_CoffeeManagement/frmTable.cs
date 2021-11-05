@@ -58,7 +58,7 @@ namespace Group7_CoffeeManagement
         {
             if (txtSearch.Text.Equals(""))
             {
-                MessageBox.Show("Enter Search Name");
+                loadTableToGdv();
             }
             else
             {
