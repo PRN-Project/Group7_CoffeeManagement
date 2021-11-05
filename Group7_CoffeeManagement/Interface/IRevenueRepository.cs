@@ -9,7 +9,10 @@ namespace Group7_CoffeeManagement.Interface
 {
     public interface IRevenueRepository
     {
-        public decimal GetRevenueOfDay(int day);
-        public IEnumerable<TblOrder> GetListOrderOfDay(int day);
+        public TblRevenue GetRevenueOfDay(DateTime date);
+
+        public IEnumerable<TblOrder> GetListOrderOfDay(DateTime date);
+
+        public void UpdateRevenue(DateTime date, int newAmount);
     }
 }

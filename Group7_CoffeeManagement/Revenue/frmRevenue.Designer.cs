@@ -74,7 +74,7 @@ namespace Group7_CoffeeManagement.Revenue
             this.dgvOrderList.Name = "dgvOrderList";
             this.dgvOrderList.RowHeadersWidth = 51;
             this.dgvOrderList.RowTemplate.Height = 29;
-            this.dgvOrderList.Size = new System.Drawing.Size(741, 241);
+            this.dgvOrderList.Size = new System.Drawing.Size(779, 241);
             this.dgvOrderList.TabIndex = 35;
             // 
             // frmRevenue

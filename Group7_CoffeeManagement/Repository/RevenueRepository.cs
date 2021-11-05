@@ -10,10 +10,28 @@ namespace Group7_CoffeeManagement.Interface
     public class RevenueRepository : IRevenueRepository
     {
         public CoffeeStoreManagementContext db = new CoffeeStoreManagementContext();
-        public decimal GetRevenueOfDay(int day)
+        
+        public TblRevenue GetRevenueOfDay(DateTime date)
         {
-            return this.db.TblOrders.Where(order => order.DateTime.Day == day).ToList().Sum(order => order.TotalPrice);
+            return this.db.TblRevenues.SingleOrDefault(revenue => revenue.Date.Millisecond == date.Millisecond);
         }
-        public IEnumerable<TblOrder> GetListOrderOfDay(int day) => this.db.TblOrders.Where(order => order.DateTime.Day == day).ToList();
+
+        public IEnumerable<TblOrder> GetListOrderOfDay (DateTime date) => this.db.TblOrders.Where(order => order.DateTime.Date.Millisecond == date.Date.Millisecond).ToList();
+
+        public void UpdateRevenue(DateTime day, int newAmount)
+        {
+            TblRevenue targetRevenue = this.db.TblRevenues.SingleOrDefault(revenue=> revenue.Date.Millisecond == day.Millisecond);
+            if (targetRevenue == null)
+            {
+                targetRevenue = new TblRevenue();
+                targetRevenue.Date = DateTime.Today;
+                targetRevenue.Revenue = newAmount;
+            } else
+            {
+                targetRevenue.Revenue += newAmount;
+            }
+
+            this.db.TblRevenues.Update(targetRevenue);
+        }
     }
 }

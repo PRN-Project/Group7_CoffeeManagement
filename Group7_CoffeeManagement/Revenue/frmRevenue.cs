@@ -25,7 +25,7 @@ namespace Group7_CoffeeManagement.Revenue
 
         public void LoadOrderList()
         {
-            var orders = revenueRepository.GetListOrderOfDay(23);
+            var orders = revenueRepository.GetListOrderOfDay(DateTime.Today);
             try
             {
                 source = new BindingSource();
