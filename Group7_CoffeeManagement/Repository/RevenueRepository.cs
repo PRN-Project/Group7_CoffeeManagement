@@ -10,9 +10,10 @@ namespace Group7_CoffeeManagement.Interface
     public class RevenueRepository : IRevenueRepository
     {
         public CoffeeStoreManagementContext db = new CoffeeStoreManagementContext();
-        public decimal GetListOrderDay(int day)
+        public decimal GetRevenueOfDay(int day)
         {
             return this.db.TblOrders.Where(order => order.DateTime.Day == day).ToList().Sum(order => order.TotalPrice);
         }
+        public IEnumerable<TblOrder> GetListOrderOfDay(int day) => this.db.TblOrders.Where(order => order.DateTime.Day == day).ToList();
     }
 }

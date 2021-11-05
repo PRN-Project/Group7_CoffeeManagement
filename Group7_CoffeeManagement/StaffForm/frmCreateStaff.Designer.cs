@@ -31,8 +31,6 @@ namespace Group7_CoffeeManagement.StaffForm
         {
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.lbPassword = new System.Windows.Forms.Label();
-            this.txtID = new System.Windows.Forms.TextBox();
-            this.lbID = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnCreate = new System.Windows.Forms.Button();
             this.txtUsername = new System.Windows.Forms.TextBox();
@@ -60,23 +58,6 @@ namespace Group7_CoffeeManagement.StaffForm
             this.lbPassword.Size = new System.Drawing.Size(94, 27);
             this.lbPassword.TabIndex = 63;
             this.lbPassword.Text = "Password";
-            // 
-            // txtID
-            // 
-            this.txtID.Location = new System.Drawing.Point(337, 121);
-            this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(275, 23);
-            this.txtID.TabIndex = 62;
-            // 
-            // lbID
-            // 
-            this.lbID.AutoSize = true;
-            this.lbID.Font = new System.Drawing.Font("Segoe UI Emoji", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbID.Location = new System.Drawing.Point(189, 114);
-            this.lbID.Name = "lbID";
-            this.lbID.Size = new System.Drawing.Size(31, 27);
-            this.lbID.TabIndex = 61;
-            this.lbID.Text = "ID";
             // 
             // btnCancel
             // 
@@ -163,7 +144,7 @@ namespace Group7_CoffeeManagement.StaffForm
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lbCreate.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lbCreate.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lbCreate.Location = new System.Drawing.Point(302, 48);
+            this.lbCreate.Location = new System.Drawing.Point(302, 79);
             this.lbCreate.Name = "lbCreate";
             this.lbCreate.Size = new System.Drawing.Size(231, 45);
             this.lbCreate.TabIndex = 50;
@@ -177,8 +158,6 @@ namespace Group7_CoffeeManagement.StaffForm
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.lbPassword);
-            this.Controls.Add(this.txtID);
-            this.Controls.Add(this.lbID);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnCreate);
             this.Controls.Add(this.txtUsername);
@@ -199,8 +178,6 @@ namespace Group7_CoffeeManagement.StaffForm
 
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Label lbPassword;
-        private System.Windows.Forms.TextBox txtID;
-        private System.Windows.Forms.Label lbID;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnCreate;
         private System.Windows.Forms.TextBox txtUsername;

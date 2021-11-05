@@ -31,8 +31,6 @@ namespace Group7_CoffeeManagement.StaffForm
         {
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.lbPassword = new System.Windows.Forms.Label();
-            this.txtID = new System.Windows.Forms.TextBox();
-            this.lbID = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.txtUsername = new System.Windows.Forms.TextBox();
@@ -42,6 +40,8 @@ namespace Group7_CoffeeManagement.StaffForm
             this.lbName = new System.Windows.Forms.Label();
             this.lbUsername = new System.Windows.Forms.Label();
             this.lbUpdate = new System.Windows.Forms.Label();
+            this.txtID = new System.Windows.Forms.TextBox();
+            this.lbID = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtPassword
@@ -60,23 +60,6 @@ namespace Group7_CoffeeManagement.StaffForm
             this.lbPassword.Size = new System.Drawing.Size(94, 27);
             this.lbPassword.TabIndex = 76;
             this.lbPassword.Text = "Password";
-            // 
-            // txtID
-            // 
-            this.txtID.Location = new System.Drawing.Point(337, 121);
-            this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(275, 23);
-            this.txtID.TabIndex = 75;
-            // 
-            // lbID
-            // 
-            this.lbID.AutoSize = true;
-            this.lbID.Font = new System.Drawing.Font("Segoe UI Emoji", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbID.Location = new System.Drawing.Point(189, 114);
-            this.lbID.Name = "lbID";
-            this.lbID.Size = new System.Drawing.Size(31, 27);
-            this.lbID.TabIndex = 74;
-            this.lbID.Text = "ID";
             // 
             // btnCancel
             // 
@@ -170,6 +153,23 @@ namespace Group7_CoffeeManagement.StaffForm
             this.lbUpdate.Text = "Update Staff";
             this.lbUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // txtID
+            // 
+            this.txtID.Location = new System.Drawing.Point(337, 121);
+            this.txtID.Name = "txtID";
+            this.txtID.Size = new System.Drawing.Size(275, 23);
+            this.txtID.TabIndex = 75;
+            // 
+            // lbID
+            // 
+            this.lbID.AutoSize = true;
+            this.lbID.Font = new System.Drawing.Font("Segoe UI Emoji", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbID.Location = new System.Drawing.Point(189, 114);
+            this.lbID.Name = "lbID";
+            this.lbID.Size = new System.Drawing.Size(31, 27);
+            this.lbID.TabIndex = 74;
+            this.lbID.Text = "ID";
+            // 
             // frmUpdateStaff
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -199,8 +199,6 @@ namespace Group7_CoffeeManagement.StaffForm
 
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Label lbPassword;
-        private System.Windows.Forms.TextBox txtID;
-        private System.Windows.Forms.Label lbID;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.TextBox txtUsername;
@@ -210,5 +208,7 @@ namespace Group7_CoffeeManagement.StaffForm
         private System.Windows.Forms.Label lbName;
         private System.Windows.Forms.Label lbUsername;
         private System.Windows.Forms.Label lbUpdate;
+        private System.Windows.Forms.TextBox txtID;
+        private System.Windows.Forms.Label lbID;
     }
 }

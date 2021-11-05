@@ -29,7 +29,6 @@ namespace Group7_CoffeeManagement.StaffForm
             {
                 TblStaff staff = new TblStaff
                 {
-                    UserId = Int32.Parse(txtID.Text),
                     UserName = txtUsername.Text,
                     Password = txtPassword.Text,
                     Name = txtName.Text,
