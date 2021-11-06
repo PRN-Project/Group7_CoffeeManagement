@@ -13,6 +13,7 @@ using Group7_CoffeeManagement.Validators;
 using Group7_CoffeeManagement.Repository;
 using Group7_CoffeeManagement.Interface;
 using FluentValidation.Results;
+using Group7_CoffeeManagement.form.frmFoodManagement;
 
 namespace Group7_CoffeeManagement
 {
@@ -24,6 +25,7 @@ namespace Group7_CoffeeManagement
         }
 
         public static frmCoffeeManagement frmManagement = new frmCoffeeManagement();
+        public static formFoodManagement frmFood = new formFoodManagement();
         public static CoffeeStoreManagementContext db = new CoffeeStoreManagementContext();
         public static AuthRepository repo = new AuthRepository();
         public static BindingSource roleSource = new BindingSource();
@@ -37,7 +39,7 @@ namespace Group7_CoffeeManagement
             {
                 if (loginUser.Role == 0) roleSource.DataSource = "US";
                 else roleSource.DataSource = "AD";
-                frmManagement.ShowDialog();
+                frmFood.ShowDialog();
             }
         }
     }

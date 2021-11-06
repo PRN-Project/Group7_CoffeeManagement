@@ -1,25 +1,19 @@
 ﻿using Group7_CoffeeManagement.Interface;
 using Group7_CoffeeManagement.Models;
+using Group7_CoffeeManagement.Repository;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Group7_CoffeeManagement
 {
     public partial class frmNewTable : Form
     {
-        public ITableRepository TableRepository { get; set; }
-
+        ITableRepository TableRepository = new TableRepository();
         public frmNewTable()
         {
             InitializeComponent();
+
         }
 
         bool IsNumber(string age)
@@ -54,6 +48,7 @@ namespace Group7_CoffeeManagement
             }
             return msg;
         }
+
         private void btnSave_Click(object sender, EventArgs e)
         {
             string msg = check();
@@ -71,7 +66,7 @@ namespace Group7_CoffeeManagement
                 TableRepository.AddTable(table);
                 MessageBox.Show("Added!");
                 Close();
-            }          
+            }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
