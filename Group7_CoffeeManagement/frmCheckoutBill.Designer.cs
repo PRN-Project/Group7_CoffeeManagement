@@ -1,4 +1,6 @@
 ﻿
+using System;
+
 namespace Group7_CoffeeManagement
 {
     partial class frmCheckoutBill
@@ -29,6 +31,7 @@ namespace Group7_CoffeeManagement
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvOrderDetails = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
@@ -59,9 +62,16 @@ namespace Group7_CoffeeManagement
             this.dgvOrderDetails.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.dgvOrderDetails.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dgvOrderDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvOrderDetails.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgvOrderDetails.Location = new System.Drawing.Point(16, 155);
             this.dgvOrderDetails.MultiSelect = false;
-            this.dgvOrderDetails.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.GraphicsUnit.Point);
             this.dgvOrderDetails.Name = "dgvOrderDetails";
             this.dgvOrderDetails.ReadOnly = true;
             this.dgvOrderDetails.RowHeadersVisible = false;
@@ -84,7 +94,7 @@ namespace Group7_CoffeeManagement
             // 
             this.txtDate.AutoSize = true;
             this.txtDate.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtDate.Location = new System.Drawing.Point(96, 48);
+            this.txtDate.Location = new System.Drawing.Point(97, 48);
             this.txtDate.Name = "txtDate";
             this.txtDate.Size = new System.Drawing.Size(94, 21);
             this.txtDate.TabIndex = 3;
@@ -94,7 +104,7 @@ namespace Group7_CoffeeManagement
             // 
             this.txtStaffName.AutoSize = true;
             this.txtStaffName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtStaffName.Location = new System.Drawing.Point(104, 83);
+            this.txtStaffName.Location = new System.Drawing.Point(104, 85);
             this.txtStaffName.Name = "txtStaffName";
             this.txtStaffName.Size = new System.Drawing.Size(144, 21);
             this.txtStaffName.TabIndex = 5;
@@ -104,7 +114,7 @@ namespace Group7_CoffeeManagement
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(14, 83);
+            this.label5.Location = new System.Drawing.Point(14, 85);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(86, 21);
             this.label5.TabIndex = 4;
@@ -128,6 +138,7 @@ namespace Group7_CoffeeManagement
             this.btnPrintBill.Size = new System.Drawing.Size(110, 37);
             this.btnPrintBill.TabIndex = 7;
             this.btnPrintBill.Text = "In hóa đơn";
+            this.btnPrintBill.Click += btnPrintBill_Clicked;
             this.btnPrintBill.UseVisualStyleBackColor = true;
             // 
             // label7
@@ -185,6 +196,7 @@ namespace Group7_CoffeeManagement
             this.PerformLayout();
 
         }
+
 
         #endregion
 

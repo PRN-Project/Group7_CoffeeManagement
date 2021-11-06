@@ -109,7 +109,7 @@ namespace Group7_CoffeeManagement.form.frmFoodTypeManagement
             this.dgvCategory.Name = "dgvCategory";
             this.dgvCategory.RowHeadersWidth = 51;
             this.dgvCategory.RowTemplate.Height = 29;
-            this.dgvCategory.Size = new System.Drawing.Size(894, 272);
+            this.dgvCategory.Size = new System.Drawing.Size(894, 495);
             this.dgvCategory.TabIndex = 60;
             // 
             // formFoodType
@@ -117,7 +117,7 @@ namespace Group7_CoffeeManagement.form.frmFoodTypeManagement
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(919, 455);
+            this.ClientSize = new System.Drawing.Size(919, 678);
             this.Controls.Add(this.dgvCategory);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnUpdate);

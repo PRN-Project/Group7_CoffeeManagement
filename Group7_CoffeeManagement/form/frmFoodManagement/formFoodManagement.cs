@@ -25,8 +25,16 @@ namespace Group7_CoffeeManagement.form.frmFoodManagement
             InitializeComponent();
             getComboboxValue();
             cmbSearchType.DropDownStyle = ComboBoxStyle.DropDownList;
+            this.VisibleChanged += onVisibleChanged;
         }
 
+        private void onVisibleChanged(object sender, EventArgs e)
+        {
+            if (this.Visible == true)
+            {
+                RefreshFoodList();
+            }
+        }
 
         #region methods
 

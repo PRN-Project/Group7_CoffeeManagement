@@ -54,6 +54,8 @@ namespace Group7_CoffeeManagement.ViewModel
 
         public TblTable Table { get; set; }
 
+        public string TableName { get { return Table.Name; } }
+
         public CoffeeTable(TblTable tableId)
         {
             Table = tableId;

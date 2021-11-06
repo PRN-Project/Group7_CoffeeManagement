@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Group7_CoffeeManagement.Utils;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 
@@ -19,7 +20,7 @@ namespace Group7_CoffeeManagement.Models
         public int TypeId { get; set; }
 
         public string DisplayedPrice { get {
-                return String.Format(CultureInfo.InvariantCulture, "{0:0,0}", Price);    
+                return Price.ToDisplayText();    
             }
         }
 

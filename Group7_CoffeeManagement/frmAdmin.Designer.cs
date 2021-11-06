@@ -36,6 +36,8 @@ namespace Group7_CoffeeManagement
             this.bànToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nhânViênToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.doanhThuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tàiKhoảnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -46,7 +48,8 @@ namespace Group7_CoffeeManagement
             this.menuToolStripMenuItem,
             this.bànToolStripMenuItem,
             this.nhânViênToolStripMenuItem,
-            this.doanhThuToolStripMenuItem});
+            this.doanhThuToolStripMenuItem,
+            this.tàiKhoảnToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(929, 29);
@@ -65,15 +68,15 @@ namespace Group7_CoffeeManagement
             // quảnLíMenuToolStripMenuItem
             // 
             this.quảnLíMenuToolStripMenuItem.Name = "quảnLíMenuToolStripMenuItem";
-            this.quảnLíMenuToolStripMenuItem.Size = new System.Drawing.Size(264, 26);
-            this.quảnLíMenuToolStripMenuItem.Text = "Quản lí Món ăn";
+            this.quảnLíMenuToolStripMenuItem.Size = new System.Drawing.Size(206, 26);
+            this.quảnLíMenuToolStripMenuItem.Text = "Quản lí Menu";
             this.quảnLíMenuToolStripMenuItem.Click += new System.EventHandler(this.manageMenuToolStripMenuItem_Click);
             // 
             // quảnLíDanhMụcToolStripMenuItem
             // 
             this.quảnLíDanhMụcToolStripMenuItem.Name = "quảnLíDanhMụcToolStripMenuItem";
-            this.quảnLíDanhMụcToolStripMenuItem.Size = new System.Drawing.Size(264, 26);
-            this.quảnLíDanhMụcToolStripMenuItem.Text = "Quản lí Danh mục món ăn";
+            this.quảnLíDanhMụcToolStripMenuItem.Size = new System.Drawing.Size(206, 26);
+            this.quảnLíDanhMụcToolStripMenuItem.Text = "Quản lí Danh mục";
             this.quảnLíDanhMụcToolStripMenuItem.Click += new System.EventHandler(this.manageFoodTypeToolStripMenuItem_Click);
             // 
             // bànToolStripMenuItem
@@ -88,18 +91,35 @@ namespace Group7_CoffeeManagement
             this.nhânViênToolStripMenuItem.Name = "nhânViênToolStripMenuItem";
             this.nhânViênToolStripMenuItem.Size = new System.Drawing.Size(94, 25);
             this.nhânViênToolStripMenuItem.Text = "Nhân viên";
+            this.nhânViênToolStripMenuItem.Click += new System.EventHandler(this.staffToolStripMenuItem_Click);
             // 
             // doanhThuToolStripMenuItem
             // 
             this.doanhThuToolStripMenuItem.Name = "doanhThuToolStripMenuItem";
             this.doanhThuToolStripMenuItem.Size = new System.Drawing.Size(97, 25);
             this.doanhThuToolStripMenuItem.Text = "Doanh thu";
+            this.doanhThuToolStripMenuItem.Click += new System.EventHandler(this.revenueToolStripMenuItem_Click);
+            // 
+            // tàiKhoảnToolStripMenuItem
+            // 
+            this.tàiKhoảnToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.exitToolStripMenuItem});
+            this.tàiKhoảnToolStripMenuItem.Name = "tàiKhoảnToolStripMenuItem";
+            this.tàiKhoảnToolStripMenuItem.Size = new System.Drawing.Size(89, 25);
+            this.tàiKhoảnToolStripMenuItem.Text = "Tài khoản";
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(153, 26);
+            this.exitToolStripMenuItem.Text = "Đăng xuất";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // frmAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(929, 691);
+            this.ClientSize = new System.Drawing.Size(929, 741);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmAdmin";
@@ -120,5 +140,7 @@ namespace Group7_CoffeeManagement
         private System.Windows.Forms.ToolStripMenuItem bànToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem nhânViênToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem doanhThuToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tàiKhoảnToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
     }
 }
