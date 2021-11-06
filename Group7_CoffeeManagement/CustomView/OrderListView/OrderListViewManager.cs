@@ -1,5 +1,7 @@
 ﻿using Group7_CoffeeManagement.CustomView.Abstraction;
 using Group7_CoffeeManagement.Models;
+using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace Group7_CoffeeManagement.CustomView.OrderListView
@@ -20,7 +22,7 @@ namespace Group7_CoffeeManagement.CustomView.OrderListView
         protected override OrderListItem mapDataToItemView(TblOrderDetail data)
         {
             var itemView = new OrderListItem(data);
-
+            itemView.Width = panel.Width - 8;
             return itemView;
         }
 
@@ -42,7 +44,7 @@ namespace Group7_CoffeeManagement.CustomView.OrderListView
         {
             foreach (OrderListItem item in ItemList)
             {
-                if (item.data.Equals(data))
+                if (item.data.HasSameFood(data))
                 {
                     return item;
                 }
@@ -67,6 +69,11 @@ namespace Group7_CoffeeManagement.CustomView.OrderListView
             {
                 return 0;
             }
+        }
+
+        public void CheckOut()
+        {
+            setData(new List<TblOrderDetail>());
         }
     }
 }

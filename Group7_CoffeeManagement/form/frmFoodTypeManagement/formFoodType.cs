@@ -16,98 +16,42 @@ namespace Group7_CoffeeManagement.form.frmFoodTypeManagement
     public partial class formFoodType : Form
     {
         private IFoodTypeRepository foodTypeRepo = new FoodTypeRepository();
-        private CoffeeStoreManagementContext db = new CoffeeStoreManagementContext();
         private BindingSource bindingSource;
         public formFoodType()
         {
             InitializeComponent();
-            cmbName.DropDownStyle = ComboBoxStyle.DropDownList;
-            //dtgvData.Columns["TblFoods"].Visible = false;
-            getComboboxValue();
-            txtId.Visible = false;
-            btnSearchId.Visible = false;
+            bindingSource = new BindingSource();
+            this.dgvCategory.DataSource = bindingSource;
+            RefreshFoodTypeList();
+            setUpDataGridview();
         }
 
         #region methods
-        public void LoadFoodTypeList()
+        public void RefreshFoodTypeList()
         {
             try
             {
-                var foods = foodTypeRepo.GetFoodTypeList();
-                bindingSource = new BindingSource();
-                bindingSource.DataSource = foods;
-                dtgvData.DataSource = null;
-                dtgvData.DataSource = bindingSource;
-
+                var foodTypeList = foodTypeRepo.GetFoodTypeList();
+                bindingSource.DataSource = foodTypeList;
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error get food type list");
-            }
-        }
-
-        public void AddFoodType()
-        {
-            formAddFoodType frm = new formAddFoodType();
-            frm.Show();
-        }
-
-        public void LoadFoodTypeById(int id)
-        {
-            var foodType = foodTypeRepo.GetFoodTypeByID(id);
-            try
-            {
-                bindingSource = new BindingSource();
-                bindingSource.DataSource = foodType;
-                dtgvData.DataSource = null;
-                dtgvData.DataSource = bindingSource;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error Load Food Type By ID");
+                MessageBox.Show(ex.Message, "Xảy ra lỗi khi tải danh mục");
             }
         }
 
         public void LoadFoodTypeListByName(string name)
         {
-            var foodType = foodTypeRepo.GetFoodTypeListByName(name);
             try
             {
-                bindingSource = new BindingSource();
+                var foodType = foodTypeRepo.GetFoodTypeListByName(name);
                 bindingSource.DataSource = foodType;
-                dtgvData.DataSource = null;
-                dtgvData.DataSource = bindingSource;
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error Load Food Type By Name");
             }
         }
-
-        public void LoadFoodTypeListByType(int id)
-        {
-            try
-            {
-                
-                var foodTypeList = foodTypeRepo.GetFoodTypeListByType(id);
-                bindingSource = new BindingSource();
-                bindingSource.DataSource = foodTypeList;
-                dtgvData.DataSource = null;
-                dtgvData.DataSource = bindingSource;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error Load Product By Type");
-            }
-        }
-
-        public void getComboboxValue()
-        {
-            cmbName.DataSource = foodTypeRepo.GetAll();
-            cmbName.DisplayMember = "Description";
-            cmbName.ValueMember = "TypeId";
-        }
-
 
         #endregion
 
@@ -117,94 +61,65 @@ namespace Group7_CoffeeManagement.form.frmFoodTypeManagement
             try
             {
                 var foodTypes = foodTypeRepo.GetFoodTypeList();
-                bindingSource = new BindingSource();
                 bindingSource.DataSource = foodTypes;
-                dtgvData.DataSource = null;
-                dtgvData.DataSource = bindingSource;
-                //AddBiding();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error: Load Food Type List");
+                MessageBox.Show(ex.Message, "Xảy ra lỗi khi tải danh mục");
             }
         }
+
+        private void setUpDataGridview()
+        {
+            this.dgvCategory.RowHeadersVisible = false;
+            this.dgvCategory.Columns["TypeId"].Visible = false;
+            this.dgvCategory.Columns["TblFoods"].Visible = false;
+            this.dgvCategory.Columns["Description"].HeaderText = "Tên";
+            this.dgvCategory.Columns["Description"].HeaderCell.Style.Font = new Font("Segoe UI Semibold", 12F, GraphicsUnit.Point); 
+        }
+
+        #endregion
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            AddFoodType();
-            LoadFoodTypeList();
-        }
-
-        private void dtgvData_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            txtId.Text = dtgvData.Rows[e.RowIndex].Cells[0].Value.ToString();
-        }
-
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-            DialogResult dlr = MessageBox.Show("Are you sure to delete this food?", "Notification",
-                                               MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (dlr == DialogResult.Yes)
+            formAddFoodType frm = new formAddFoodType();
+            var addResult = frm.ShowDialog();
+            if (addResult == DialogResult.OK)
             {
-                if (txtId.Text.Equals(""))
-                {
-                    MessageBox.Show("SELECT ID FOOD THAT YOU WANT TO DELETE");
-                }
-                else
-                {
-                    foodTypeRepo.RemoveFoodType(Int32.Parse(txtId.Text));
-
-                }
+                RefreshFoodTypeList();
             }
-        }
-
-        private void btnLoad_Click(object sender, EventArgs e)
-        {
-            LoadFoodTypeList();
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            if (txtId.Text.Equals(""))
+            var chosenFoodType = bindingSource.Current as TblFoodType;
+            if (chosenFoodType != null)
             {
-                MessageBox.Show("SELECT ID FOOD THAT YOU WANT TO UPDATE");
-            }
-            else
+                formUpdateFoodType frm = new formUpdateFoodType(chosenFoodType);
+                var updateResult = frm.ShowDialog();
+                if (updateResult == DialogResult.OK)
+                {
+                    RefreshFoodTypeList();
+                }
+            }  else
             {
-                formUpdateFoodType frm = new formUpdateFoodType(Int32.Parse(txtId.Text));
-                frm.Show();
+                MessageBox.Show("Bạn phải chọn một danh mục để cập nhật", "Chú ý");
             }
+           
         }
 
-        private void btnSearchId_Click(object sender, EventArgs e)
+        private void txtSearchName_TextChanged(object sender, EventArgs e)
         {
-            try
+            string keyword = txtSearchName.Text;
+
+            if (keyword.Length > 0)
             {
-                int foodTypeId = Int32.Parse(txtId.Text);
-                LoadFoodTypeById(foodTypeId);
-            }
-            catch (Exception ex)
+                LoadFoodTypeListByName(keyword);
+
+            } else
             {
-                MessageBox.Show(ex.Message, "Error Search Food Type By ID:");
+                RefreshFoodTypeList();
             }
-        }
-
-        private void btnSearchName_Click(object sender, EventArgs e)
-        {
-            int typeId = int.Parse(cmbName.SelectedValue.ToString());
-            if (cmbName.SelectedItem.ToString() != null)
-            {
-                LoadFoodTypeListByType(typeId);
-            }
-            else MessageBox.Show("You must choose Type!");
-        }
-
-
-        #endregion
-
-        private void cmbName_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

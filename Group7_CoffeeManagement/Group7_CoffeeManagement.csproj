@@ -7,6 +7,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="form\frmStaffManagement\**" />
+    <Compile Remove="form\frmTableManagement\**" />
+    <EmbeddedResource Remove="form\frmStaffManagement\**" />
+    <EmbeddedResource Remove="form\frmTableManagement\**" />
+    <None Remove="form\frmStaffManagement\**" />
+    <None Remove="form\frmTableManagement\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="FluentValidation" Version="10.3.4" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.11">
       <PrivateAssets>all</PrivateAssets>
@@ -23,11 +32,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CoffeeManagementLibrary\CoffeeManagementLibrary.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="form\frmStaffManagement\" />
-    <Folder Include="form\frmTableManagement\" />
   </ItemGroup>
 
   <ItemGroup>

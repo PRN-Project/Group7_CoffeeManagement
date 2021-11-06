@@ -18,7 +18,5 @@ namespace Group7_CoffeeManagement.Interface
         int GetLastId();
         IEnumerable<TblFood> GetFoodListByName(string name);
         IEnumerable<TblFood> GetFoodListByType(int typeId);
-        
-
     }
 }

@@ -12,8 +12,8 @@ namespace Group7_CoffeeManagement.Validators
     {
         public AuthValidator()
         {
-            RuleFor(s => s.UserName).NotNull().NotEmpty().WithMessage("Can not be empty!");
-            RuleFor(s => s.Password).NotNull().NotEmpty().WithMessage("Can not be empty!");
+            RuleFor(s => s.UserName).NotNull().NotEmpty().WithMessage("Tên tài khoản không được để trống");
+            RuleFor(s => s.Password).NotNull().NotEmpty().WithMessage("Mật khẩu không được để trống");
         }
     }
 }

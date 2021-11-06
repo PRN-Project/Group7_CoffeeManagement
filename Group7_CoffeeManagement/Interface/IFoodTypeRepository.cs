@@ -17,5 +17,6 @@ namespace Group7_CoffeeManagement.Interface
         IEnumerable<TblFoodType> GetFoodTypeListByName(string name);
         IEnumerable<TblFoodType> GetFoodTypeListByType(int typeId);
         IEnumerable<TblFoodType> GetAll();
+        TblFoodType GetFoodTypeByName(string foodTypeName);
     }
 }

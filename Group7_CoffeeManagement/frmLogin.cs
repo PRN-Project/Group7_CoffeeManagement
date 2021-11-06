@@ -10,6 +10,8 @@ using Group7_CoffeeManagement.Models;
 using Group7_CoffeeManagement.Repository;
 using System.Windows.Forms;
 using Group7_CoffeeManagement.Validators;
+using Group7_CoffeeManagement.Repository;
+using Group7_CoffeeManagement.Interface;
 using FluentValidation.Results;
 using Group7_CoffeeManagement.form.frmFoodManagement;
 

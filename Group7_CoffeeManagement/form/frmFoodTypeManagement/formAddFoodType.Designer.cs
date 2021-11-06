@@ -30,97 +30,88 @@ namespace Group7_CoffeeManagement.form.frmFoodTypeManagement
         private void InitializeComponent()
         {
             this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtId = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
-            this.btnSave = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(94, 65);
+            this.label4.Location = new System.Drawing.Point(148, 119);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(261, 45);
+            this.label4.Size = new System.Drawing.Size(215, 37);
             this.label4.TabIndex = 18;
             this.label4.Text = "Thêm danh mục";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
-            // label3
+            // label5
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(43, 253);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(44, 28);
-            this.label3.TabIndex = 17;
-            this.label3.Text = "Tên";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(43, 164);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(67, 28);
-            this.label2.TabIndex = 16;
-            this.label2.Text = "Mã số";
-            // 
-            // txtId
-            // 
-            this.txtId.Location = new System.Drawing.Point(136, 165);
-            this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(188, 27);
-            this.txtId.TabIndex = 14;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label5.Location = new System.Drawing.Point(131, 202);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(37, 21);
+            this.label5.TabIndex = 41;
+            this.label5.Text = "Tên";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(136, 253);
+            this.txtName.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtName.Location = new System.Drawing.Point(136, 238);
+            this.txtName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(188, 27);
-            this.txtName.TabIndex = 19;
-            // 
-            // btnSave
-            // 
-            this.btnSave.BackColor = System.Drawing.Color.IndianRed;
-            this.btnSave.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnSave.Location = new System.Drawing.Point(144, 328);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(74, 37);
-            this.btnSave.TabIndex = 20;
-            this.btnSave.Text = "Thêm";
-            this.btnSave.UseVisualStyleBackColor = false;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            this.txtName.Size = new System.Drawing.Size(258, 29);
+            this.txtName.TabIndex = 40;
+            this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged);
             // 
             // btnExit
             // 
-            this.btnExit.BackColor = System.Drawing.Color.IndianRed;
-            this.btnExit.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnExit.Location = new System.Drawing.Point(250, 328);
+            this.btnExit.BackColor = System.Drawing.Color.Silver;
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExit.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnExit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnExit.Location = new System.Drawing.Point(224, 335);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(74, 37);
-            this.btnExit.TabIndex = 21;
+            this.btnExit.Size = new System.Drawing.Size(82, 38);
+            this.btnExit.TabIndex = 46;
             this.btnExit.Text = "Thoát";
             this.btnExit.UseVisualStyleBackColor = false;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
+            // btnAdd
+            // 
+            this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(87)))), ((int)(((byte)(87)))));
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdd.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnAdd.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnAdd.Location = new System.Drawing.Point(312, 335);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(82, 38);
+            this.btnAdd.TabIndex = 45;
+            this.btnAdd.Text = "Thêm";
+            this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
             // formAddFoodType
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(436, 487);
+            this.ClientSize = new System.Drawing.Size(549, 489);
             this.Controls.Add(this.btnExit);
-            this.Controls.Add(this.btnSave);
+            this.Controls.Add(this.btnAdd);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtId);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "formAddFoodType";
             this.Text = "formAddFoodType";
-            this.Load += new System.EventHandler(this.formAddFoodType_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -129,11 +120,9 @@ namespace Group7_CoffeeManagement.form.frmFoodTypeManagement
         #endregion
 
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtId;
+        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtName;
-        private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.Button btnAdd;
     }
 }

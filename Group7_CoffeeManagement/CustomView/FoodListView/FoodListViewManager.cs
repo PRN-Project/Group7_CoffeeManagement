@@ -26,6 +26,7 @@ namespace Group7_CoffeeManagement.CustomView.FoodListView
         protected override FoodListItem mapDataToItemView(TblFood data)
         {
             FoodListItem itemView = new FoodListItem(data);
+            itemView.Width = panel.Width - 10;
             itemView.setOnBtnAddClick(onBtnClick);
             return itemView;
         }

@@ -20,17 +20,13 @@ namespace Group7_CoffeeManagement.form.frmFoodManagement
             getComboboxValue();
             txtId.ReadOnly = true;
         }
-
-
         public void getComboboxValue()
         {
             
             TblFood food = foodRepository.GetFoodByID(foodId);
             int id = food.TypeId;
             TblFoodType foodType = foodTypeRepo.GetFoodTypeByID(id);
-            //int typeId = food.TypeId;
             string value = foodType.Description.ToString();
-            //cmbType.Items(food.Description);
             cmbType.DataSource = foodTypeRepo.GetAll();
             cmbType.DisplayMember = "Description";
             cmbType.ValueMember = "TypeId";
@@ -71,7 +67,8 @@ namespace Group7_CoffeeManagement.form.frmFoodManagement
                     TypeId = typeId
                 };
                 foodRepository.UpdateFood(food);
-                //MessageBox.Show("Update Successfully!");
+                MessageBox.Show("Cập nhật món ăn thành công");
+                DialogResult = DialogResult.OK;
                 this.Close();
             }
             catch (Exception ex)

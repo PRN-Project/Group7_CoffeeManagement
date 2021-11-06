@@ -1,3 +1,4 @@
+using Group7_CoffeeManagement.Revenue;
 
 using Group7_CoffeeManagement.form.frmFoodManagement;
 using Group7_CoffeeManagement.form.frmFoodTypeManagement;
@@ -20,7 +21,7 @@ namespace Group7_CoffeeManagement
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new formFoodType());
+            Application.Run(new frmAdmin());
         }
     }
 }

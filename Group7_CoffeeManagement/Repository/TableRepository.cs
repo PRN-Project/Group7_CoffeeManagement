@@ -26,7 +26,7 @@ namespace Group7_CoffeeManagement.Repository
         }
 
         public TblTable GetTableByID(int tableId) => db.TblTables.FirstOrDefault(item => item.TableId == tableId);
-        public TblTable GetTableByName(string name) => db.TblTables.FirstOrDefault(item => item.Name == name);
+        public IEnumerable<TblTable> GetTableByName(string name) => db.TblTables.Where(item => item.Name.Contains(name));
         public void AddTable(TblTable table)
         {
             db.TblTables.Add(table);
@@ -66,6 +66,11 @@ namespace Group7_CoffeeManagement.Repository
         {
             db.TblTables.Update(table);
             db.SaveChanges();
+        }
+
+        public IEnumerable<TblTable> LoadTableByStatus(int status)
+        {
+            return db.TblTables.Where(table => table.Status == status);
         }
     }
 }
