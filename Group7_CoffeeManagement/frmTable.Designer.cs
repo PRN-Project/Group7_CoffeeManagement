@@ -127,9 +127,9 @@ namespace Group7_CoffeeManagement
             this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label5.Location = new System.Drawing.Point(9, 93);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(175, 21);
+            this.label5.Size = new System.Drawing.Size(76, 21);
             this.label5.TabIndex = 26;
-            this.label5.Text = "Tên món ăn/thức uống";
+            this.label5.Text = "Tìm kiếm";
             // 
             // label2
             // 
