@@ -12,7 +12,7 @@ namespace Group7_CoffeeManagement.Repository
     class FoodRepository : IFoodRepository
     {
         public static CoffeeStoreManagementContext db = new CoffeeStoreManagementContext();
-
+        
         public TblFood GetFoodByID(int foodId)
         {
             using var context = new CoffeeStoreManagementContext();
