@@ -45,6 +45,7 @@ namespace Group7_CoffeeManagement.Repository
                 MessageBox.Show(ex.Message, "Error Remove Food In Menu");
             }
         }
+
         public void UpdateFood(TblFood food)
         {        
             try
