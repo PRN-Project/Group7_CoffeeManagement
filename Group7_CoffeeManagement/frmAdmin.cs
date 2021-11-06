@@ -18,6 +18,8 @@ namespace Group7_CoffeeManagement
 
         private static formFoodType formFoodTypeManagement;
 
+        private static frmTable formTableManagement;
+
         private List<Form> mdiChildren = new List<Form>();
 
         public frmAdmin()
@@ -31,6 +33,7 @@ namespace Group7_CoffeeManagement
         {
             mdiChildren.Add(formFoodManagement);
             mdiChildren.Add(formFoodTypeManagement);
+            mdiChildren.Add(formTableManagement);
         }
 
         private void ShowAForm (Form showedForm)
@@ -51,6 +54,7 @@ namespace Group7_CoffeeManagement
             this.IsMdiContainer = true;
             this.AutoSize = true;
 
+            // FOOD
             formFoodManagement = new formFoodManagement();
             formFoodManagement.FormBorderStyle = FormBorderStyle.None;
             formFoodManagement.Text = "Quản lí Menu";
@@ -61,7 +65,7 @@ namespace Group7_CoffeeManagement
             formFoodManagement.ControlBox = false;
             formFoodManagement.Show();
 
-
+            // FOOD TYPE
             formFoodTypeManagement = new formFoodType();
             formFoodTypeManagement.FormBorderStyle = FormBorderStyle.None;
             formFoodTypeManagement.Text = "Quản lí Menu";
@@ -70,6 +74,16 @@ namespace Group7_CoffeeManagement
             formFoodTypeManagement.Left = 0;
             formFoodTypeManagement.Top = 0;
             formFoodTypeManagement.ControlBox = false;
+
+            // TABLE
+            formTableManagement = new frmTable();
+            formTableManagement.FormBorderStyle = FormBorderStyle.None;
+            formTableManagement.Text = "Quản lí Menu";
+            formTableManagement.MdiParent = this;
+            formTableManagement.StartPosition = FormStartPosition.Manual;
+            formTableManagement.Left = 0;
+            formTableManagement.Top = 0;
+            formTableManagement.ControlBox = false;
 
         }
 
@@ -81,6 +95,11 @@ namespace Group7_CoffeeManagement
         private void manageFoodTypeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ShowAForm(formFoodTypeManagement);
+        }
+
+        private void manageTableToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowAForm(formTableManagement);
         }
     }
 }

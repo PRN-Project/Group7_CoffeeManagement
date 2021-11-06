@@ -81,6 +81,7 @@ namespace Group7_CoffeeManagement
             this.bànToolStripMenuItem.Name = "bànToolStripMenuItem";
             this.bànToolStripMenuItem.Size = new System.Drawing.Size(49, 25);
             this.bànToolStripMenuItem.Text = "Bàn";
+            this.bànToolStripMenuItem.Click += new System.EventHandler(this.manageTableToolStripMenuItem_Click);
             // 
             // nhânViênToolStripMenuItem
             // 
