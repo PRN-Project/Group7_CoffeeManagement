@@ -1,5 +1,7 @@
 ﻿using Group7_CoffeeManagement.form.frmFoodManagement;
 using Group7_CoffeeManagement.form.frmFoodTypeManagement;
+using Group7_CoffeeManagement.Revenue;
+using Group7_CoffeeManagement.StaffForm;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,6 +22,10 @@ namespace Group7_CoffeeManagement
 
         private static frmTable formTableManagement;
 
+        private static frmStaffManagement formStaffManagement;
+
+        private static frmRevenue formRevenueManagement;
+
         private List<Form> mdiChildren = new List<Form>();
 
         public frmAdmin()
@@ -27,13 +33,18 @@ namespace Group7_CoffeeManagement
             InitializeComponent();
             SetUpMDI();
             SetUpFormList();
+            this.BackColor = Color.White;
         }
+
+
 
         private void SetUpFormList ()
         {
             mdiChildren.Add(formFoodManagement);
             mdiChildren.Add(formFoodTypeManagement);
             mdiChildren.Add(formTableManagement);
+            mdiChildren.Add(formRevenueManagement);
+            mdiChildren.Add(formStaffManagement);
         }
 
         private void ShowAForm (Form showedForm)
@@ -85,6 +96,25 @@ namespace Group7_CoffeeManagement
             formTableManagement.Top = 0;
             formTableManagement.ControlBox = false;
 
+            // STAFF
+            formStaffManagement = new frmStaffManagement();
+            formStaffManagement.FormBorderStyle = FormBorderStyle.None;
+            formStaffManagement.Text = "Quản lí Menu";
+            formStaffManagement.MdiParent = this;
+            formStaffManagement.StartPosition = FormStartPosition.Manual;
+            formStaffManagement.Left = 0;
+            formStaffManagement.Top = 0;
+            formStaffManagement.ControlBox = false;
+
+            // REVENUE
+            formRevenueManagement = new frmRevenue();
+            formRevenueManagement.FormBorderStyle = FormBorderStyle.None;
+            formRevenueManagement.Text = "Quản lí Menu";
+            formRevenueManagement.MdiParent = this;
+            formRevenueManagement.StartPosition = FormStartPosition.Manual;
+            formRevenueManagement.Left = 0;
+            formRevenueManagement.Top = 0;
+            formRevenueManagement.ControlBox = false;
         }
 
         private void manageMenuToolStripMenuItem_Click(object sender, EventArgs e)
@@ -100,6 +130,22 @@ namespace Group7_CoffeeManagement
         private void manageTableToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ShowAForm(formTableManagement);
+        }
+
+        private void revenueToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowAForm(formRevenueManagement);
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.OK;
+            Close();
+        }
+
+        private void staffToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowAForm(formStaffManagement);
         }
     }
 }

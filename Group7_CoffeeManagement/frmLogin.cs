@@ -34,12 +34,36 @@ namespace Group7_CoffeeManagement
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            TblStaff loginUser = repo.checkLogin(txtUsername.Text, txtPassword.Text);
-            if (loginUser != null)
+            TblStaff logedInUser = repo.checkLogin(txtUsername.Text, txtPassword.Text);
+            if (logedInUser != null)
             {
-                if (loginUser.Role == 0) roleSource.DataSource = "US";
-                else roleSource.DataSource = "AD";
-                frmFood.ShowDialog();
+                if (logedInUser.Role == 0)
+                {
+                    frmCoffeeManagement.LogedInStaff = logedInUser;
+                    roleSource.DataSource = "US";
+                    this.Hide();
+                    var logOut = new frmCoffeeManagement().ShowDialog();
+                    if (logOut == DialogResult.OK)
+                    {
+                        this.Show();
+                    } else
+                    {
+                        Application.Exit();
+                    }
+                } else
+                {
+                    roleSource.DataSource = "AD";
+                    this.Hide();
+                    var logOut = new frmAdmin().ShowDialog();
+                    if (logOut == DialogResult.OK)
+                    {
+                        this.Show();
+                    }
+                    else
+                    {
+                        Application.Exit();
+                    }
+                }
             }
         }
     }

@@ -19,7 +19,7 @@ namespace Group7_CoffeeManagement.CustomView
 
         public static readonly Color EMPTY_COLOR = Color.White;
 
-        public static readonly Color NON_EMPTY_COLOR = Color.Blue;
+        public static readonly Color NON_EMPTY_COLOR = Color.DarkCyan;
 
         private Dictionary<Button, CoffeeTable> tableDictionary = new Dictionary<Button, CoffeeTable>();
 
@@ -95,6 +95,15 @@ namespace Group7_CoffeeManagement.CustomView
         {
             tableDictionary[currentChosenTable].OrderDetailList = null;
             currentChosenTable.BackColor = EMPTY_COLOR;
+        }
+
+        public void transferTable(Button tableFrom, Button tableTo)
+        {
+            tableTo.BackColor = NON_EMPTY_COLOR;
+            tableTo.ForeColor = Color.White;
+
+            tableFrom.BackColor = EMPTY_COLOR;
+            tableFrom.ForeColor = Color.Black;
         }
     }
 }

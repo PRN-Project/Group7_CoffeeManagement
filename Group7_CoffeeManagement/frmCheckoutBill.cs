@@ -1,4 +1,5 @@
 ﻿using Group7_CoffeeManagement.Models;
+using Group7_CoffeeManagement.Utils;
 using Group7_CoffeeManagement.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -18,12 +19,26 @@ namespace Group7_CoffeeManagement
         {
             InitializeComponent();
             bindData(order, orderDetailList, staff);
+            setUpDataGridView();
+            this.Text = "Hóa đơn bán hàng";
+            this.label1.Text = "Thanh toán thành công";
+        }
+
+        private void setUpDataGridView()
+        {
+            this.dgvOrderDetails.Columns["FoodName"].HeaderText = "Tên";
+            this.dgvOrderDetails.Columns["Price"].HeaderText = "Giá";
+            this.dgvOrderDetails.Columns["Quantity"].HeaderText = "Số lượng";
+            this.dgvOrderDetails.Columns["TotalPrice"].HeaderText = "Tổng";
         }
 
         private void bindData (TblOrder order, List<TblOrderDetail> orderDetailList, TblStaff staff)
         {
             dgvOrderDetails.DataSource = convertToBillRow(orderDetailList);
-            txtTotalPrice.Text = order.TotalPrice + " vnđ";
+            txtTotalPrice.Text = order.TotalPrice.ToDisplayText();
+
+            txtDate.Text = DateTime.Now.ToString();
+            txtStaffName.Text = staff.Name;
         }
 
         private List<BillRow> convertToBillRow (List<TblOrderDetail> orderDetails) {
@@ -32,10 +47,10 @@ namespace Group7_CoffeeManagement
                result.Add(new BillRow()
                {
                    FoodName = detail.Food.FoodName,
-                   Price = detail.Food.Price,
+                   Price = detail.Food.Price.ToDisplayText(),
                    Quantity = detail.Quantity,
-                   TotalPrice = detail.Quantity * detail.Food.Price
-               })); 
+                   TotalPrice = (detail.Quantity * detail.Food.Price).ToDisplayText()
+               })); ; 
 
             return result;
          }
@@ -43,6 +58,11 @@ namespace Group7_CoffeeManagement
         private void btnExit_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void btnPrintBill_Clicked(object sender, EventArgs e)
+        {
+            MessageBox.Show("Cám ơn đã sử dụng sản phẩm. Tính năng này hiện chưa hỗ trợ");
         }
     }
 }

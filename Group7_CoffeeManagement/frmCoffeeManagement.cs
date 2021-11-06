@@ -19,19 +19,13 @@ namespace Group7_CoffeeManagement
 {
     public partial class frmCoffeeManagement : Form
     {
-        public static TblStaff LogedInStaff = new TblStaff()
-        {
-            UserId = 1,
-            Name = "Robert",
-            UserName = "staff@store",
-            Password = "123"
-        };
+        public static TblStaff LogedInStaff;
 
         private ITableRepository tableRepository = new TableRepository();
 
         private IFoodRepository foodRepository = new FoodRepository();
 
-        private FoodTypeRepository foodTypeRepository = new FoodTypeRepository();
+        private IFoodTypeRepository foodTypeRepository = new FoodTypeRepository();
 
         private IOrderRepository orderRepository = new OrderRepository();
 
@@ -120,6 +114,23 @@ namespace Group7_CoffeeManagement
         {
             if (currentChosenTable == sender)
             {
+                var currentTableInfor = tableDictionary[currentChosenTable];
+                if (currentTableInfor.Status == TableStatus.Empty)
+                {
+                    txtTotalPrice.Text = "_______";
+                    btnUpdateOrder.Text = "Tạo bàn";
+                    btnCheckOut.Hide();
+                    btnCheckOutDisabled.Show();
+                    txtEmpty.Show();
+                }
+                else
+                {
+                    btnUpdateOrder.Text = "Cập nhật";
+                    btnCheckOut.Show();
+                    btnCheckOutDisabled.Hide();
+                    txtTotalPrice.Text = ((int) orderListViewManager.getTotalPrice()) + " vnđ";
+                    txtEmpty.Hide();
+                }
                 return;
             }
 
@@ -198,7 +209,7 @@ namespace Group7_CoffeeManagement
 
         private void initFoodTypeCombobox ()
         {
-            var typeList = foodTypeRepository.getCustomType();
+            var typeList = foodTypeRepository.GetFoodTypeList();
             cbbDrinkType.DataSource = typeList;
         }
 
@@ -285,7 +296,6 @@ namespace Group7_CoffeeManagement
 
         #endregion
 
-
         private void btnUpdateOrder_Click(object sender, EventArgs e)
         {
             updateCurrentTable();
@@ -301,6 +311,7 @@ namespace Group7_CoffeeManagement
                 {
                     currentChosenCoffeeTableInfor.OrderDetailList = orderListData;
                     currentChosenTable.BackColor = TableListViewManager.NON_EMPTY_COLOR;
+                    currentChosenTable.ForeColor = Color.White;
                     isModifyAnOrder = false;
 
                 } else
@@ -354,9 +365,56 @@ namespace Group7_CoffeeManagement
         private void frmCoffeeManagement_Load(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Maximized;
-            this.BackColor = Color.White;
             this.btnCheckOutDisabled.Show();
             this.btnCheckOut.Hide();
+        }
+
+        private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.OK;
+            Close();
+        }
+
+        private void btnTransfer_Clicked(object sender, EventArgs e)
+        {
+            if (currentChosenTable != null)
+            {
+                if (getCoffeeTableInforByButton(currentChosenTable).Status == TableStatus.NonEmpty)
+                {
+                    Dictionary<Button, CoffeeTable> availableTableList = new Dictionary<Button, CoffeeTable>();
+
+                    foreach (KeyValuePair<Button, CoffeeTable> tableInfor in tableDictionary)
+                    {
+                        if (tableInfor.Value.Status == TableStatus.Empty)
+                        {
+                            availableTableList.Add(tableInfor.Key, tableInfor.Value);
+                        }
+                    }
+
+                    frmChooseTargetForm transferTableForm = new frmChooseTargetForm(this, availableTableList, currentChosenTable);
+                    transferTableForm.ShowDialog();
+                } else
+                {
+                    MessageBox.Show("Không thể chuyển bàn trống");
+                }
+            } else
+            {
+                MessageBox.Show("Vui lòng chọn bàn");
+            }
+        }
+
+        public void transferTable (Button targetTable)
+        {
+            var currentCoffeeInfor = getCoffeeTableInforByButton(currentChosenTable);
+            var targetCoffeeInfor = getCoffeeTableInforByButton(targetTable);
+            targetCoffeeInfor.OrderDetailList.AddRange(currentCoffeeInfor.OrderDetailList);
+            currentCoffeeInfor.OrderDetailList = null;
+            tableListViewManager.transferTable(currentChosenTable, targetTable);
+        }
+
+        private CoffeeTable getCoffeeTableInforByButton (Button button)
+        {
+            return tableDictionary[currentChosenTable];
         }
     }
 }

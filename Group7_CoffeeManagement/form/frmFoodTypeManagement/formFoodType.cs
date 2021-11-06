@@ -71,7 +71,10 @@ namespace Group7_CoffeeManagement.form.frmFoodTypeManagement
 
         private void setUpDataGridview()
         {
+            this.dgvCategory.ReadOnly = true;
             this.dgvCategory.RowHeadersVisible = false;
+            this.dgvCategory.AllowUserToAddRows = false;
+
             this.dgvCategory.Columns["TypeId"].Visible = false;
             this.dgvCategory.Columns["TblFoods"].Visible = false;
             this.dgvCategory.Columns["Description"].HeaderText = "Tên";
