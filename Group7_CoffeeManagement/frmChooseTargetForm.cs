@@ -27,14 +27,18 @@ namespace Group7_CoffeeManagement
             dgvTable.DataSource = bindingSource;
             bindingSource.DataSource = availableTableList.Values;
             setUpDataGridView();
+            this.txtTableFrom.Text = currentChosenTable.Text;
         }
 
         private void setUpDataGridView ()
         {
             dgvTable.Columns["TableName"].HeaderCell.Style.Font = new Font("Segoe UI Semibold", 12F, GraphicsUnit.Point);
+            dgvTable.Columns["TableName"].HeaderText = "Tên bàn";
+            dgvTable.RowHeadersVisible = false;
+            dgvTable.ReadOnly = false;
+            dgvTable.AllowUserToAddRows = false;
 
             dgvTable.Columns["Table"].Visible = false;
-            //dgvTable.Columns["OrderDetailList"].Visible = false;
             dgvTable.Columns["Status"].Visible = false;
         }
 
@@ -52,6 +56,7 @@ namespace Group7_CoffeeManagement
                 if (tableButton.Text.Equals(targetTable.TableName))
                 {
                     formMain.transferTable(tableButton);
+                    Close();
                 }
             }
         }

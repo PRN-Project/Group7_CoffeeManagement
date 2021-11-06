@@ -95,6 +95,7 @@ namespace Group7_CoffeeManagement.CustomView
         {
             tableDictionary[currentChosenTable].OrderDetailList = null;
             currentChosenTable.BackColor = EMPTY_COLOR;
+            currentChosenTable.ForeColor = Color.Black;
         }
 
         public void transferTable(Button tableFrom, Button tableTo)

@@ -15,13 +15,14 @@ namespace Group7_CoffeeManagement
 {
     public partial class frmCheckoutBill : Form
     {
-        public frmCheckoutBill(TblOrder order, List<TblOrderDetail> orderDetailList, TblStaff staff)
+        public frmCheckoutBill(TblOrder order, List<TblOrderDetail> orderDetailList, TblStaff staff, string tableName)
         {
             InitializeComponent();
             bindData(order, orderDetailList, staff);
             setUpDataGridView();
             this.Text = "Hóa đơn bán hàng";
             this.label1.Text = "Thanh toán thành công";
+            this.txtTableName.Text = tableName;
         }
 
         private void setUpDataGridView()

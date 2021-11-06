@@ -43,6 +43,8 @@ namespace Group7_CoffeeManagement
             this.label7 = new System.Windows.Forms.Label();
             this.txtTotalPrice = new System.Windows.Forms.Label();
             this.btnExit = new System.Windows.Forms.Button();
+            this.txtTableName = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrderDetails)).BeginInit();
             this.SuspendLayout();
             // 
@@ -70,7 +72,7 @@ namespace Group7_CoffeeManagement
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvOrderDetails.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvOrderDetails.Location = new System.Drawing.Point(16, 155);
+            this.dgvOrderDetails.Location = new System.Drawing.Point(14, 206);
             this.dgvOrderDetails.MultiSelect = false;
             this.dgvOrderDetails.Name = "dgvOrderDetails";
             this.dgvOrderDetails.ReadOnly = true;
@@ -124,7 +126,7 @@ namespace Group7_CoffeeManagement
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(15, 122);
+            this.label6.Location = new System.Drawing.Point(13, 173);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(78, 21);
             this.label6.TabIndex = 6;
@@ -133,19 +135,18 @@ namespace Group7_CoffeeManagement
             // btnPrintBill
             // 
             this.btnPrintBill.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnPrintBill.Location = new System.Drawing.Point(474, 474);
+            this.btnPrintBill.Location = new System.Drawing.Point(472, 525);
             this.btnPrintBill.Name = "btnPrintBill";
             this.btnPrintBill.Size = new System.Drawing.Size(110, 37);
             this.btnPrintBill.TabIndex = 7;
             this.btnPrintBill.Text = "In hóa đơn";
-            this.btnPrintBill.Click += btnPrintBill_Clicked;
             this.btnPrintBill.UseVisualStyleBackColor = true;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(13, 480);
+            this.label7.Location = new System.Drawing.Point(11, 531);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(52, 21);
             this.label7.TabIndex = 8;
@@ -155,7 +156,7 @@ namespace Group7_CoffeeManagement
             // 
             this.txtTotalPrice.AutoSize = true;
             this.txtTotalPrice.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtTotalPrice.Location = new System.Drawing.Point(67, 480);
+            this.txtTotalPrice.Location = new System.Drawing.Point(65, 531);
             this.txtTotalPrice.Name = "txtTotalPrice";
             this.txtTotalPrice.Size = new System.Drawing.Size(99, 21);
             this.txtTotalPrice.TabIndex = 9;
@@ -172,12 +173,34 @@ namespace Group7_CoffeeManagement
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
+            // txtTableName
+            // 
+            this.txtTableName.AutoSize = true;
+            this.txtTableName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtTableName.Location = new System.Drawing.Point(65, 121);
+            this.txtTableName.Name = "txtTableName";
+            this.txtTableName.Size = new System.Drawing.Size(144, 21);
+            this.txtTableName.TabIndex = 12;
+            this.txtTableName.Text = "Huỳnh Minh Phước";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label4.Location = new System.Drawing.Point(14, 121);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(41, 21);
+            this.label4.TabIndex = 11;
+            this.label4.Text = "Bàn:";
+            // 
             // frmCheckoutBill
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(594, 528);
+            this.ClientSize = new System.Drawing.Size(594, 574);
+            this.Controls.Add(this.txtTableName);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.txtTotalPrice);
             this.Controls.Add(this.label7);
@@ -211,5 +234,7 @@ namespace Group7_CoffeeManagement
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label txtTotalPrice;
         private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.Label txtTableName;
+        private System.Windows.Forms.Label label4;
     }
 }

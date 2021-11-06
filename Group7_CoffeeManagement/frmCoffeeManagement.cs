@@ -60,7 +60,6 @@ namespace Group7_CoffeeManagement
 
         private void initTablePanel ()
         {
-            var a = tablePanel;
             panelTables.Padding = new Padding(0);
 
             IEnumerable<TblTable> tableList = tableRepository.GetTableList();
@@ -114,7 +113,7 @@ namespace Group7_CoffeeManagement
         {
             if (currentChosenTable == sender)
             {
-                var currentTableInfor = tableDictionary[currentChosenTable];
+                var currentTableInfor = getCoffeeTableInforByButton(currentChosenTable);
                 if (currentTableInfor.Status == TableStatus.Empty)
                 {
                     txtTotalPrice.Text = "_______";
@@ -153,7 +152,7 @@ namespace Group7_CoffeeManagement
             }
 
             currentChosenTable = sender as Button;
-            var coffeeTableInformation = tableDictionary[sender as Button];
+            var coffeeTableInformation = getCoffeeTableInforByButton(currentChosenTable);
             txtTableName.Text = coffeeTableInformation.Table.Name;
             orderListViewManager.setData(coffeeTableInformation.OrderDetailList);
             currentChosenTable.BackColor = Color.Bisque;
@@ -200,7 +199,7 @@ namespace Group7_CoffeeManagement
 
         private void onTotalPriceChange(OrderListItem item)
         {
-            txtTotalPrice.Text = ((int) orderListViewManager.getTotalPrice()) + " vnđ";
+            txtTotalPrice.Text = ((int)orderListViewManager.getTotalPrice()) + " vnđ";
         }
 
         #endregion
@@ -268,7 +267,12 @@ namespace Group7_CoffeeManagement
         {
             try
             {
-                MessageBox.Show("Bạn muốn thanh toán bàn này?", "Xác nhận thanh toán", MessageBoxButtons.OKCancel);
+                var decision = MessageBox.Show("Bạn muốn thanh toán \"" + currentChosenTable.Text + "\"?", "Xác nhận thanh toán", MessageBoxButtons.OKCancel);
+
+                if (decision != DialogResult.OK)
+                {
+                    return;
+                }
 
                 TblOrder order = new TblOrder();
                 order.DateTime = DateTime.Now;
@@ -285,7 +289,7 @@ namespace Group7_CoffeeManagement
                 orderListViewManager.CheckOut();
                 revenueRepository.UpdateRevenue(order);
 
-                frmCheckoutBill frmCheckoutBill = new frmCheckoutBill(order, orderDetailList, LogedInStaff);
+                frmCheckoutBill frmCheckoutBill = new frmCheckoutBill(order, orderDetailList, LogedInStaff, currentChosenTable.Text);
                 frmCheckoutBill.ShowDialog();
             }
             catch (Exception ex)
@@ -410,11 +414,14 @@ namespace Group7_CoffeeManagement
             targetCoffeeInfor.OrderDetailList.AddRange(currentCoffeeInfor.OrderDetailList);
             currentCoffeeInfor.OrderDetailList = null;
             tableListViewManager.transferTable(currentChosenTable, targetTable);
+
+            currentChosenTable = targetTable;
+            txtTableName.Text = targetTable.Text;
         }
 
         private CoffeeTable getCoffeeTableInforByButton (Button button)
         {
-            return tableDictionary[currentChosenTable];
+            return tableDictionary[button];
         }
     }
 }

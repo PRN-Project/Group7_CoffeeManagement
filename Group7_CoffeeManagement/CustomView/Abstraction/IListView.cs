@@ -91,6 +91,7 @@ namespace Group7_CoffeeManagement.CustomView.Abstraction
             itemView.setManager(this);
             panel.Controls.Add(itemView);
             onItemAdded?.Invoke(itemView);
+            itemView.bindData(data);
         }
 
         virtual public void removeItem(ItemType item)

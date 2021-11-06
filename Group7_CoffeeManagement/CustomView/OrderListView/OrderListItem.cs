@@ -17,7 +17,6 @@ namespace Group7_CoffeeManagement.CustomView.OrderListView
         {
             InitializeComponent();
             this.data = data;
-            bindData(data);
             updateTotalPrice();
             Click += onFocus;
             txtDrinkName.Click += onFocus;
@@ -69,6 +68,7 @@ namespace Group7_CoffeeManagement.CustomView.OrderListView
         {
             txtDrinkPrice.Text = data.Food.Price + "";
             txtDrinkName.Text = data.Food.FoodName;
+            nudCount.Value = data.Quantity;
         }
 
     }
