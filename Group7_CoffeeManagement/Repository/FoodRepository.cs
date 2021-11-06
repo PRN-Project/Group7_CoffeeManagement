@@ -1,5 +1,6 @@
 ﻿using Group7_CoffeeManagement.Interface;
 using Group7_CoffeeManagement.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,7 +33,7 @@ namespace Group7_CoffeeManagement.Repository
             try
             {
                 using var context = new CoffeeStoreManagementContext();
-                foodList = context.TblFoods.ToList();
+                foodList = context.TblFoods.Include(food => food.Type).ToList();
             }
             catch (Exception ex)
             {

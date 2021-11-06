@@ -28,9 +28,7 @@ namespace Group7_CoffeeManagement.form.frmFoodManagement
             TblFood food = foodRepository.GetFoodByID(foodId);
             int id = food.TypeId;
             TblFoodType foodType = foodTypeRepo.GetFoodTypeByID(id);
-            //int typeId = food.TypeId;
             string value = foodType.Description.ToString();
-            //cmbType.Items(food.Description);
             cmbType.DataSource = foodTypeRepo.GetAll();
             cmbType.DisplayMember = "Description";
             cmbType.ValueMember = "TypeId";
@@ -71,7 +69,6 @@ namespace Group7_CoffeeManagement.form.frmFoodManagement
                     TypeId = typeId
                 };
                 foodRepository.UpdateFood(food);
-                //MessageBox.Show("Update Successfully!");
                 this.Close();
             }
             catch (Exception ex)

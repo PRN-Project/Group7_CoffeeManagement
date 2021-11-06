@@ -17,18 +17,14 @@ namespace Group7_CoffeeManagement.form.frmFoodManagement
     {
         private IFoodRepository foodRepository = new FoodRepository();
         private IFoodTypeRepository foodTypeRepo = new FoodTypeRepository();
-        private CoffeeStoreManagementContext db = new CoffeeStoreManagementContext();
-        private BindingSource bindingSource;
+        private BindingSource bindingSource = new BindingSource();
+        private readonly int TYPE_ALL = -100;
 
         public formFoodManagement()
         {
             InitializeComponent();
             getComboboxValue();
             cmbSearchType.DropDownStyle = ComboBoxStyle.DropDownList;
-            txtId.Visible = false;
-            txtSearchId.Visible = false;
-            btnSearchId.Visible = false;
-            //AddBiding();
         }
 
 
@@ -36,24 +32,29 @@ namespace Group7_CoffeeManagement.form.frmFoodManagement
 
         public void getComboboxValue()
         {
-            cmbSearchType.DataSource = foodTypeRepo.GetAll();
+            var foodTypeList = new List<TblFoodType>();
+            foodTypeList.Add(new TblFoodType()
+            {
+                TypeId = TYPE_ALL,
+                Description = "Tất cả"
+            });
+
+            foodTypeList.AddRange(foodTypeRepo.GetAll());
+            cmbSearchType.DataSource = foodTypeList;
             cmbSearchType.DisplayMember = "Description";
             cmbSearchType.ValueMember = "TypeId";
         }
-        public void LoadFoodList()
+
+        public void RefreshFoodList()
         {
             try
             {
                 var foods = foodRepository.GetFoodList();
-                bindingSource = new BindingSource();
                 bindingSource.DataSource = foods;
-                dtgvData.DataSource = null;
-                dtgvData.DataSource = bindingSource;
-
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error get food list");
+                MessageBox.Show(ex.Message, "Đã xảy ra lỗi khi tải danh sách món ăn");
             }
         }
 
@@ -65,35 +66,16 @@ namespace Group7_CoffeeManagement.form.frmFoodManagement
             frm.Show();
         }
 
-        public void LoadFoodListById(int foodId)
-        {
-            var foods = foodRepository.GetFoodByID(foodId);
-            try
-            {
-                bindingSource = new BindingSource();
-                bindingSource.DataSource = foods;
-                dtgvData.DataSource = null;
-                dtgvData.DataSource = bindingSource;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error Load Food By ID");
-            }
-        }
-
         public void LoadFoodListByName(string name)
         {
-            var foodList = foodRepository.GetFoodListByName(name);
             try
             {
-                bindingSource = new BindingSource();
+                var foodList = foodRepository.GetFoodListByName(name);
                 bindingSource.DataSource = foodList;
-                dtgvData.DataSource = null;
-                dtgvData.DataSource = bindingSource;
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error Load Food By Name");
+                MessageBox.Show(ex.Message, "Đã xảy ra lỗi khi tìm kiếm");
             }
         }
 
@@ -102,10 +84,7 @@ namespace Group7_CoffeeManagement.form.frmFoodManagement
             try
             {
                 var foodList = foodRepository.GetFoodListByType(typeId);
-                bindingSource = new BindingSource();
                 bindingSource.DataSource = foodList;
-                dtgvData.DataSource = null;
-                dtgvData.DataSource = bindingSource;
             }
             catch (Exception ex)
             {
@@ -122,113 +101,124 @@ namespace Group7_CoffeeManagement.form.frmFoodManagement
             try
             {
                 var foods = foodRepository.GetFoodList();
-                bindingSource = new BindingSource();
-                bindingSource.DataSource = foods;
-                dtgvData.DataSource = null;
                 dtgvData.DataSource = bindingSource;
-                //AddBiding();
+
+                bindingSource.DataSource = foods;
+                setUpDataGridView();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error: Load Food List");
             }
-
         }
+
+        private void setUpDataGridView ()
+        {
+            this.dtgvData.AllowUserToAddRows = false;
+            this.dtgvData.Columns["FoodId"].HeaderText = "Mã số";
+            this.dtgvData.Columns["FoodName"].HeaderText = "Tên";
+            this.dtgvData.Columns["DisplayedPrice"].HeaderText = "Giá";
+            this.dtgvData.Columns["Type"].HeaderText = "Loại";
+
+            this.dtgvData.Columns["TypeId"].Visible = false;
+            this.dtgvData.Columns["Price"].Visible = false;
+            this.dtgvData.Columns["TblOrderDetails"].Visible = false;
+
+            this.dtgvData.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            this.dtgvData.ReadOnly = true;
+            this.dtgvData.RowHeadersVisible = false;
+        }
+
+
         private void btnAdd_Click(object sender, EventArgs e)
         {
             AddFood();
-            LoadFoodList();
-           // AddBiding();
-
+            RefreshFoodList();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            DialogResult dlr = MessageBox.Show("Are you sure to delete this food?", "Notification",
-                                               MessageBoxButtons.YesNoCancel);
-            if (dlr == DialogResult.Yes)
+            var current = bindingSource.Current as TblFood;
+            if (current == null)
             {
-                if (txtId.Text.Equals(""))
+                if (bindingSource.Count == 0)
                 {
-                    MessageBox.Show("SELECT ID FOOD THAT YOU WANT TO DELETE");
+                    MessageBox.Show("Không có món ăn nào để xóa");
                 }
                 else
                 {
-                    foodRepository.RemoveFood(Int32.Parse(txtId.Text));
-                   
+                    MessageBox.Show("Vui lòng chọn 1 món ăn để xóa");
                 }
+            } else
+            {
+                DialogResult decision = MessageBox.Show("Are you sure to delete this food?", "Notification",
+                                              MessageBoxButtons.YesNo);
+
+                if (decision == DialogResult.Yes)
+                {
+                    foodRepository.RemoveFood(current.FoodId);
+                } 
             }
         }
 
         private void btnReload_Click(object sender, EventArgs e)
         {
-            LoadFoodList();
+            RefreshFoodList();
         }
 
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            if (txtId.Text.Equals(""))
+            var current = bindingSource.Current as TblFood;
+            if (current == null)
             {
-                MessageBox.Show("SELECT ID FOOD THAT YOU WANT TO UPDATE");
+                if (bindingSource.Count == 0)
+                {
+                    MessageBox.Show("Không có món ăn nào để cập nhật");
+                } else
+                {
+                    MessageBox.Show("Vui lòng chọn 1 món ăn để cập nhật");
+                }
             }
             else
             {
-                formUpdateFood frmUpdateFood = new formUpdateFood(Int32.Parse(txtId.Text));
+                formUpdateFood frmUpdateFood = new formUpdateFood(current.FoodId);
                 frmUpdateFood.Show();
             }
         }
-        private void dtgvData_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            txtId.Text = dtgvData.Rows[e.RowIndex].Cells[0].Value.ToString();
-        }
-
-        private void btnSearchId_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                int foodId = Int32.Parse(txtSearchId.Text);
-                LoadFoodListById(foodId);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error Search Food By ID:");
-            }
-        }
-        private void btnSearchName_Click(object sender, EventArgs e)
-        {
-            string foodName = txtSearchName.Text;
-            if (foodName != "")
-            {
-                LoadFoodListByName(foodName);
-            }
-            else MessageBox.Show("Search Name Input can not be empty");
-        }
-
-        private void btnSearchType_Click(object sender, EventArgs e)
-        {
-            //string type = cmbSearchType.SelectedItem.ToString();
-            int typeId = int.Parse(cmbSearchType.SelectedValue.ToString());
-            if (cmbSearchType.SelectedItem.ToString() != null)
-            {
-                LoadFoodListByType(typeId);
-            }
-            else MessageBox.Show("You must choose Type!");
-        }
+ 
         #endregion
 
-        private void txtName_TextChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void txtPrice_TextChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void cmbSearchType_SelectedIndexChanged(object sender, EventArgs e)
         {
+            TblFoodType type = cmbSearchType.SelectedItem as TblFoodType;
+            
+            if (type.TypeId == TYPE_ALL)
+            {
+                RefreshFoodList();
+                return;
+            }
 
+            if (cmbSearchType.SelectedItem.ToString() != null)
+            {
+                LoadFoodListByType(type.TypeId);
+            }
+            else MessageBox.Show("You must choose Type!");
         }
+
+        private void txtSearchName_TextChanged(object sender, System.EventArgs e)
+        {
+            string keyword = txtSearchName.Text;
+            
+            if (keyword.Length == 0)
+            {
+                RefreshFoodList();
+            } else
+            {
+                LoadFoodListByName(keyword);
+            }
+        }
+
     }
 }
