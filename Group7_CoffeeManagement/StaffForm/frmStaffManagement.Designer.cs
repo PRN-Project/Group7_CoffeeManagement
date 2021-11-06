@@ -29,58 +29,46 @@ namespace Group7_CoffeeManagement.StaffForm
         /// </summary>
         private void InitializeComponent()
         {
-            this.dgvStaff = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtSearchName = new System.Windows.Forms.TextBox();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
+            this.dgvStaff = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStaff)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dgvStaff
-            // 
-            this.dgvStaff.BackgroundColor = System.Drawing.SystemColors.InactiveBorder;
-            this.dgvStaff.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvStaff.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.dgvStaff.Location = new System.Drawing.Point(36, 271);
-            this.dgvStaff.Name = "dgvStaff";
-            this.dgvStaff.RowHeadersWidth = 51;
-            this.dgvStaff.RowTemplate.Height = 29;
-            this.dgvStaff.Size = new System.Drawing.Size(1006, 481);
-            this.dgvStaff.TabIndex = 29;
-            this.dgvStaff.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvStaffList_CellMouseClick);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(36, 148);
+            this.label5.Location = new System.Drawing.Point(12, 83);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(140, 28);
+            this.label5.Size = new System.Drawing.Size(108, 21);
             this.label5.TabIndex = 35;
             this.label5.Text = "Tên nhân viên";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(36, 31);
+            this.label1.Location = new System.Drawing.Point(11, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(282, 45);
+            this.label1.Size = new System.Drawing.Size(231, 37);
             this.label1.TabIndex = 33;
             this.label1.Text = "Quản lí nhân viên";
             // 
             // txtSearchName
             // 
             this.txtSearchName.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtSearchName.Location = new System.Drawing.Point(36, 192);
+            this.txtSearchName.Location = new System.Drawing.Point(12, 116);
+            this.txtSearchName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtSearchName.Multiline = true;
             this.txtSearchName.Name = "txtSearchName";
             this.txtSearchName.PlaceholderText = "Nhập tên";
-            this.txtSearchName.Size = new System.Drawing.Size(470, 49);
+            this.txtSearchName.Size = new System.Drawing.Size(412, 38);
             this.txtSearchName.TabIndex = 32;
+            this.txtSearchName.TextChanged += new System.EventHandler(this.txtSearchName_TextChanged);
             // 
             // btnAdd
             // 
@@ -88,12 +76,14 @@ namespace Group7_CoffeeManagement.StaffForm
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnAdd.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnAdd.Location = new System.Drawing.Point(705, 192);
+            this.btnAdd.Location = new System.Drawing.Point(634, 116);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(178, 53);
+            this.btnAdd.Size = new System.Drawing.Size(156, 40);
             this.btnAdd.TabIndex = 31;
             this.btnAdd.Text = "Thêm nhân viên";
             this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnUpdate
             // 
@@ -101,25 +91,42 @@ namespace Group7_CoffeeManagement.StaffForm
             this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdate.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnUpdate.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnUpdate.Location = new System.Drawing.Point(915, 192);
+            this.btnUpdate.Location = new System.Drawing.Point(796, 116);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(127, 53);
+            this.btnUpdate.Size = new System.Drawing.Size(111, 40);
             this.btnUpdate.TabIndex = 30;
             this.btnUpdate.Text = "Cập nhật";
             this.btnUpdate.UseVisualStyleBackColor = false;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click_1);
+            // 
+            // dgvStaff
+            // 
+            this.dgvStaff.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvStaff.BackgroundColor = System.Drawing.Color.White;
+            this.dgvStaff.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvStaff.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.dgvStaff.GridColor = System.Drawing.SystemColors.Control;
+            this.dgvStaff.Location = new System.Drawing.Point(12, 171);
+            this.dgvStaff.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgvStaff.Name = "dgvStaff";
+            this.dgvStaff.RowHeadersWidth = 51;
+            this.dgvStaff.RowTemplate.Height = 29;
+            this.dgvStaff.Size = new System.Drawing.Size(895, 494);
+            this.dgvStaff.TabIndex = 36;
             // 
             // frmStaffManagement
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1080, 784);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(919, 676);
+            this.Controls.Add(this.dgvStaff);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtSearchName);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnUpdate);
-            this.Controls.Add(this.dgvStaff);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "frmStaffManagement";
             this.Text = "frmStaffManagement";
             ((System.ComponentModel.ISupportInitialize)(this.dgvStaff)).EndInit();
@@ -129,11 +136,11 @@ namespace Group7_CoffeeManagement.StaffForm
         }
 
         #endregion
-        private System.Windows.Forms.DataGridView dgvStaff;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtSearchName;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.DataGridView dgvStaff;
     }
 }

@@ -48,12 +48,14 @@ namespace Group7_CoffeeManagement.StaffForm
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExit.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnExit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnExit.Location = new System.Drawing.Point(253, 577);
+            this.btnExit.Location = new System.Drawing.Point(221, 433);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(94, 51);
+            this.btnExit.Size = new System.Drawing.Size(82, 38);
             this.btnExit.TabIndex = 75;
             this.btnExit.Text = "Thoát";
             this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // btnAdd
             // 
@@ -61,41 +63,43 @@ namespace Group7_CoffeeManagement.StaffForm
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnAdd.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnAdd.Location = new System.Drawing.Point(368, 577);
+            this.btnAdd.Location = new System.Drawing.Point(322, 433);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(94, 51);
+            this.btnAdd.Size = new System.Drawing.Size(82, 38);
             this.btnAdd.TabIndex = 74;
             this.btnAdd.Text = "Thêm";
             this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // cmbRole
             // 
             this.cmbRole.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbRole.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cmbRole.FormattingEnabled = true;
-            this.cmbRole.Location = new System.Drawing.Point(118, 501);
+            this.cmbRole.Location = new System.Drawing.Point(103, 376);
+            this.cmbRole.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbRole.Name = "cmbRole";
-            this.cmbRole.Size = new System.Drawing.Size(340, 36);
+            this.cmbRole.Size = new System.Drawing.Size(298, 29);
             this.cmbRole.TabIndex = 73;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(118, 454);
+            this.label7.Location = new System.Drawing.Point(103, 340);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(74, 28);
+            this.label7.Size = new System.Drawing.Size(60, 21);
             this.label7.TabIndex = 72;
             this.label7.Text = "Vai trò";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(118, 363);
+            this.label6.Location = new System.Drawing.Point(103, 272);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(45, 28);
+            this.label6.Size = new System.Drawing.Size(37, 21);
             this.label6.TabIndex = 71;
             this.label6.Text = "Tên";
             // 
@@ -103,20 +107,19 @@ namespace Group7_CoffeeManagement.StaffForm
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(118, 266);
+            this.label5.Location = new System.Drawing.Point(103, 200);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(102, 28);
+            this.label5.Size = new System.Drawing.Size(82, 21);
             this.label5.TabIndex = 70;
             this.label5.Text = "Mật khẩu";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(118, 155);
+            this.label4.Location = new System.Drawing.Point(103, 116);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(152, 28);
+            this.label4.Size = new System.Drawing.Size(123, 21);
             this.label4.TabIndex = 69;
             this.label4.Text = "Tên đăng nhập";
             // 
@@ -124,46 +127,48 @@ namespace Group7_CoffeeManagement.StaffForm
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(161, 72);
+            this.label3.Location = new System.Drawing.Point(141, 54);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(259, 45);
+            this.label3.Size = new System.Drawing.Size(213, 37);
             this.label3.TabIndex = 68;
             this.label3.Text = "Thêm nhân viên";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // txtUsername
             // 
             this.txtUsername.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtUsername.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtUsername.Location = new System.Drawing.Point(118, 204);
+            this.txtUsername.Location = new System.Drawing.Point(103, 153);
+            this.txtUsername.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(340, 34);
+            this.txtUsername.Size = new System.Drawing.Size(298, 29);
             this.txtUsername.TabIndex = 67;
             // 
             // txtPassword
             // 
             this.txtPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtPassword.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtPassword.Location = new System.Drawing.Point(118, 309);
+            this.txtPassword.Location = new System.Drawing.Point(103, 232);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(340, 34);
+            this.txtPassword.Size = new System.Drawing.Size(298, 29);
             this.txtPassword.TabIndex = 66;
             // 
             // txtName
             // 
             this.txtName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtName.Location = new System.Drawing.Point(118, 394);
+            this.txtName.Location = new System.Drawing.Point(103, 296);
+            this.txtName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(340, 34);
+            this.txtName.Size = new System.Drawing.Size(298, 29);
             this.txtName.TabIndex = 65;
             // 
             // frmCreateStaff
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(583, 697);
+            this.ClientSize = new System.Drawing.Size(510, 523);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.cmbRole);
@@ -175,7 +180,6 @@ namespace Group7_CoffeeManagement.StaffForm
             this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtName);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "frmCreateStaff";
             this.Text = "frmCreateStaff";
             this.ResumeLayout(false);

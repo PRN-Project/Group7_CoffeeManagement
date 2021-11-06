@@ -15,79 +15,63 @@ namespace Group7_CoffeeManagement.StaffForm
 {
     public partial class frmStaffManagement : Form
     {
-        public static BindingSource staffSource = new BindingSource();
-        BindingSource source;
-        IStaffRepository staffRepository = new StaffRepository();
+        private BindingSource bindingSource = new BindingSource();
+        private IStaffRepository staffRepository = new StaffRepository();
         
         public frmStaffManagement()
         {
             InitializeComponent();
+            this.dgvStaff.DataSource = bindingSource;
             LoadStaffList();
         }
+
         public void LoadStaffList()
         {
-            var staffs = staffRepository.GetStaffs();
             try
             {
-                source = new BindingSource();
-                source.DataSource = staffs;
-                dgvStaff.DataSource = null;
-                dgvStaff.DataSource = source;
+                var staffs = staffRepository.GetStaffs();
+                bindingSource.DataSource = staffs;
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Load Staff List");
+                MessageBox.Show(ex.Message, "Xảy ra lỗi khi tải thông tin nhân viên");
             }
         }
-
-        private void dgvStaffList_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                DataGridViewRow row = dgvStaff.Rows[e.RowIndex];
-                // ERROR
-                //txtId.Text = row.Cells[0].Value.ToString();
-            }
-        }
-
-        private void btnCreate_Click(object sender, EventArgs e)
+         
+        private void btnAdd_Click(object sender, EventArgs e)
         {
             frmCreateStaff formAddStaff = new frmCreateStaff();
-            formAddStaff.ShowDialog();
-            LoadStaffList();
+            if (formAddStaff.ShowDialog() == DialogResult.OK)
+            {
+                LoadStaffList();
+            }
         }
 
-        private void btnDelete_Click(object sender, EventArgs e)
+        private void txtSearchName_TextChanged(object sender, EventArgs e)
         {
-            //ERROR
-            //staffRepository.RemoveStaff(Int32.Parse(txtId.Text));
-            LoadStaffList();
+            var keyword = txtSearchName.Text;
+            LoadStaffListByName(keyword);
         }
 
-        private void btnUpdate_Click(object sender, EventArgs e)
+        private void LoadStaffListByName(string keyword)
+        {
+            bindingSource.DataSource = staffRepository.GetStaffByName(keyword);
+        }
+
+        private void btnUpdate_Click_1(object sender, EventArgs e)
         {
             try
             {
-                //ERROR
-               // staffSource.DataSource = staffRepository.GetStaffByID(Int32.Parse(txtId.Text));
                 frmUpdateStaff formUpdate = new frmUpdateStaff();
-                formUpdate.ShowDialog();
-                LoadStaffList();
+                if (formUpdate.ShowDialog() == DialogResult.OK)
+                {
+                    LoadStaffList();
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Update Staff");
+                MessageBox.Show(ex.Message, "Xảy ra lỗi khi cập nhật");
             }
-        }
-
-        private void btnSignOut_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

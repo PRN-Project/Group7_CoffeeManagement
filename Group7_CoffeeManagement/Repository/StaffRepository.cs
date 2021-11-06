@@ -11,7 +11,7 @@ namespace Group7_CoffeeManagement.Repository
     public class StaffRepository : IStaffRepository
     {
         public static CoffeeStoreManagementContext db = new CoffeeStoreManagementContext();
-        public TblStaff GetStaffByID(int staffID) => db.TblStaffs.FirstOrDefault(item => item.UserId == staffID);
+        public IEnumerable<TblStaff> GetStaffByName(string Name) => db.TblStaffs.Where(item => item.Name.Contains(Name));
         public List<TblStaff> GetStaffs() => db.TblStaffs.ToList();
         public void AddStaff(TblStaff newStaff)
         {

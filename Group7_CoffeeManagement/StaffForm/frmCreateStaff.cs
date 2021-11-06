@@ -22,8 +22,14 @@ namespace Group7_CoffeeManagement.StaffForm
         {
             InitializeComponent();
         }
+         
 
-        private void btnCreate_Click(object sender, EventArgs e)
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
         {
             try
             {
@@ -32,51 +38,23 @@ namespace Group7_CoffeeManagement.StaffForm
                     UserName = txtUsername.Text,
                     Password = txtPassword.Text,
                     Name = txtName.Text,
-                    //ERROR
-                    //Role = Int32.Parse(txtRole.Text)
+                    Role = 1
                 };
                 ValidationResult result = new CreateStaffValidator().Validate(staff);
                 if (!result.IsValid)
                 {
-                    MessageBox.Show("Fail");
+                    MessageBox.Show("Dữ liệu không hợp lệ!!");
                 }
-                else staffRepository.AddStaff(staff);
-                this.Close();
+                else
+                {
+                    staffRepository.AddStaff(staff);
+                    this.Close();
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error create new staff!");
+                MessageBox.Show(ex.Message, "Lỗi xảy ra khi tạo nhân viên");
             }
-        }
-
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void frmCreateStaff_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtRole_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
