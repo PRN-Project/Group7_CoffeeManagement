@@ -53,19 +53,19 @@ namespace Group7_CoffeeManagement.form.frmFoodManagement
             this.dtgvData.Name = "dtgvData";
             this.dtgvData.RowHeadersWidth = 51;
             this.dtgvData.RowTemplate.Height = 29;
-            this.dtgvData.Size = new System.Drawing.Size(894, 443);
+            this.dtgvData.Size = new System.Drawing.Size(895, 443);
             this.dtgvData.TabIndex = 0;
             // 
             // btnUpdate
             // 
-            this.btnUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.btnUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(87)))), ((int)(((byte)(87)))));
             this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdate.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnUpdate.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnUpdate.Location = new System.Drawing.Point(678, 172);
+            this.btnUpdate.Location = new System.Drawing.Point(678, 171);
             this.btnUpdate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(111, 38);
+            this.btnUpdate.Size = new System.Drawing.Size(111, 40);
             this.btnUpdate.TabIndex = 5;
             this.btnUpdate.Text = "Cập nhật";
             this.btnUpdate.UseVisualStyleBackColor = false;
@@ -73,14 +73,14 @@ namespace Group7_CoffeeManagement.form.frmFoodManagement
             // 
             // btnAdd
             // 
-            this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(87)))), ((int)(((byte)(87)))));
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnAdd.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnAdd.Location = new System.Drawing.Point(561, 172);
+            this.btnAdd.Location = new System.Drawing.Point(561, 171);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(111, 38);
+            this.btnAdd.Size = new System.Drawing.Size(111, 40);
             this.btnAdd.TabIndex = 6;
             this.btnAdd.Text = "Thêm món";
             this.btnAdd.UseVisualStyleBackColor = false;
@@ -88,14 +88,14 @@ namespace Group7_CoffeeManagement.form.frmFoodManagement
             // 
             // btnDelete
             // 
-            this.btnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.btnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(87)))), ((int)(((byte)(87)))));
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDelete.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnDelete.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnDelete.Location = new System.Drawing.Point(795, 172);
+            this.btnDelete.Location = new System.Drawing.Point(795, 171);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(111, 38);
+            this.btnDelete.Size = new System.Drawing.Size(111, 40);
             this.btnDelete.TabIndex = 7;
             this.btnDelete.Text = "Xóa";
             this.btnDelete.UseVisualStyleBackColor = false;
@@ -108,16 +108,15 @@ namespace Group7_CoffeeManagement.form.frmFoodManagement
             this.txtSearchName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtSearchName.Multiline = true;
             this.txtSearchName.Name = "txtSearchName";
+            this.txtSearchName.PlaceholderText = "Nhập tên";
             this.txtSearchName.Size = new System.Drawing.Size(412, 38);
             this.txtSearchName.TabIndex = 9;
-            this.txtSearchName.PlaceholderText = "Nhập tên";
-            this.txtSearchName.TextChanged += txtSearchName_TextChanged;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(4, 9);
+            this.label1.Location = new System.Drawing.Point(7, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(182, 37);
             this.label1.TabIndex = 14;
@@ -126,6 +125,7 @@ namespace Group7_CoffeeManagement.form.frmFoodManagement
             // cmbSearchType
             // 
             this.cmbSearchType.BackColor = System.Drawing.Color.Linen;
+            this.cmbSearchType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbSearchType.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cmbSearchType.FormattingEnabled = true;
             this.cmbSearchType.ItemHeight = 28;
@@ -134,7 +134,6 @@ namespace Group7_CoffeeManagement.form.frmFoodManagement
             this.cmbSearchType.Name = "cmbSearchType";
             this.cmbSearchType.Size = new System.Drawing.Size(412, 36);
             this.cmbSearchType.TabIndex = 21;
-            this.cmbSearchType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbSearchType.SelectedIndexChanged += new System.EventHandler(this.cmbSearchType_SelectedIndexChanged);
             // 
             // label5
@@ -143,7 +142,7 @@ namespace Group7_CoffeeManagement.form.frmFoodManagement
             this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label5.Location = new System.Drawing.Point(10, 144);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(35, 21);
+            this.label5.Size = new System.Drawing.Size(175, 21);
             this.label5.TabIndex = 25;
             this.label5.Text = "Tên món ăn/thức uống";
             // 
@@ -162,7 +161,7 @@ namespace Group7_CoffeeManagement.form.frmFoodManagement
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(918, 678);
+            this.ClientSize = new System.Drawing.Size(919, 678);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.cmbSearchType);

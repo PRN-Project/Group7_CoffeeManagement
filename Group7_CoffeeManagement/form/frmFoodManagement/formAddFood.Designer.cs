@@ -98,7 +98,7 @@ namespace Group7_CoffeeManagement.form.frmFoodManagement
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(187, 60);
+            this.label3.Location = new System.Drawing.Point(186, 57);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(156, 37);
             this.label3.TabIndex = 26;
@@ -137,7 +137,7 @@ namespace Group7_CoffeeManagement.form.frmFoodManagement
             // 
             // btnAdd
             // 
-            this.btnAdd.BackColor = System.Drawing.Color.IndianRed;
+            this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(87)))), ((int)(((byte)(87)))));
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnAdd.ForeColor = System.Drawing.SystemColors.ButtonHighlight;

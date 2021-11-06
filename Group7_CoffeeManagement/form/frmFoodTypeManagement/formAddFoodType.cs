@@ -29,26 +29,23 @@ namespace Group7_CoffeeManagement.form.frmFoodTypeManagement
         private void btnSave_Click(object sender, EventArgs e)
         {
             int foodTypeId = 0;
-            string ftName = null;
+            string foodTypeName = null;
             try
             {
-               if (ftName == "")
+               if (foodTypeName == "")
                 {
-                    MessageBox.Show("You must input name of type!");
-                } else if (txtId.Text == "") {
-                    MessageBox.Show("You must input Id!");
+                    MessageBox.Show("Tên danh mục không được để trống");
                 } else
                 {
-                    ftName = txtName.Text;
-                    foodTypeId = int.Parse(txtId.Text);
-                    TblFoodType ft = foodTypeRepo.GetFoodTypeByID(foodTypeId);
+                    foodTypeName = txtName.Text;
+                    TblFoodType ft = foodTypeRepo.GetFoodTypeByName(foodTypeName);
                     if (ft == null)
                     {
                         TblFoodType foodType = new TblFoodType
                         {
                             //FoodId = int.Parse(txtId.Text),
                             TypeId = foodTypeId,
-                            Description = ftName
+                            Description = foodTypeName
                         };
                         foodTypeRepo.AddFoodType(foodType);
                         this.Close();

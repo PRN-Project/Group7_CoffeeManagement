@@ -11,6 +11,12 @@ namespace Group7_CoffeeManagement.Repository
 {
     class FoodTypeRepository : IFoodTypeRepository
     {
+        private CoffeeStoreManagementContext context;
+
+        public FoodTypeRepository ()
+        {
+            context = new CoffeeStoreManagementContext();
+        }
         public List<TblFoodType> getCustomType()
         {
             List<TblFoodType> customType = new List<TblFoodType>();
@@ -28,7 +34,6 @@ namespace Group7_CoffeeManagement.Repository
 
         public TblFoodType GetFoodTypeByID(int id)
         {
-            using var context = new CoffeeStoreManagementContext();
             //TblFoodType foodType = context.TblFoodTypes.Find(id);
             TblFoodType foodType = context.TblFoodTypes.SingleOrDefault(i => i.TypeId == id);
             if (foodType != null)
@@ -40,91 +45,48 @@ namespace Group7_CoffeeManagement.Repository
 
         public IEnumerable<TblFoodType> GetFoodTypeList()
         {
-            var ftList = new List<TblFoodType>();
-            try
-            {
-                using var context = new CoffeeStoreManagementContext();
-                ftList = context.TblFoodTypes.ToList();
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-            return ftList;
+            return context.TblFoodTypes.ToList(); 
         }
-
 
         public void AddFoodType(TblFoodType food)
         {
-            try
-            {
-                using var context = new CoffeeStoreManagementContext();
-                context.TblFoodTypes.Add(food);
-                context.SaveChanges();
-                MessageBox.Show("Add Successfully");
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
+            context.TblFoodTypes.Add(food);
+            context.SaveChanges();
+            MessageBox.Show("Add Successfully");
         }
+
         public void RemoveFoodType(int id)
         {
-            try
+            TblFoodType foodType = GetFoodTypeByID(id);
+            if (foodType != null)
             {
-                TblFoodType foodType = GetFoodTypeByID(id);
-                if (foodType != null)
-                {
-                    using var context = new CoffeeStoreManagementContext();
-                    context.TblFoodTypes.Remove(foodType);
-                    context.SaveChanges();
-                }
-                else MessageBox.Show("Not Found");
+                context.TblFoodTypes.Remove(foodType);
+                context.SaveChanges();
             }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
+            else MessageBox.Show("Not Found");
         }
 
         public void UpdateFoodType(TblFoodType food)
         {
-            try
+            TblFoodType ftObj = GetFoodTypeByID(food.TypeId);
+            if (ftObj != null)
             {
-                TblFoodType ftObj = GetFoodTypeByID(food.TypeId);
-                if (ftObj != null)
-                {
-                    using var context = new CoffeeStoreManagementContext();
-                    context.TblFoodTypes.Update(food);
-                    context.SaveChanges();
-                    MessageBox.Show("Update Successfully");
-                }
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
+                context.TblFoodTypes.Update(food);
+                context.SaveChanges();
+                MessageBox.Show("Update Successfully");
             }
         }
 
         public IEnumerable<TblFoodType> GetFoodTypeListByName(string name)
         {
             IEnumerable<TblFoodType> ftList = null;
-            try
+            if (name is null || name == "")
             {
-                using var context = new CoffeeStoreManagementContext();
-
-                if (name is null || name == "")
-                {
-                    ftList = context.TblFoodTypes.ToList();
-                }
-                else
-                {
-                    ftList = context.TblFoodTypes.Where(f => f.Description.ToUpper().Contains(name.ToUpper())).ToList();
-                }
+                ftList = context.TblFoodTypes.ToList();
             }
-            catch (Exception ex)
+            else
             {
-                throw new Exception(ex.Message);
+                ftList = context.TblFoodTypes.Where(f => f.Description.ToUpper().Contains(name.ToUpper())).ToList();
             }
             return ftList;
         }
@@ -132,23 +94,19 @@ namespace Group7_CoffeeManagement.Repository
         public IEnumerable<TblFoodType> GetFoodTypeListByType(int id)
         {
             IEnumerable<TblFoodType> foodTypeList = null;
-            try
-            {
-                using var context = new CoffeeStoreManagementContext();
-                foodTypeList = context.TblFoodTypes.Where(f => f.TypeId == id).ToList();
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
+            foodTypeList = context.TblFoodTypes.Where(f => f.TypeId == id).ToList();
             return foodTypeList;
         }
    
         public IEnumerable<TblFoodType> GetAll()
         {
-            using var context = new CoffeeStoreManagementContext();
             List<TblFoodType> list = context.TblFoodTypes.ToList();
             return list;
+        }
+
+        public TblFoodType GetFoodTypeByName(string foodTypeName)
+        {
+            return context.TblFoodTypes.SingleOrDefault(foodType => foodType.Description.Equals(foodTypeName));
         }
     }
 }
