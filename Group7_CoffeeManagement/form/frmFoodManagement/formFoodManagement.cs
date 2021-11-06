@@ -183,18 +183,18 @@ namespace Group7_CoffeeManagement.form.frmFoodManagement
             else MessageBox.Show("You must choose Type!");
         }
 
-        private void txtSearchName_TextChanged(object sender, System.EventArgs e)
+        private void txtSearchName_TextChanged_1(object sender, EventArgs e)
         {
             string keyword = txtSearchName.Text;
-            
+
             if (keyword.Length == 0)
             {
                 RefreshFoodList();
-            } else
+            }
+            else
             {
                 LoadFoodListByName(keyword);
             }
         }
-
     }
 }

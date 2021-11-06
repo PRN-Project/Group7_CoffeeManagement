@@ -95,6 +95,7 @@ namespace Group7_CoffeeManagement.form.frmFoodManagement
             this.txtSearchName.PlaceholderText = "Nhập tên";
             this.txtSearchName.Size = new System.Drawing.Size(412, 38);
             this.txtSearchName.TabIndex = 9;
+            this.txtSearchName.TextChanged += new System.EventHandler(this.txtSearchName_TextChanged_1);
             // 
             // label1
             // 

@@ -65,14 +65,16 @@ namespace Group7_CoffeeManagement
             // quảnLíMenuToolStripMenuItem
             // 
             this.quảnLíMenuToolStripMenuItem.Name = "quảnLíMenuToolStripMenuItem";
-            this.quảnLíMenuToolStripMenuItem.Size = new System.Drawing.Size(205, 26);
-            this.quảnLíMenuToolStripMenuItem.Text = "Quản lí menu";
+            this.quảnLíMenuToolStripMenuItem.Size = new System.Drawing.Size(264, 26);
+            this.quảnLíMenuToolStripMenuItem.Text = "Quản lí Món ăn";
+            this.quảnLíMenuToolStripMenuItem.Click += new System.EventHandler(this.manageMenuToolStripMenuItem_Click);
             // 
             // quảnLíDanhMụcToolStripMenuItem
             // 
             this.quảnLíDanhMụcToolStripMenuItem.Name = "quảnLíDanhMụcToolStripMenuItem";
-            this.quảnLíDanhMụcToolStripMenuItem.Size = new System.Drawing.Size(205, 26);
-            this.quảnLíDanhMụcToolStripMenuItem.Text = "Quản lí danh mục";
+            this.quảnLíDanhMụcToolStripMenuItem.Size = new System.Drawing.Size(264, 26);
+            this.quảnLíDanhMụcToolStripMenuItem.Text = "Quản lí Danh mục món ăn";
+            this.quảnLíDanhMụcToolStripMenuItem.Click += new System.EventHandler(this.manageFoodTypeToolStripMenuItem_Click);
             // 
             // bànToolStripMenuItem
             // 
@@ -96,7 +98,6 @@ namespace Group7_CoffeeManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(929, 676);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
