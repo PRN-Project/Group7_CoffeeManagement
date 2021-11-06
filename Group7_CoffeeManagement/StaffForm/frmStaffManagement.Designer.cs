@@ -29,124 +29,111 @@ namespace Group7_CoffeeManagement.StaffForm
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtId = new System.Windows.Forms.TextBox();
+            this.dgvStaff = new System.Windows.Forms.DataGridView();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtSearchName = new System.Windows.Forms.TextBox();
+            this.btnAdd = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
-            this.btnCreate = new System.Windows.Forms.Button();
-            this.btnSignOut = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.dgvStaffList = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvStaffList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvStaff)).BeginInit();
             this.SuspendLayout();
             // 
-            // txtId
+            // dgvStaff
             // 
-            this.txtId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtId.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtId.Location = new System.Drawing.Point(277, 95);
-            this.txtId.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(220, 29);
-            this.txtId.TabIndex = 34;
+            this.dgvStaff.BackgroundColor = System.Drawing.SystemColors.InactiveBorder;
+            this.dgvStaff.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvStaff.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.dgvStaff.Location = new System.Drawing.Point(36, 271);
+            this.dgvStaff.Name = "dgvStaff";
+            this.dgvStaff.RowHeadersWidth = 51;
+            this.dgvStaff.RowTemplate.Height = 29;
+            this.dgvStaff.Size = new System.Drawing.Size(1006, 481);
+            this.dgvStaff.TabIndex = 29;
+            this.dgvStaff.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvStaffList_CellMouseClick);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label5.Location = new System.Drawing.Point(36, 148);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(140, 28);
+            this.label5.TabIndex = 35;
+            this.label5.Text = "Tên nhân viên";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(36, 31);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(282, 45);
+            this.label1.TabIndex = 33;
+            this.label1.Text = "Quản lí nhân viên";
+            // 
+            // txtSearchName
+            // 
+            this.txtSearchName.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtSearchName.Location = new System.Drawing.Point(36, 192);
+            this.txtSearchName.Multiline = true;
+            this.txtSearchName.Name = "txtSearchName";
+            this.txtSearchName.PlaceholderText = "Nhập tên";
+            this.txtSearchName.Size = new System.Drawing.Size(470, 49);
+            this.txtSearchName.TabIndex = 32;
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(87)))), ((int)(((byte)(87)))));
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdd.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnAdd.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnAdd.Location = new System.Drawing.Point(705, 192);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(178, 53);
+            this.btnAdd.TabIndex = 31;
+            this.btnAdd.Text = "Thêm nhân viên";
+            this.btnAdd.UseVisualStyleBackColor = false;
             // 
             // btnUpdate
             // 
-            this.btnUpdate.BackColor = System.Drawing.Color.PeachPuff;
-            this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnUpdate.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnUpdate.ForeColor = System.Drawing.Color.Purple;
-            this.btnUpdate.Location = new System.Drawing.Point(567, 31);
-            this.btnUpdate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(87)))), ((int)(((byte)(87)))));
+            this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUpdate.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnUpdate.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnUpdate.Location = new System.Drawing.Point(915, 192);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(137, 42);
-            this.btnUpdate.TabIndex = 33;
-            this.btnUpdate.Text = "Update";
+            this.btnUpdate.Size = new System.Drawing.Size(127, 53);
+            this.btnUpdate.TabIndex = 30;
+            this.btnUpdate.Text = "Cập nhật";
             this.btnUpdate.UseVisualStyleBackColor = false;
-            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
-            // 
-            // btnCreate
-            // 
-            this.btnCreate.BackColor = System.Drawing.Color.PeachPuff;
-            this.btnCreate.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnCreate.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnCreate.ForeColor = System.Drawing.Color.Purple;
-            this.btnCreate.Location = new System.Drawing.Point(88, 31);
-            this.btnCreate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnCreate.Name = "btnCreate";
-            this.btnCreate.Size = new System.Drawing.Size(137, 42);
-            this.btnCreate.TabIndex = 32;
-            this.btnCreate.Text = "Create";
-            this.btnCreate.UseVisualStyleBackColor = false;
-            this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
-            // 
-            // btnSignOut
-            // 
-            this.btnSignOut.BackColor = System.Drawing.Color.Chartreuse;
-            this.btnSignOut.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnSignOut.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnSignOut.Location = new System.Drawing.Point(695, 387);
-            this.btnSignOut.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnSignOut.Name = "btnSignOut";
-            this.btnSignOut.Size = new System.Drawing.Size(96, 32);
-            this.btnSignOut.TabIndex = 31;
-            this.btnSignOut.Text = "Close";
-            this.btnSignOut.UseVisualStyleBackColor = false;
-            this.btnSignOut.Click += new System.EventHandler(this.btnSignOut_Click);
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.BackColor = System.Drawing.Color.PeachPuff;
-            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnDelete.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnDelete.ForeColor = System.Drawing.Color.Purple;
-            this.btnDelete.Location = new System.Drawing.Point(322, 31);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(137, 42);
-            this.btnDelete.TabIndex = 30;
-            this.btnDelete.Text = "Delete";
-            this.btnDelete.UseVisualStyleBackColor = false;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
-            // dgvStaffList
-            // 
-            this.dgvStaffList.BackgroundColor = System.Drawing.SystemColors.InactiveBorder;
-            this.dgvStaffList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvStaffList.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.dgvStaffList.Location = new System.Drawing.Point(9, 142);
-            this.dgvStaffList.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dgvStaffList.Name = "dgvStaffList";
-            this.dgvStaffList.RowHeadersWidth = 51;
-            this.dgvStaffList.RowTemplate.Height = 29;
-            this.dgvStaffList.Size = new System.Drawing.Size(741, 241);
-            this.dgvStaffList.TabIndex = 29;
-            this.dgvStaffList.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvStaffList_CellMouseClick);
             // 
             // frmStaffManagement
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.txtId);
+            this.ClientSize = new System.Drawing.Size(1080, 784);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.txtSearchName);
+            this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnUpdate);
-            this.Controls.Add(this.btnCreate);
-            this.Controls.Add(this.btnSignOut);
-            this.Controls.Add(this.btnDelete);
-            this.Controls.Add(this.dgvStaffList);
+            this.Controls.Add(this.dgvStaff);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "frmStaffManagement";
             this.Text = "frmStaffManagement";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvStaffList)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvStaff)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox txtId;
+        private System.Windows.Forms.DataGridView dgvStaff;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtSearchName;
+        private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnUpdate;
-        private System.Windows.Forms.Button btnCreate;
-        private System.Windows.Forms.Button btnSignOut;
-        private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.DataGridView dgvStaffList;
     }
 }

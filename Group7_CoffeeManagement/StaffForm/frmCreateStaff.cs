@@ -32,7 +32,8 @@ namespace Group7_CoffeeManagement.StaffForm
                     UserName = txtUsername.Text,
                     Password = txtPassword.Text,
                     Name = txtName.Text,
-                    Role = Int32.Parse(txtRole.Text)
+                    //ERROR
+                    //Role = Int32.Parse(txtRole.Text)
                 };
                 ValidationResult result = new CreateStaffValidator().Validate(staff);
                 if (!result.IsValid)
@@ -51,6 +52,31 @@ namespace Group7_CoffeeManagement.StaffForm
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void frmCreateStaff_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtRole_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

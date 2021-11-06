@@ -31,8 +31,8 @@ namespace Group7_CoffeeManagement.StaffForm
             {
                 source = new BindingSource();
                 source.DataSource = staffs;
-                dgvStaffList.DataSource = null;
-                dgvStaffList.DataSource = source;
+                dgvStaff.DataSource = null;
+                dgvStaff.DataSource = source;
             }
             catch (Exception ex)
             {
@@ -44,8 +44,9 @@ namespace Group7_CoffeeManagement.StaffForm
         {
             if (e.RowIndex >= 0)
             {
-                DataGridViewRow row = dgvStaffList.Rows[e.RowIndex];
-                txtId.Text = row.Cells[0].Value.ToString();
+                DataGridViewRow row = dgvStaff.Rows[e.RowIndex];
+                // ERROR
+                //txtId.Text = row.Cells[0].Value.ToString();
             }
         }
 
@@ -58,7 +59,8 @@ namespace Group7_CoffeeManagement.StaffForm
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            staffRepository.RemoveStaff(Int32.Parse(txtId.Text));
+            //ERROR
+            //staffRepository.RemoveStaff(Int32.Parse(txtId.Text));
             LoadStaffList();
         }
 
@@ -66,7 +68,8 @@ namespace Group7_CoffeeManagement.StaffForm
         {
             try
             {
-                staffSource.DataSource = staffRepository.GetStaffByID(Int32.Parse(txtId.Text));
+                //ERROR
+               // staffSource.DataSource = staffRepository.GetStaffByID(Int32.Parse(txtId.Text));
                 frmUpdateStaff formUpdate = new frmUpdateStaff();
                 formUpdate.ShowDialog();
                 LoadStaffList();
@@ -80,6 +83,11 @@ namespace Group7_CoffeeManagement.StaffForm
         private void btnSignOut_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

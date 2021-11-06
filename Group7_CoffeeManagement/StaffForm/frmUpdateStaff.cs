@@ -26,7 +26,8 @@ namespace Group7_CoffeeManagement.StaffForm
             txtUsername.DataBindings.Add("Text", staffSource, "Username");
             txtPassword.DataBindings.Add("Text", staffSource, "Password");
             txtName.DataBindings.Add("Text", staffSource, "Name");
-            txtRole.DataBindings.Add("Text", staffSource, "Role");
+            // ERROR
+            //txtRole.DataBindings.Add("Text", staffSource, "Role");
             txtID.ReadOnly = true;
         }
 
@@ -36,7 +37,8 @@ namespace Group7_CoffeeManagement.StaffForm
             staff.UserName = txtUsername.Text;
             staff.Password = txtPassword.Text;
             staff.Name = txtName.Text;
-            staff.Role = Int32.Parse(txtRole.Text);
+            //ERROR
+            //staff.Role = Int32.Parse(txtRole.Text);
             ValidationResult result = new UpdateStaffValidator().Validate(staff);
             if (!result.IsValid)
             {
@@ -49,6 +51,11 @@ namespace Group7_CoffeeManagement.StaffForm
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void cmbRole_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
