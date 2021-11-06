@@ -17,7 +17,7 @@ namespace Group7_CoffeeManagement.form.frmFoodManagement
     {
         IFoodRepository foodRepositoty = new FoodRepository();
         private IFoodTypeRepository foodTypeRepo = new FoodTypeRepository();
-        CoffeeStoreManagementContext db = new CoffeeStoreManagementContext();
+
         public formAddFood()
         {
             InitializeComponent();
@@ -61,16 +61,6 @@ namespace Group7_CoffeeManagement.form.frmFoodManagement
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void txtName_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cmbType_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

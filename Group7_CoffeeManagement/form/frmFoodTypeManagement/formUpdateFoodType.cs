@@ -16,55 +16,47 @@ namespace Group7_CoffeeManagement.form.frmFoodTypeManagement
     public partial class formUpdateFoodType : Form
     {
         IFoodTypeRepository foodTypeRepo = new FoodTypeRepository();
-        int foodTypeId = 0;
-        public formUpdateFoodType(int id)
+
+        private TblFoodType beingUpdatedFoodType;
+
+        public formUpdateFoodType(TblFoodType foodType)
         {
-            foodTypeId = id;
+            this.beingUpdatedFoodType = foodType;
             InitializeComponent();
-            txtId.ReadOnly = true;
         }
 
         private void formUpdateFoodType_Load(object sender, EventArgs e)
         {
-            TblFoodType foodType = foodTypeRepo.GetFoodTypeByID(foodTypeId);
-
-            txtId.Text = foodType.TypeId.ToString();
-            txtName.Text = foodType.Description;
-            
+            txtName.Text = beingUpdatedFoodType.Description;
         }
-
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                int id = foodTypeId;
-                string foodTypeName = txtName.Text;
-                if (foodTypeName == "")
-                {
-                    MessageBox.Show("You must input name");
-                }else
-                {
-                    TblFoodType foodType = new TblFoodType
-                    {
-                        TypeId = id,
-                        Description = foodTypeName,
-                    };
-                    foodTypeRepo.UpdateFoodType(foodType);
-                    //MessageBox.Show("Update Successfully!");
-                    this.Close();
-                }
-
-                
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
+         
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string foodTypeName = txtName.Text;
+                if (foodTypeName == "")
+                {
+                    MessageBox.Show("Tên danh mục không được để trống");
+                }
+                else
+                {
+                    beingUpdatedFoodType.Description = foodTypeName;
+                    foodTypeRepo.UpdateFoodType(beingUpdatedFoodType);
+                    MessageBox.Show("Cập nhật danh mục thành công");
+                    DialogResult = DialogResult.OK;
+                    this.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Đã xảy ra lỗi khi cập nhật danh mục. Error message: " + ex.Message);
+            }
         }
     }
 }

@@ -13,7 +13,7 @@ namespace Group7_CoffeeManagement.Repository
     {
         private CoffeeStoreManagementContext context;
 
-        public FoodTypeRepository ()
+        public FoodTypeRepository()
         {
             context = new CoffeeStoreManagementContext();
         }
@@ -34,7 +34,6 @@ namespace Group7_CoffeeManagement.Repository
 
         public TblFoodType GetFoodTypeByID(int id)
         {
-            //TblFoodType foodType = context.TblFoodTypes.Find(id);
             TblFoodType foodType = context.TblFoodTypes.SingleOrDefault(i => i.TypeId == id);
             if (foodType != null)
             {
@@ -45,14 +44,37 @@ namespace Group7_CoffeeManagement.Repository
 
         public IEnumerable<TblFoodType> GetFoodTypeList()
         {
-            return context.TblFoodTypes.ToList(); 
+            return context.TblFoodTypes.ToList();
         }
 
         public void AddFoodType(TblFoodType food)
         {
+            int nextId = getNextId();
+            food.TypeId = nextId;
             context.TblFoodTypes.Add(food);
             context.SaveChanges();
-            MessageBox.Show("Add Successfully");
+            MessageBox.Show("Thêm danh mục thành công");
+        }
+
+        private int getNextId()
+        {
+            IEnumerable<TblFoodType> foodTypeList = GetFoodTypeList();
+            if (foodTypeList.Count() == 0)
+            {   
+                return 1;
+            } else
+            {
+                var idResult = 0;
+                foreach (TblFoodType foodType in foodTypeList)
+                {
+                    if (foodType.TypeId > idResult)
+                    {
+                        idResult = foodType.TypeId;
+                    }
+                }
+
+                return (idResult + 1);
+            }
         }
 
         public void RemoveFoodType(int id)
@@ -68,13 +90,8 @@ namespace Group7_CoffeeManagement.Repository
 
         public void UpdateFoodType(TblFoodType food)
         {
-            TblFoodType ftObj = GetFoodTypeByID(food.TypeId);
-            if (ftObj != null)
-            {
-                context.TblFoodTypes.Update(food);
-                context.SaveChanges();
-                MessageBox.Show("Update Successfully");
-            }
+            context.TblFoodTypes.Update(food);
+            context.SaveChanges();
         }
 
         public IEnumerable<TblFoodType> GetFoodTypeListByName(string name)

@@ -38,14 +38,14 @@ namespace Group7_CoffeeManagement.form.frmFoodTypeManagement
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnAdd.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnAdd.Location = new System.Drawing.Point(678, 113);
+            this.btnAdd.Location = new System.Drawing.Point(627, 113);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(111, 40);
+            this.btnAdd.Size = new System.Drawing.Size(162, 40);
             this.btnAdd.TabIndex = 59;
-            this.btnAdd.Text = "Thêm loại";
+            this.btnAdd.Text = "Thêm danh mục";
             this.btnAdd.UseVisualStyleBackColor = false;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click_1);
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnUpdate
             // 
@@ -68,9 +68,9 @@ namespace Group7_CoffeeManagement.form.frmFoodTypeManagement
             this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label5.Location = new System.Drawing.Point(8, 83);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(123, 21);
+            this.label5.Size = new System.Drawing.Size(110, 21);
             this.label5.TabIndex = 57;
-            this.label5.Text = "Tên loại thức ăn";
+            this.label5.Text = "Tên danh mục";
             // 
             // txtSearchName
             // 
@@ -79,9 +79,10 @@ namespace Group7_CoffeeManagement.form.frmFoodTypeManagement
             this.txtSearchName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtSearchName.Multiline = true;
             this.txtSearchName.Name = "txtSearchName";
-            this.txtSearchName.PlaceholderText = "Nhập tên loại";
+            this.txtSearchName.PlaceholderText = "Nhập tên danh mục";
             this.txtSearchName.Size = new System.Drawing.Size(366, 38);
             this.txtSearchName.TabIndex = 56;
+            this.txtSearchName.TextChanged += new System.EventHandler(this.txtSearchName_TextChanged);
             // 
             // label1
             // 

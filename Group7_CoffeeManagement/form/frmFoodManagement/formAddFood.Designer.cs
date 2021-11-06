@@ -52,7 +52,6 @@ namespace Group7_CoffeeManagement.form.frmFoodManagement
             this.cmbType.Name = "cmbType";
             this.cmbType.Size = new System.Drawing.Size(258, 29);
             this.cmbType.TabIndex = 31;
-            this.cmbType.SelectedIndexChanged += new System.EventHandler(this.cmbType_SelectedIndexChanged);
             // 
             // label7
             // 
@@ -123,7 +122,6 @@ namespace Group7_CoffeeManagement.form.frmFoodManagement
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(258, 29);
             this.txtName.TabIndex = 24;
-            this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged);
             // 
             // txtPrice
             // 
