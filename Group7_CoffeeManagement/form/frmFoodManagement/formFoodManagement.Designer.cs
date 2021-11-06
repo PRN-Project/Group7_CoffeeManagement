@@ -32,7 +32,6 @@ namespace Group7_CoffeeManagement.form.frmFoodManagement
             this.dtgvData = new System.Windows.Forms.DataGridView();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
             this.txtSearchName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.cmbSearchType = new System.Windows.Forms.ComboBox();
@@ -62,7 +61,7 @@ namespace Group7_CoffeeManagement.form.frmFoodManagement
             this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdate.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnUpdate.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnUpdate.Location = new System.Drawing.Point(678, 171);
+            this.btnUpdate.Location = new System.Drawing.Point(796, 170);
             this.btnUpdate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(111, 40);
@@ -77,7 +76,7 @@ namespace Group7_CoffeeManagement.form.frmFoodManagement
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnAdd.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnAdd.Location = new System.Drawing.Point(561, 171);
+            this.btnAdd.Location = new System.Drawing.Point(679, 170);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(111, 40);
@@ -85,21 +84,6 @@ namespace Group7_CoffeeManagement.form.frmFoodManagement
             this.btnAdd.Text = "Thêm món";
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(87)))), ((int)(((byte)(87)))));
-            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDelete.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnDelete.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnDelete.Location = new System.Drawing.Point(795, 171);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(111, 40);
-            this.btnDelete.TabIndex = 7;
-            this.btnDelete.Text = "Xóa";
-            this.btnDelete.UseVisualStyleBackColor = false;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // txtSearchName
             // 
@@ -167,7 +151,6 @@ namespace Group7_CoffeeManagement.form.frmFoodManagement
             this.Controls.Add(this.cmbSearchType);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtSearchName);
-            this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.dtgvData);
@@ -186,7 +169,6 @@ namespace Group7_CoffeeManagement.form.frmFoodManagement
         private System.Windows.Forms.DataGridView dtgvData;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.TextBox txtSearchName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cmbSearchType;

@@ -20,8 +20,6 @@ namespace Group7_CoffeeManagement.form.frmFoodManagement
             getComboboxValue();
             txtId.ReadOnly = true;
         }
-
-
         public void getComboboxValue()
         {
             
@@ -69,6 +67,8 @@ namespace Group7_CoffeeManagement.form.frmFoodManagement
                     TypeId = typeId
                 };
                 foodRepository.UpdateFood(food);
+                MessageBox.Show("Cập nhật món ăn thành công");
+                DialogResult = DialogResult.OK;
                 this.Close();
             }
             catch (Exception ex)

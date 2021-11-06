@@ -17,7 +17,7 @@ namespace Group7_CoffeeManagement.Repository
         public TblFood GetFoodByID(int foodId)
         {
             using var context = new CoffeeStoreManagementContext();
-            TblFood food = context.TblFoods.Find(foodId); 
+            TblFood food = context.TblFoods.Include(food => food.Type).SingleOrDefault(food => food.FoodId == foodId); 
             if (food != null)
             {             
                 return food;
@@ -48,7 +48,6 @@ namespace Group7_CoffeeManagement.Repository
             {
                 db.TblFoods.Add(newFood);
                 db.SaveChanges();
-                MessageBox.Show("Add Successfully");
             }
             catch (Exception ex)
             {
@@ -82,9 +81,7 @@ namespace Group7_CoffeeManagement.Repository
                     using var context = new CoffeeStoreManagementContext();
                     context.TblFoods.Update(food);
                     context.SaveChanges();
-                    MessageBox.Show("Update Successfully");
                 }
-                
             }
             catch (Exception ex)
             {
@@ -116,7 +113,7 @@ namespace Group7_CoffeeManagement.Repository
                 }
                 else
                 {
-                    foodList = context.TblFoods.Where(f => f.FoodName.ToUpper().Contains(productName.ToUpper())).ToList();
+                    foodList = context.TblFoods.Include(f => f.Type).Where(f => f.FoodName.ToUpper().Contains(productName.ToUpper())).ToList();
                 }
             }
             catch (Exception ex)
@@ -132,7 +129,7 @@ namespace Group7_CoffeeManagement.Repository
             try
             {
                 using var context = new CoffeeStoreManagementContext(); 
-                foodList = context.TblFoods.Where(f => f.TypeId == id).ToList();             
+                foodList = context.TblFoods.Include(f => f.Type).Where(f => f.TypeId == id).ToList();             
             }
             catch (Exception ex)
             {

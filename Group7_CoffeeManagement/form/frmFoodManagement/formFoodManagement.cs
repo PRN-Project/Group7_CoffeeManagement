@@ -57,13 +57,16 @@ namespace Group7_CoffeeManagement.form.frmFoodManagement
                 MessageBox.Show(ex.Message, "Đã xảy ra lỗi khi tải danh sách món ăn");
             }
         }
-
         
 
         public void AddFood()
         {
             formAddFood frm = new formAddFood();
-            frm.Show();
+            var addResult = frm.ShowDialog();
+            if (addResult == DialogResult.OK)
+            {
+                RefreshFoodList();
+            }
         }
 
         public void LoadFoodListByName(string name)
@@ -136,37 +139,6 @@ namespace Group7_CoffeeManagement.form.frmFoodManagement
             RefreshFoodList();
         }
 
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-            var current = bindingSource.Current as TblFood;
-            if (current == null)
-            {
-                if (bindingSource.Count == 0)
-                {
-                    MessageBox.Show("Không có món ăn nào để xóa");
-                }
-                else
-                {
-                    MessageBox.Show("Vui lòng chọn 1 món ăn để xóa");
-                }
-            } else
-            {
-                DialogResult decision = MessageBox.Show("Are you sure to delete this food?", "Notification",
-                                              MessageBoxButtons.YesNo);
-
-                if (decision == DialogResult.Yes)
-                {
-                    foodRepository.RemoveFood(current.FoodId);
-                } 
-            }
-        }
-
-        private void btnReload_Click(object sender, EventArgs e)
-        {
-            RefreshFoodList();
-        }
-
-
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             var current = bindingSource.Current as TblFood;
@@ -183,7 +155,11 @@ namespace Group7_CoffeeManagement.form.frmFoodManagement
             else
             {
                 formUpdateFood frmUpdateFood = new formUpdateFood(current.FoodId);
-                frmUpdateFood.Show();
+                var updateResult = frmUpdateFood.ShowDialog();
+                if (updateResult == DialogResult.OK)
+                {
+                    RefreshFoodList();
+                }
             }
         }
  
