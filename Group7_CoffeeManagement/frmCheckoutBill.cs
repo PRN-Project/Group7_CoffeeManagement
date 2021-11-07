@@ -1,4 +1,6 @@
-﻿using Group7_CoffeeManagement.Models;
+﻿using Group7_CoffeeManagement.Interface;
+using Group7_CoffeeManagement.Models;
+using Group7_CoffeeManagement.Repository;
 using Group7_CoffeeManagement.Utils;
 using Group7_CoffeeManagement.ViewModel;
 using System;
@@ -15,6 +17,7 @@ namespace Group7_CoffeeManagement
 {
     public partial class frmCheckoutBill : Form
     {
+        private IOrderDetailRepository orderDetailRepository = new OrderDetailRepository();
         public frmCheckoutBill(TblOrder order, List<TblOrderDetail> orderDetailList, TblStaff staff)
         {
             InitializeComponent();
@@ -22,6 +25,16 @@ namespace Group7_CoffeeManagement
             setUpDataGridView();
             this.Text = "Hóa đơn bán hàng";
             this.label1.Text = "Thanh toán thành công";
+        }
+
+        public frmCheckoutBill(TblOrder order)
+        {
+            var staff = order.User;
+            var orderDetailList = orderDetailRepository.getOrderDetailByOrderId(order.OrderId).ToList();
+            InitializeComponent();
+            bindData(order, orderDetailList, staff);
+            setUpDataGridView();
+            this.Text = "Hóa đơn bán hàng";
         }
 
         private void setUpDataGridView()

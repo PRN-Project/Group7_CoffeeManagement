@@ -23,6 +23,29 @@ namespace Group7_CoffeeManagement.StaffForm
             InitializeComponent();
             this.dgvStaff.DataSource = bindingSource;
             LoadStaffList();
+            SetUpDataGridView();
+        }
+
+        private void SetUpDataGridView()
+        {
+            dgvStaff.AllowUserToAddRows = false;
+            dgvStaff.ReadOnly = true;
+            dgvStaff.RowHeadersVisible = false;
+
+            dgvStaff.Columns["UserId"].HeaderText = "Mã số";
+            dgvStaff.Columns["UserName"].HeaderText = "Tên đăng nhập";
+            dgvStaff.Columns["Password"].HeaderText = "Mật khẩu";
+            dgvStaff.Columns["Name"].HeaderText = "Tên";
+            dgvStaff.Columns["DisplayedRole"].HeaderText = "Chức vụ";
+            
+            dgvStaff.Columns["UserId"].HeaderCell.Style.Font = new Font("Segoe UI Semibold", 12F, GraphicsUnit.Point);
+            dgvStaff.Columns["UserName"].HeaderCell.Style.Font = new Font("Segoe UI Semibold", 12F, GraphicsUnit.Point);
+            dgvStaff.Columns["Password"].HeaderCell.Style.Font = new Font("Segoe UI Semibold", 12F, GraphicsUnit.Point);
+            dgvStaff.Columns["Name"].HeaderCell.Style.Font = new Font("Segoe UI Semibold", 12F, GraphicsUnit.Point);
+            dgvStaff.Columns["DisplayedRole"].HeaderCell.Style.Font = new Font("Segoe UI Semibold", 12F, GraphicsUnit.Point);
+
+            dgvStaff.Columns["Role"].Visible = false;
+            dgvStaff.Columns["TblOrders"].Visible = false;
         }
 
         public void LoadStaffList()
@@ -62,7 +85,13 @@ namespace Group7_CoffeeManagement.StaffForm
         {
             try
             {
-                frmUpdateStaff formUpdate = new frmUpdateStaff();
+                var chosenStaff = bindingSource.Current as TblStaff;
+                if (chosenStaff == null)
+                {
+                    MessageBox.Show("Vui lòng chọn một nhân viên để cập nhật");
+                    return;
+                }
+                frmUpdateStaff formUpdate = new frmUpdateStaff(chosenStaff);
                 if (formUpdate.ShowDialog() == DialogResult.OK)
                 {
                     LoadStaffList();

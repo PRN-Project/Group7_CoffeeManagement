@@ -11,7 +11,7 @@ namespace Group7_CoffeeManagement.Repository
     public class StaffRepository : IStaffRepository
     {
         public static CoffeeStoreManagementContext db = new CoffeeStoreManagementContext();
-        public IEnumerable<TblStaff> GetStaffByName(string Name) => db.TblStaffs.Where(item => item.Name.Contains(Name));
+        public IEnumerable<TblStaff> GetStaffByName(string Name) => db.TblStaffs.Where(item => item.Name.Contains(Name)).ToList();
         public List<TblStaff> GetStaffs() => db.TblStaffs.ToList();
         public void AddStaff(TblStaff newStaff)
         {
@@ -27,6 +27,11 @@ namespace Group7_CoffeeManagement.Repository
         {
             db.TblStaffs.Update(updatedStaff);
             db.SaveChanges();
+        }
+
+        public TblStaff FindMemberByUserName(string username)
+        {
+            return db.TblStaffs.SingleOrDefault(user => user.UserName.Equals(username));
         }
     }
 }

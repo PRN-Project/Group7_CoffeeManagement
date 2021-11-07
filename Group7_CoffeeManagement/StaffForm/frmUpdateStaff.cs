@@ -18,44 +18,59 @@ namespace Group7_CoffeeManagement.StaffForm
     public partial class frmUpdateStaff : Form
     {
         IStaffRepository staffRepository = new StaffRepository();
-        public static BindingSource staffSource = frmStaffManagement.staffSource;
-        public frmUpdateStaff()
+
+        public const string ADMIN = "Quản trị viên";
+
+        public const string MEMBER = "Nhân viên";
+
+
+        private TblStaff staff;
+
+        public frmUpdateStaff(TblStaff staffSource)
         {
+            this.staff = staffSource;
             InitializeComponent();
-            txtID.DataBindings.Add("Text", staffSource, "UserId");
-            txtUsername.DataBindings.Add("Text", staffSource, "Username");
-            txtPassword.DataBindings.Add("Text", staffSource, "Password");
-            txtName.DataBindings.Add("Text", staffSource, "Name");
-            // ERROR
-            //txtRole.DataBindings.Add("Text", staffSource, "Role");
+            txtID.Text  = staffSource.UserId + "";
+            txtUsername.Text = staffSource.UserName;
+            txtPassword.Text = staffSource.Password;
+            txtName.Text = staffSource.Name;
             txtID.ReadOnly = true;
+            setUpComboBox();
+            this.cbbRole.SelectedIndex = staff.Role;
         }
 
-        private void btnUpdate_Click(object sender, EventArgs e)
+        private void setUpComboBox()
         {
-            TblStaff staff = staffRepository.GetStaffByID(Int32.Parse(txtID.Text));
+            var option = new List<string>();
+            option.Add(ADMIN);
+            option.Add(MEMBER);
+            this.cbbRole.DataSource = option;
+            this.cbbRole.SelectedIndex = 1;
+        }
+
+        private void btnUpdate_Click_1(object sender, EventArgs e)
+        {
             staff.UserName = txtUsername.Text;
             staff.Password = txtPassword.Text;
             staff.Name = txtName.Text;
-            //ERROR
-            //staff.Role = Int32.Parse(txtRole.Text);
+            staff.Role = cbbRole.SelectedIndex;
             ValidationResult result = new UpdateStaffValidator().Validate(staff);
-            if (!result.IsValid)
+            if (result.IsValid == false)
             {
-                MessageBox.Show("Fail");
+                MessageBox.Show("Dữ liệu không hợp lệ");
             }
-            else staffRepository.UpdateStaff(staff);
-            this.Close();
+            else
+            {
+                staffRepository.UpdateStaff(staff);
+                MessageBox.Show("Cập nhật nhân viên thành công");
+                DialogResult = DialogResult.OK;
+                this.Close();
+            }
         }
 
-        private void btnCancel_Click(object sender, EventArgs e)
+        private void btnExit_Click(object sender, EventArgs e)
         {
-            this.Close();
-        }
-
-        private void cmbRole_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
+            Close();
         }
     }
 }

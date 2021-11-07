@@ -18,11 +18,25 @@ namespace Group7_CoffeeManagement.StaffForm
     public partial class frmCreateStaff : Form
     {
         IStaffRepository staffRepository = new StaffRepository();
+
+        public const string ADMIN = "Quản trị viên";
+
+        public const string MEMBER = "Nhân viên";
+
         public frmCreateStaff()
         {
             InitializeComponent();
+            setUpComboBox();
         }
-         
+
+        private void setUpComboBox()
+        {
+            var option = new List<string>();
+            option.Add(ADMIN);
+            option.Add(MEMBER);
+            this.cbbRole.DataSource = option;
+            this.cbbRole.SelectedIndex = 1;
+        }
 
         private void btnExit_Click(object sender, EventArgs e)
         {
@@ -33,12 +47,19 @@ namespace Group7_CoffeeManagement.StaffForm
         {
             try
             {
+                var duplicate = staffRepository.FindMemberByUserName(txtUsername.Text);
+                if (duplicate != null)
+                {
+                    MessageBox.Show("Tên đăng nhập đã tồn tại. Vui lòng chọn tên khác");
+                    return;
+                }
+
                 TblStaff staff = new TblStaff
                 {
                     UserName = txtUsername.Text,
                     Password = txtPassword.Text,
                     Name = txtName.Text,
-                    Role = 1
+                    Role = cbbRole.SelectedIndex
                 };
                 ValidationResult result = new CreateStaffValidator().Validate(staff);
                 if (!result.IsValid)
@@ -48,6 +69,8 @@ namespace Group7_CoffeeManagement.StaffForm
                 else
                 {
                     staffRepository.AddStaff(staff);
+                    MessageBox.Show("Tạo tài khoản thành công");
+                    DialogResult = DialogResult.OK;
                     this.Close();
                 }
             }

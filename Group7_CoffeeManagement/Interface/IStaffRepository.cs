@@ -14,5 +14,7 @@ namespace Group7_CoffeeManagement.Interface
         public void RemoveStaff(int staffID);
         public void UpdateStaff(TblStaff updatedStaff);
         public IEnumerable<TblStaff> GetStaffByName(string name);
+
+        public TblStaff FindMemberByUserName(string username);
     }
 }

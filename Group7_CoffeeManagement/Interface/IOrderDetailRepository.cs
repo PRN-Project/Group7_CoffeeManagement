@@ -12,5 +12,7 @@ namespace Group7_CoffeeManagement.Interface
         void Add (TblOrderDetail orderDetail);
 
         void CheckOut (TblOrder order, List<TblOrderDetail> orderDetailList);
+
+        IEnumerable<TblOrderDetail> getOrderDetailByOrderId(int orderId);
     }
 }

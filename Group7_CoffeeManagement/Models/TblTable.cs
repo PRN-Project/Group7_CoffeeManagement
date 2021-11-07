@@ -58,5 +58,10 @@ namespace Group7_CoffeeManagement.Models
                 throw new Exception("Unknown type status");
             }
         }
+
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }
