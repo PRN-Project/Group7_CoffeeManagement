@@ -2,6 +2,7 @@
 using System.Drawing;
 using Group7_CoffeeManagement.Models;
 using Group7_CoffeeManagement.CustomView.Abstraction;
+using Group7_CoffeeManagement.Utils;
 
 namespace Group7_CoffeeManagement.CustomView.OrderListView
 {
@@ -44,8 +45,8 @@ namespace Group7_CoffeeManagement.CustomView.OrderListView
 
         private void updateTotalPrice()
         {
-            int totalPrice = (int)Double.Parse(txtDrinkPrice.Text);
-            txtTotal.Text = "" + totalPrice * ((int)nudCount.Value);
+            decimal unitPrice = this.data.Food.Price;
+            txtTotal.Text = (unitPrice * nudCount.Value).ToDisplayText();
         }
 
         private void setBackground (Color color, Color textColor)
@@ -80,9 +81,10 @@ namespace Group7_CoffeeManagement.CustomView.OrderListView
 
         public override void bindData(TblOrderDetail data)
         {
-            txtDrinkPrice.Text = data.Food.Price + "";
+            txtDrinkPrice.Text = data.Food.Price.ToDisplayText();
             txtDrinkName.Text = data.Food.FoodName;
             nudCount.Value = data.Quantity;
+            txtTotal.Text = (data.Food.Price * data.Quantity).ToDisplayText();
         }
 
     }

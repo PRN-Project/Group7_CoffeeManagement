@@ -34,6 +34,7 @@ namespace Group7_CoffeeManagement
             cbbStatus.SelectedIndex = table.Status;
 
             btnAdd.Text = "Lưu";
+            label3.Text = "Cập nhật bàn";
         }
 
 

@@ -34,14 +34,14 @@ namespace Group7_CoffeeManagement.Revenue
             {
                 dtpDate_ofDate.Value = DateTime.Today;
                 var orders = revenueRepository.GetListOrderOfDay(DateTime.Today);
-                if (orders == null)
-                {
-                    return;
-                }
+              
                 var revenue = revenueRepository.GetRevenueOfDay(DateTime.Today);
 
-                if (revenue == null)
+                if (revenue == null || orders == null)
                 {
+                    bindingSource.DataSource = new List<TblOrder>();
+                    txtTotal.Text = "0 vnđ";
+
                     return;
                 }
 
@@ -97,7 +97,14 @@ namespace Group7_CoffeeManagement.Revenue
             {
                 DateTime date = dtpDate_ofDate.Value;
                 var revenueObject = revenueRepository.GetRevenueOfDay(date);
-                var orderList = revenueRepository.GetListOrderOfDay(date);
+                List<TblOrder> orderList = revenueRepository.GetListOrderOfDay(date).ToList();
+                if (orderList == null || revenueObject == null)
+                {
+                    orderList = new List<TblOrder>();
+                    outputRevenue(0, orderList);
+                    return;
+                }
+
                 outputRevenue(revenueObject.Revenue, orderList);
             }
             catch  (Exception ex)
