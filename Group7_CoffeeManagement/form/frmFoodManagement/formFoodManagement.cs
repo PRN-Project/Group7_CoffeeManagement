@@ -33,6 +33,7 @@ namespace Group7_CoffeeManagement.form.frmFoodManagement
             if (this.Visible == true)
             {
                 RefreshFoodList();
+                getComboboxValue();
             }
         }
 

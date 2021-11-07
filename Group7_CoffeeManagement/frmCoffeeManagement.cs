@@ -317,7 +317,7 @@ namespace Group7_CoffeeManagement
                     currentChosenTable.BackColor = TableListViewManager.NON_EMPTY_COLOR;
                     currentChosenTable.ForeColor = Color.White;
                     isModifyAnOrder = false;
-
+                    MessageBox.Show("Cập nhật thành công");
                 } else
                 {
                     ShowNotification("Vui lòng chọn ít nhất một món ăn hoặc thức uống");

@@ -48,15 +48,29 @@ namespace Group7_CoffeeManagement.CustomView.OrderListView
             txtTotal.Text = "" + totalPrice * ((int)nudCount.Value);
         }
 
+        private void setBackground (Color color, Color textColor)
+        {
+            BackColor = color;
+            txtDrinkName.BackColor = color;
+            txtDrinkPrice.BackColor = color;
+            txtTotal.BackColor = color;
+            txtFoodName.BackColor = color;
+
+            txtDrinkName.ForeColor = textColor;
+            txtDrinkPrice.ForeColor = textColor;
+            txtTotal.ForeColor = textColor;
+            txtFoodName.ForeColor = textColor;
+        }
+
         public override void onFocus(object sender, EventArgs e)
         {
-            BackColor = Color.Blue;
+            setBackground(Color.CadetBlue, Color.White);
             itemManger.changeFocus(this);
         }
 
         public override void clearFocus()
         {
-            BackColor = Color.White;
+            setBackground(Color.White, Color.Black);
         }
 
         public decimal getTotalPrice()

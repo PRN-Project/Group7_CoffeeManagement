@@ -126,9 +126,9 @@ namespace Group7_CoffeeManagement.Revenue
             this.txtTotal.ForeColor = System.Drawing.Color.Red;
             this.txtTotal.Location = new System.Drawing.Point(80, 14);
             this.txtTotal.Name = "txtTotal";
-            this.txtTotal.Size = new System.Drawing.Size(161, 28);
+            this.txtTotal.Size = new System.Drawing.Size(60, 28);
             this.txtTotal.TabIndex = 0;
-            this.txtTotal.Text = "300,250,300 vnđ";
+            this.txtTotal.Text = "______";
             // 
             // btnOutputRevenue
             // 

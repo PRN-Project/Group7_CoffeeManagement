@@ -37,7 +37,7 @@ namespace Group7_CoffeeManagement
             TblStaff logedInUser = repo.checkLogin(txtUsername.Text, txtPassword.Text);
             if (logedInUser != null)
             {
-                if (logedInUser.Role == 0)
+                if (logedInUser.Role == 1)
                 {
                     frmCoffeeManagement.LogedInStaff = logedInUser;
                     roleSource.DataSource = "US";
