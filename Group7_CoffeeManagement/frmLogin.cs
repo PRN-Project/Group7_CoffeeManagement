@@ -64,6 +64,9 @@ namespace Group7_CoffeeManagement
                         Application.Exit();
                     }
                 }
+            } else
+            {
+                MessageBox.Show("Tài khoản hoặc mật khẩu không chính xác");
             }
         }
     }

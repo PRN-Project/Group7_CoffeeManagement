@@ -141,6 +141,7 @@ namespace Group7_CoffeeManagement
             this.btnPrintBill.TabIndex = 7;
             this.btnPrintBill.Text = "In hóa đơn";
             this.btnPrintBill.UseVisualStyleBackColor = true;
+            this.btnPrintBill.Click += new System.EventHandler(this.btnPrintBill_Click);
             // 
             // label7
             // 

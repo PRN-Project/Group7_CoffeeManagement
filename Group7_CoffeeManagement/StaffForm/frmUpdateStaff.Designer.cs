@@ -29,165 +29,184 @@ namespace Group7_CoffeeManagement.StaffForm
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtPassword = new System.Windows.Forms.TextBox();
-            this.lbPassword = new System.Windows.Forms.Label();
-            this.btnCancel = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnUpdate = new System.Windows.Forms.Button();
+            this.btnExit = new System.Windows.Forms.Button();
+            this.cbbRole = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.txtUsername = new System.Windows.Forms.TextBox();
-            this.txtRole = new System.Windows.Forms.TextBox();
+            this.txtPassword = new System.Windows.Forms.TextBox();
             this.txtName = new System.Windows.Forms.TextBox();
-            this.lbRole = new System.Windows.Forms.Label();
-            this.lbName = new System.Windows.Forms.Label();
-            this.lbUsername = new System.Windows.Forms.Label();
-            this.lbUpdate = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.txtID = new System.Windows.Forms.TextBox();
-            this.lbID = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // txtPassword
+            // label1
             // 
-            this.txtPassword.Location = new System.Drawing.Point(337, 220);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(273, 23);
-            this.txtPassword.TabIndex = 77;
-            // 
-            // lbPassword
-            // 
-            this.lbPassword.AutoSize = true;
-            this.lbPassword.Font = new System.Drawing.Font("Segoe UI Emoji", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbPassword.Location = new System.Drawing.Point(189, 213);
-            this.lbPassword.Name = "lbPassword";
-            this.lbPassword.Size = new System.Drawing.Size(94, 27);
-            this.lbPassword.TabIndex = 76;
-            this.lbPassword.Text = "Password";
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.BackColor = System.Drawing.Color.Chartreuse;
-            this.btnCancel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnCancel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnCancel.Location = new System.Drawing.Point(423, 359);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(110, 44);
-            this.btnCancel.TabIndex = 73;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = false;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(120, 422);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(60, 21);
+            this.label1.TabIndex = 89;
+            this.label1.Text = "Vai trò";
             // 
             // btnUpdate
             // 
-            this.btnUpdate.BackColor = System.Drawing.Color.Olive;
-            this.btnUpdate.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnUpdate.BackColor = System.Drawing.Color.IndianRed;
+            this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUpdate.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnUpdate.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnUpdate.Location = new System.Drawing.Point(302, 359);
+            this.btnUpdate.Location = new System.Drawing.Point(301, 499);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(110, 44);
-            this.btnUpdate.TabIndex = 72;
-            this.btnUpdate.Text = "Update";
+            this.btnUpdate.Size = new System.Drawing.Size(103, 38);
+            this.btnUpdate.TabIndex = 88;
+            this.btnUpdate.Text = "Cập nhật";
             this.btnUpdate.UseVisualStyleBackColor = false;
-            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click_1);
+            // 
+            // btnExit
+            // 
+            this.btnExit.BackColor = System.Drawing.Color.Silver;
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExit.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnExit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnExit.Location = new System.Drawing.Point(203, 499);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(82, 38);
+            this.btnExit.TabIndex = 87;
+            this.btnExit.Text = "Thoát";
+            this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
+            // cbbRole
+            // 
+            this.cbbRole.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.cbbRole.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbRole.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cbbRole.FormattingEnabled = true;
+            this.cbbRole.Location = new System.Drawing.Point(120, 445);
+            this.cbbRole.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbbRole.Name = "cbbRole";
+            this.cbbRole.Size = new System.Drawing.Size(285, 29);
+            this.cbbRole.TabIndex = 86;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label6.Location = new System.Drawing.Point(120, 353);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(37, 21);
+            this.label6.TabIndex = 84;
+            this.label6.Text = "Tên";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label5.Location = new System.Drawing.Point(120, 221);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(123, 21);
+            this.label5.TabIndex = 83;
+            this.label5.Text = "Tên đăng nhập";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label4.Location = new System.Drawing.Point(120, 149);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(55, 21);
+            this.label4.TabIndex = 82;
+            this.label4.Text = "Mã số";
             // 
             // txtUsername
             // 
-            this.txtUsername.Location = new System.Drawing.Point(337, 169);
+            this.txtUsername.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txtUsername.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtUsername.Location = new System.Drawing.Point(120, 245);
+            this.txtUsername.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(275, 23);
-            this.txtUsername.TabIndex = 71;
+            this.txtUsername.ReadOnly = true;
+            this.txtUsername.Size = new System.Drawing.Size(285, 29);
+            this.txtUsername.TabIndex = 81;
             // 
-            // txtRole
+            // txtPassword
             // 
-            this.txtRole.Location = new System.Drawing.Point(337, 326);
-            this.txtRole.Name = "txtRole";
-            this.txtRole.Size = new System.Drawing.Size(275, 23);
-            this.txtRole.TabIndex = 70;
+            this.txtPassword.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txtPassword.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtPassword.Location = new System.Drawing.Point(120, 311);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(285, 29);
+            this.txtPassword.TabIndex = 80;
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(337, 273);
+            this.txtName.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txtName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtName.Location = new System.Drawing.Point(120, 377);
+            this.txtName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(275, 23);
-            this.txtName.TabIndex = 69;
+            this.txtName.Size = new System.Drawing.Size(285, 29);
+            this.txtName.TabIndex = 79;
             // 
-            // lbRole
+            // label3
             // 
-            this.lbRole.AutoSize = true;
-            this.lbRole.Font = new System.Drawing.Font("Segoe UI Emoji", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbRole.Location = new System.Drawing.Point(189, 319);
-            this.lbRole.Name = "lbRole";
-            this.lbRole.Size = new System.Drawing.Size(51, 27);
-            this.lbRole.TabIndex = 68;
-            this.lbRole.Text = "Role";
-            // 
-            // lbName
-            // 
-            this.lbName.AutoSize = true;
-            this.lbName.Font = new System.Drawing.Font("Segoe UI Emoji", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbName.Location = new System.Drawing.Point(189, 266);
-            this.lbName.Name = "lbName";
-            this.lbName.Size = new System.Drawing.Size(64, 27);
-            this.lbName.TabIndex = 67;
-            this.lbName.Text = "Name";
-            // 
-            // lbUsername
-            // 
-            this.lbUsername.AutoSize = true;
-            this.lbUsername.Font = new System.Drawing.Font("Segoe UI Emoji", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbUsername.Location = new System.Drawing.Point(189, 162);
-            this.lbUsername.Name = "lbUsername";
-            this.lbUsername.Size = new System.Drawing.Size(99, 27);
-            this.lbUsername.TabIndex = 66;
-            this.lbUsername.Text = "Username";
-            // 
-            // lbUpdate
-            // 
-            this.lbUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbUpdate.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lbUpdate.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lbUpdate.Location = new System.Drawing.Point(302, 48);
-            this.lbUpdate.Name = "lbUpdate";
-            this.lbUpdate.Size = new System.Drawing.Size(231, 45);
-            this.lbUpdate.TabIndex = 65;
-            this.lbUpdate.Text = "Update Staff";
-            this.lbUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label3.Location = new System.Drawing.Point(79, 79);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(375, 37);
+            this.label3.TabIndex = 78;
+            this.label3.Text = "Cập nhật thông tin nhân viên";
             // 
             // txtID
             // 
-            this.txtID.Location = new System.Drawing.Point(337, 121);
+            this.txtID.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txtID.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtID.Location = new System.Drawing.Point(120, 179);
+            this.txtID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(275, 23);
-            this.txtID.TabIndex = 75;
+            this.txtID.ReadOnly = true;
+            this.txtID.Size = new System.Drawing.Size(285, 29);
+            this.txtID.TabIndex = 90;
             // 
-            // lbID
+            // label2
             // 
-            this.lbID.AutoSize = true;
-            this.lbID.Font = new System.Drawing.Font("Segoe UI Emoji", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbID.Location = new System.Drawing.Point(189, 114);
-            this.lbID.Name = "lbID";
-            this.lbID.Size = new System.Drawing.Size(31, 27);
-            this.lbID.TabIndex = 74;
-            this.lbID.Text = "ID";
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(120, 287);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(82, 21);
+            this.label2.TabIndex = 91;
+            this.label2.Text = "Mật khẩu";
             // 
             // frmUpdateStaff
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.txtPassword);
-            this.Controls.Add(this.lbPassword);
+            this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.ClientSize = new System.Drawing.Size(543, 648);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.txtID);
-            this.Controls.Add(this.lbID);
-            this.Controls.Add(this.btnCancel);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnUpdate);
+            this.Controls.Add(this.btnExit);
+            this.Controls.Add(this.cbbRole);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.txtUsername);
-            this.Controls.Add(this.txtRole);
+            this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtName);
-            this.Controls.Add(this.lbRole);
-            this.Controls.Add(this.lbName);
-            this.Controls.Add(this.lbUsername);
-            this.Controls.Add(this.lbUpdate);
+            this.Controls.Add(this.label3);
             this.Name = "frmUpdateStaff";
             this.Text = "frmUpdateStaff";
             this.ResumeLayout(false);
@@ -197,18 +216,18 @@ namespace Group7_CoffeeManagement.StaffForm
 
         #endregion
 
-        private System.Windows.Forms.TextBox txtPassword;
-        private System.Windows.Forms.Label lbPassword;
-        private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.ComboBox cbbRole;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtUsername;
-        private System.Windows.Forms.TextBox txtRole;
+        private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.TextBox txtName;
-        private System.Windows.Forms.Label lbRole;
-        private System.Windows.Forms.Label lbName;
-        private System.Windows.Forms.Label lbUsername;
-        private System.Windows.Forms.Label lbUpdate;
+        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtID;
-        private System.Windows.Forms.Label lbID;
+        private System.Windows.Forms.Label label2;
     }
 }

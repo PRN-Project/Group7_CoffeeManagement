@@ -15,71 +15,92 @@ namespace Group7_CoffeeManagement.StaffForm
 {
     public partial class frmStaffManagement : Form
     {
-        public static BindingSource staffSource = new BindingSource();
-        BindingSource source;
-        IStaffRepository staffRepository = new StaffRepository();
+        private BindingSource bindingSource = new BindingSource();
+        private IStaffRepository staffRepository = new StaffRepository();
         
         public frmStaffManagement()
         {
             InitializeComponent();
+            this.dgvStaff.DataSource = bindingSource;
             LoadStaffList();
+            SetUpDataGridView();
         }
+
+        private void SetUpDataGridView()
+        {
+            dgvStaff.AllowUserToAddRows = false;
+            dgvStaff.ReadOnly = true;
+            dgvStaff.RowHeadersVisible = false;
+
+            dgvStaff.Columns["UserId"].HeaderText = "Mã số";
+            dgvStaff.Columns["UserName"].HeaderText = "Tên đăng nhập";
+            dgvStaff.Columns["Password"].HeaderText = "Mật khẩu";
+            dgvStaff.Columns["Name"].HeaderText = "Tên";
+            dgvStaff.Columns["DisplayedRole"].HeaderText = "Chức vụ";
+            
+            dgvStaff.Columns["UserId"].HeaderCell.Style.Font = new Font("Segoe UI Semibold", 12F, GraphicsUnit.Point);
+            dgvStaff.Columns["UserName"].HeaderCell.Style.Font = new Font("Segoe UI Semibold", 12F, GraphicsUnit.Point);
+            dgvStaff.Columns["Password"].HeaderCell.Style.Font = new Font("Segoe UI Semibold", 12F, GraphicsUnit.Point);
+            dgvStaff.Columns["Name"].HeaderCell.Style.Font = new Font("Segoe UI Semibold", 12F, GraphicsUnit.Point);
+            dgvStaff.Columns["DisplayedRole"].HeaderCell.Style.Font = new Font("Segoe UI Semibold", 12F, GraphicsUnit.Point);
+
+            dgvStaff.Columns["Role"].Visible = false;
+            dgvStaff.Columns["TblOrders"].Visible = false;
+        }
+
         public void LoadStaffList()
         {
-            var staffs = staffRepository.GetStaffs();
             try
             {
-                source = new BindingSource();
-                source.DataSource = staffs;
-                dgvStaffList.DataSource = null;
-                dgvStaffList.DataSource = source;
+                var staffs = staffRepository.GetStaffs();
+                bindingSource.DataSource = staffs;
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Load Staff List");
+                MessageBox.Show(ex.Message, "Xảy ra lỗi khi tải thông tin nhân viên");
             }
         }
-
-        private void dgvStaffList_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                DataGridViewRow row = dgvStaffList.Rows[e.RowIndex];
-                txtId.Text = row.Cells[0].Value.ToString();
-            }
-        }
-
-        private void btnCreate_Click(object sender, EventArgs e)
+         
+        private void btnAdd_Click(object sender, EventArgs e)
         {
             frmCreateStaff formAddStaff = new frmCreateStaff();
-            formAddStaff.ShowDialog();
-            LoadStaffList();
+            if (formAddStaff.ShowDialog() == DialogResult.OK)
+            {
+                LoadStaffList();
+            }
         }
 
-        private void btnDelete_Click(object sender, EventArgs e)
+        private void txtSearchName_TextChanged(object sender, EventArgs e)
         {
-            staffRepository.RemoveStaff(Int32.Parse(txtId.Text));
-            LoadStaffList();
+            var keyword = txtSearchName.Text;
+            LoadStaffListByName(keyword);
         }
 
-        private void btnUpdate_Click(object sender, EventArgs e)
+        private void LoadStaffListByName(string keyword)
+        {
+            bindingSource.DataSource = staffRepository.GetStaffByName(keyword);
+        }
+
+        private void btnUpdate_Click_1(object sender, EventArgs e)
         {
             try
             {
-                staffSource.DataSource = staffRepository.GetStaffByID(Int32.Parse(txtId.Text));
-                frmUpdateStaff formUpdate = new frmUpdateStaff();
-                formUpdate.ShowDialog();
-                LoadStaffList();
+                var chosenStaff = bindingSource.Current as TblStaff;
+                if (chosenStaff == null)
+                {
+                    MessageBox.Show("Vui lòng chọn một nhân viên để cập nhật");
+                    return;
+                }
+                frmUpdateStaff formUpdate = new frmUpdateStaff(chosenStaff);
+                if (formUpdate.ShowDialog() == DialogResult.OK)
+                {
+                    LoadStaffList();
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Update Staff");
+                MessageBox.Show(ex.Message, "Xảy ra lỗi khi cập nhật");
             }
-        }
-
-        private void btnSignOut_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
     }
 }

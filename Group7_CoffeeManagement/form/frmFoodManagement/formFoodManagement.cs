@@ -131,6 +131,11 @@ namespace Group7_CoffeeManagement.form.frmFoodManagement
             this.dtgvData.Columns["DisplayedPrice"].HeaderText = "Giá";
             this.dtgvData.Columns["Type"].HeaderText = "Loại";
 
+            this.dtgvData.Columns["FoodId"].HeaderCell.Style.Font = new Font("Segoe UI Semibold", 12F, GraphicsUnit.Point);
+            this.dtgvData.Columns["FoodName"].HeaderCell.Style.Font = new Font("Segoe UI Semibold", 12F, GraphicsUnit.Point);
+            this.dtgvData.Columns["DisplayedPrice"].HeaderCell.Style.Font = new Font("Segoe UI Semibold", 12F, GraphicsUnit.Point);
+            this.dtgvData.Columns["Type"].HeaderCell.Style.Font = new Font("Segoe UI Semibold", 12F, GraphicsUnit.Point);
+
             this.dtgvData.Columns["TypeId"].Visible = false;
             this.dtgvData.Columns["Price"].Visible = false;
             this.dtgvData.Columns["TblOrderDetails"].Visible = false;

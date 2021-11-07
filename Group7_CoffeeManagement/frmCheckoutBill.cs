@@ -1,4 +1,6 @@
-﻿using Group7_CoffeeManagement.Models;
+﻿using Group7_CoffeeManagement.Interface;
+using Group7_CoffeeManagement.Models;
+using Group7_CoffeeManagement.Repository;
 using Group7_CoffeeManagement.Utils;
 using Group7_CoffeeManagement.ViewModel;
 using System;
@@ -15,6 +17,7 @@ namespace Group7_CoffeeManagement
 {
     public partial class frmCheckoutBill : Form
     {
+        private IOrderDetailRepository orderDetailRepository = new OrderDetailRepository();
         public frmCheckoutBill(TblOrder order, List<TblOrderDetail> orderDetailList, TblStaff staff, string tableName)
         {
             InitializeComponent();
@@ -23,6 +26,17 @@ namespace Group7_CoffeeManagement
             this.Text = "Hóa đơn bán hàng";
             this.label1.Text = "Thanh toán thành công";
             this.txtTableName.Text = tableName;
+        }
+
+        public frmCheckoutBill(TblOrder order)
+        {
+            var staff = order.User;
+            var orderDetailList = orderDetailRepository.getOrderDetailByOrderId(order.OrderId).ToList();
+            InitializeComponent();
+            bindData(order, orderDetailList, staff);
+            setUpDataGridView();
+            this.Text = "Hóa đơn bán hàng";
+            this.txtTableName.Text = order.Table.Name;
         }
 
         private void setUpDataGridView()
@@ -61,9 +75,10 @@ namespace Group7_CoffeeManagement
             Close();
         }
 
-        private void btnPrintBill_Clicked(object sender, EventArgs e)
+        private void btnPrintBill_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Cám ơn đã sử dụng sản phẩm. Tính năng này hiện chưa hỗ trợ");
+
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Group7_CoffeeManagement.Interface;
 using Group7_CoffeeManagement.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,6 +34,11 @@ namespace Group7_CoffeeManagement.Repository
 
             dbContext.TblOrderDetails.AddRange(clonedOrderDetail);
             dbContext.SaveChanges();
+        }
+
+        public IEnumerable<TblOrderDetail> getOrderDetailByOrderId(int orderId)
+        {
+            return dbContext.TblOrderDetails.Include(orderDetail => orderDetail.Food).Where(orderDetail => orderDetail.OrderId == orderId);
         }
     }
 }

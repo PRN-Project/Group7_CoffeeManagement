@@ -13,6 +13,8 @@ namespace Group7_CoffeeManagement.Interface
         public void AddStaff(TblStaff newStaff);
         public void RemoveStaff(int staffID);
         public void UpdateStaff(TblStaff updatedStaff);
-        public TblStaff GetStaffByID(int staffID);
+        public IEnumerable<TblStaff> GetStaffByName(string name);
+
+        public TblStaff FindMemberByUserName(string username);
     }
 }

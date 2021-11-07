@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Group7_CoffeeManagement.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Group7_CoffeeManagement.Interface
 {
@@ -16,7 +17,7 @@ namespace Group7_CoffeeManagement.Interface
             return this.db.TblRevenues.SingleOrDefault(revenue => revenue.Date == date);
         }
 
-        public IEnumerable<TblOrder> GetListOrderOfDay (DateTime date) => this.db.TblOrders.Where(order => order.DateTime.Date == date).ToList();
+        public IEnumerable<TblOrder> GetListOrderOfDay (DateTime date) => this.db.TblOrders.Include(order => order.User).Include(order => order.Table).Where(order => order.DateTime.Date == date).ToList();
 
         public void UpdateRevenue(TblOrder order)
         {
