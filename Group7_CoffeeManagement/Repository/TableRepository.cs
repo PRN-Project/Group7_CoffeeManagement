@@ -52,7 +52,7 @@ namespace Group7_CoffeeManagement.Repository
             List<TblTable> tableslist;
             try
             {
-                tableslist = db.TblTables.ToList();
+                tableslist = db.TblTables.Where(table => table.Status == 0).ToList();
             }
             catch (Exception ex)
             {
